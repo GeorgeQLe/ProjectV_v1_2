@@ -7,7 +7,7 @@
 class Diadal
 {
 	public:
-	Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), number_of_party_members(0) {}
+	Diadal();
 	
 	void game_loop();
 	bool game_menu();
@@ -19,10 +19,10 @@ class Diadal
 	Game standard_game;
 	bool m_game_running;
 	bool m_new_game;
-	int number_of_party_members;
+	int m_number_of_party_members;
 	
-	std::map<int, Primary_character*> list_of_characters;
-	const std::string script_name;
+	std::map<int, Primary_character*> m_list_of_characters;
+	std::map<std::string, std::string> m_script_names;
 };
 
 #endif
