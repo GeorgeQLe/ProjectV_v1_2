@@ -19,18 +19,3 @@ But of course, humanity has survived much worse.
 Your story is now beginning.
 
 STOP_INTRO
-
-GENERIC_INTRODUCTION
-STOP_GI
-
-STOP_GI
-
-SCENE_ONE_MARINE_NON_CUSTOM
-STOP_1_NC
-
-STOP_1_NC
-
-SCENE_ONE_MARINE_CUSTOM
-STOP_1_C
-
-STOP_1_C

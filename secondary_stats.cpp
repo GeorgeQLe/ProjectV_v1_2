@@ -10,6 +10,12 @@ void Secondary_stats_initializer::init_secondary_stats_non_custom(Secondary_stat
         // marine
         case 1:
         break;
+        //naval captain
+        case 2:
+        break;
+        
+        default:
+        break;
     }
 }
 

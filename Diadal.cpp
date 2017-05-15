@@ -1,14 +1,31 @@
 #include <iostream>
+#include <fstream>
 #include "Diadal.h"
 #include "support.h"
+
+Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), m_number_of_party_members(0) 
+{
+    std::ifstream file("Diadal_text_File.txt");
+    if(file.is_open())
+    {
+        std::string line(""), second_line("");
+        while(getline(file, line)) // Receives the flags for the file names (ALL CAPS)
+        {
+            while(getline(file, second_line)) // Receives the actual file name for the script to use
+            {
+                m_script_names.at(line) = second_line;
+            }
+        }
+    }
+}
 
 void Diadal::game_loop()
 {
     //put here just to test
     if(m_new_game)
     {
-        Primary_character* player = new Primary_character(script_name);
-        list_of_characters.emplace(++number_of_party_members, player);
+        Primary_character* player = new Primary_character(m_script_names.at("CHARACTER CREATION"));
+        m_list_of_characters.emplace(++m_number_of_party_members, player);
         m_new_game = false;
     }
     else

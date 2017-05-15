@@ -1,5 +1,5 @@
-/*  George Le
-    project Victory Alpha version 1.2
+/*  Copyright 2016 George Le
+    Project Victory Alpha version 1.2
     Date: 12/16/16 - 
     
     Version objective: 1. Character redesign to suit OOP design patterns (DESIGNING)
