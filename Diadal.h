@@ -1,3 +1,6 @@
+/*	Copyright 2017 George Le
+	
+*/
 #ifndef DIADAL_H
 #define DIADAL_H
 #include <map>

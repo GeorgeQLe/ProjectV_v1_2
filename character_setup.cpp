@@ -1,3 +1,6 @@
+/*  Copyright 2017 George Le
+    
+*/
 #include <iostream>
 #include "character_class_information.h"
 #include "character_setup.h"
@@ -9,7 +12,7 @@ void Character_set_up_player_characters::primary_stats_setup(Job player_class, P
     {
         Player_class_catalog premade_class_information(player_class);
         
-        stats_to_be_setup.init_primary_stats_non_custom(premade_class_information.get_strength(), premade_class_information.get_leadership(),
+        stats_to_be_setup.init_primary_stats(premade_class_information.get_strength(), premade_class_information.get_leadership(),
                                                         premade_class_information.get_intelligence(), premade_class_information.get_character(),
                                                         premade_class_information.get_endurance());
     }

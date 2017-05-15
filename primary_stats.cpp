@@ -246,7 +246,7 @@ void Primary_attributes::modify_stat(Primary_attribute to_be_Modified, int new_v
 	}
 }
 
-void Primary_stats::init_primary_stats_non_custom(int strength, int leadership, int intelligence, 
+void Primary_stats::init_primary_stats(int strength, int leadership, int intelligence, 
 												int character, int endurance)
 {
 	m_stat_modifiers.modify_stat(STRENGTH, strength);

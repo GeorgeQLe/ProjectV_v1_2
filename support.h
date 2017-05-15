@@ -14,8 +14,12 @@ int get_number_from_user(int smallest_possible_choice, int largest_possible_choi
 
 // precondition: No inputs for function parameters
 // postcondition: Returns a valid string from user
-// Warning this will allow for any non-empty string to be grabbed from the user
-std::string get_line_from_user();
+// Warning this will allow for any non-empty string to be grabbed from the user hence unrestricted
+std::string getline_from_user_unrestricted();
+
+// precondition: No inputs for function parameters
+// postcondition: Returns a valid string from user that is between the specified length.
+std::string getline_from_user_restricted(int min_length, int max_length);
 
 // precondition: No inputs for function parameters
 // postcondition: Returns true for yes and false for no

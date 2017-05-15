@@ -224,13 +224,11 @@ class Primary_stats
 	Primary_stats() : m_stat_modifiers(), m_supporting_stat_modifiers(), m_level(1), 
 					m_experience_points(0), m_experience_points_needed(100), m_total_health(10), 
 					m_current_health_total(10), m_defense(0), m_speed(1) {}
-	
-	void init_primary_stats_non_custom(int strength, int leadership, 
-									int intelligence, int character, int endurance);
-	void init_primary_stats_custom(int strength, int leadership, int intelligence,
-									int character, int endurance) {}
-	
-	
+	Primary_stats(int preset_strength, int preset_leadership, int preset_intelligence, int preset_character,
+					int preset_endurance, int preset_level, unsigned int preset_total_health, int current_health_total,
+					unsigned int defense, unsigned int speed);
+	void init_primary_stats(int strength, int leadership, int intelligence, int character, int endurance);
+	void modify_stat(Primary_attribute to_be_modified, int level);
 	void level_up(unsigned int experience_points_granted);
 	
 	//accessor functions

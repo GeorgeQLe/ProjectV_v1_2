@@ -63,7 +63,7 @@ int get_number_from_user(int smallest_possible_choice, int largest_possible_choi
     return user_choice;
 }
 
-std::string get_line_from_user()
+std::string getline_from_user_unrestricted()
 {
     using std::cin;
     using std::cout;
@@ -80,6 +80,33 @@ std::string get_line_from_user()
     while(user_input.compare("") == 0)
     {
         cout << "Please input a selection, or ... for silence.\nInput:";
+        cin >> user_input;
+        cin.clear();
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
+    
+    return user_input;
+}
+
+std::string getline_from_user_restricted(int min_length, int max_length)
+{
+    using std::cin;
+    using std::cout;
+    using std::numeric_limits;
+    using std::streamsize;
+    using std::string;
+    
+    string user_input = "";
+    
+    cin >> user_input;
+    cin.clear();
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    
+    while(user_input.compare("") == 0 && ((user_input.size() < min_length) || (user_input.size() > max_length)))
+    {
+        cout << "Please input a selection, or ... for silence.\n";
+        cout << "Your input has to be at least " << min_length << "and ";
+        cout << max_length << " character(s) long.\n" << "New input:";
         cin >> user_input;
         cin.clear();
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
