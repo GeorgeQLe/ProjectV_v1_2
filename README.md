@@ -1,5 +1,6 @@
 # ProjectV
 Text based RPG-adventure game written in C++
+
 Copyright 2016 George Le
 
 Years after a catastrophic accident on the private colony world, Diadal, life has almost returned to normal, if not for the mess of factions
