@@ -65,15 +65,18 @@ bool Narrative_scene::check_requested_event(const std::string& Requested_event, 
 
 void Narrative_scene::read_from_script(const std::string& Event_name)
 {
-    Game_script* script;
+    Game_script* script = nullptr;
     *script = get_instance(m_file_name);
-    if(check_requested_event(Event_name, *script))
+    if(script != nullptr)
     {
-        std::cout << script->m_game_script.at(Event_name);
-    }
-    else
-    {
-        std::cout << "Programmer done screwed up... tried to pass in event " << Event_name << std::endl;
-        std::cout << "Check game script or the event name and resolve the issue." << std::endl;
+        if(check_requested_event(Event_name, *script))
+        {
+            std::cout << script->m_game_script.at(Event_name);
+        }
+        else
+        {
+            std::cout << "Programmer done screwed up... tried to pass in event " << Event_name << std::endl;
+            std::cout << "Check game script or the event name and resolve the issue." << std::endl;
+        }
     }
 }

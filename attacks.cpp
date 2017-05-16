@@ -1,3 +1,16 @@
 #include "attacks.h"
 
-//TO BE DESIGNED
+void Ultimate_attacks::special_effect()
+{
+    
+}
+
+void Item_attack::effect()
+{
+    
+}
+
+void Attacks::update()
+{
+    
+}

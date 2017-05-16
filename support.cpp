@@ -88,7 +88,7 @@ std::string getline_from_user_unrestricted()
     return user_input;
 }
 
-std::string getline_from_user_restricted(int min_length, int max_length)
+std::string getline_from_user_restricted(unsigned int min_length, unsigned int max_length)
 {
     using std::cin;
     using std::cout;

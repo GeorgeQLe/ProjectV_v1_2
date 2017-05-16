@@ -5,9 +5,11 @@
 #include <cmath>
 #include "primary_stats.h"
 
+// function only to be used in leveling up
 void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, 
 							  unsigned int experience_points_needed);
 
+// function calling the "init" function for the derivative secondary_attribute classes
 void Secondary_attributes::set_secondary_attributes(const Primary_attributes& primary_stat_modifiers)
 {
 	calculate_strength_based_attributes(primary_stat_modifiers.strength());
@@ -17,6 +19,7 @@ void Secondary_attributes::set_secondary_attributes(const Primary_attributes& pr
 	calculate_endurance_based_attributes(primary_stat_modifiers.endurance());
 }
 
+// function to update the derivative secondary_attribute classes 
 void Secondary_attributes::update_stats(const Primary_attributes& changed_stats)
 {
 	calculate_strength_based_attributes(changed_stats.strength());
@@ -26,6 +29,7 @@ void Secondary_attributes::update_stats(const Primary_attributes& changed_stats)
 	calculate_endurance_based_attributes(changed_stats.endurance());
 }
 
+// function for setting up and updating stength based secondary attributes
 void Secondary_attributes_strength_based::calculate_strength_based_attributes(int strength)
 {
 	calculate_health_modifier(strength);
@@ -34,6 +38,7 @@ void Secondary_attributes_strength_based::calculate_strength_based_attributes(in
 	set_current_carry_amount(0);
 }
 
+// function for setting up and updating leadership based secondary attributes
 void Secondary_attributes_leadership_based::calculate_leadership_based_attributes(int leadership)
 {
 	calculate_friendly_morale_modifier(leadership);
@@ -42,6 +47,7 @@ void Secondary_attributes_leadership_based::calculate_leadership_based_attribute
 	calculate_nerves_stat(leadership);
 }
 
+// function for setting up and updating intelligence based secondary attributes
 void Secondary_attributes_intelligence_based::calculate_intelligence_based_attributes(int leadership)
 {
 	calculate_science_stat(leadership);
@@ -50,6 +56,7 @@ void Secondary_attributes_intelligence_based::calculate_intelligence_based_attri
 	calculate_tech_savvy_stat(leadership);
 }
 
+// function for setting up and updating character based secondary attributes
 void Secondary_attributes_character_based::calculate_character_based_attributes(int character)
 {
 	calculate_suave_stat(character);
@@ -58,6 +65,7 @@ void Secondary_attributes_character_based::calculate_character_based_attributes(
 	calculate_deception_stat(character);
 }
 
+// function for setting up and updating endurance based secondary attributes
 void Secondary_attributes_endurance_based::calculate_endurance_based_attributes(int endurance)
 {
 	calculate_stamina_stat(endurance);
@@ -246,6 +254,19 @@ void Primary_attributes::modify_stat(Primary_attribute to_be_Modified, int new_v
 	}
 }
 
+Primary_stats::Primary_stats(int preset_strength, int preset_leadership, int preset_intelligence, int preset_character,
+					int preset_endurance, int preset_level, unsigned int preset_total_health, int current_health_total,
+					unsigned int defense, unsigned int speed)
+					: m_level(preset_level), m_total_health(preset_total_health), m_current_health_total(current_health_total),
+					m_defense(defense), m_speed(speed)
+{
+	modify_stat(STRENGTH, m_level);
+	modify_stat(LEADERSHIP, m_level);
+	modify_stat(INTELLIGENCE, m_level);
+	modify_stat(LEADERSHIP, m_level);
+	modify_stat(ENDURANCE, m_level);
+}
+
 void Primary_stats::init_primary_stats(int strength, int leadership, int intelligence, 
 												int character, int endurance)
 {
@@ -261,6 +282,30 @@ void Primary_stats::init_primary_stats(int strength, int leadership, int intelli
 	m_current_health_total = m_total_health;
 	m_defense+=(static_cast<unsigned int>(floor(endurance * 0.5)));
 	m_speed+=(static_cast<unsigned int>(floor(endurance * 0.5)));
+}
+
+void Primary_stats::modify_stat(Primary_attribute to_be_modified, int level)
+{
+	switch(to_be_modified)
+	{
+		case 1:
+		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.strength() + level);
+		break;
+		case 2:
+		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.leadership() + level);
+		break;
+		case 3:
+		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.intelligence() + level);
+		break;
+		case 4:
+		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.character() + level);
+		break;
+		case 5:
+		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.endurance() + level);
+		break;
+		default:
+		break;
+	}
 }
 
 void Primary_stats::level_up(unsigned int experience_points_granted)
@@ -298,8 +343,7 @@ void Secondary_attributes::increase_reputation(int amount)
 	increase_reputation(amount);
 }
 
-void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, 
-							  unsigned int experience_points_needed)
+void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
 {
 	std::cout << "Congratulations, you have leveled up to level " << current_level << "!\n";
 	std::cout << experience_points << "/" << experience_points_needed << std::endl;
