@@ -43,8 +43,6 @@
 */
 #include "Diadal.h"
 
-using namespace std;
-
 int main()
 {
     Diadal game_instance;

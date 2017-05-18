@@ -13,10 +13,14 @@
 // enum Type_of_stature_based_stats { INTIMIDATION_STAT = 1, HEAT_RESISTANCE, COLD_RESISTANCE};                                    
 // enum Type_of_interaction_based_stats { PERSUASION_STAT = 1, BARTER_STAT, EDUCATION_STAT, FAITH_STAT, XENOPHOBIA_STAT, ANIMAL_HANDLING_STAT};
 
-struct various_Secondary_stats
+class Secondary_stats
 {
-    various_Secondary_stats() {}
-    various_Secondary_stats(unsigned int wisdom, unsigned int history_knowledge, unsigned int medical_knowledge,
+    public:
+    Secondary_stats() : wisdom(1), history_knowledge(1), medical_knowledge(1), fauna_knowledge(1), common_sense(1), 
+                        language_skill(1), athletics(1), dexterity(1), sleight_of_hand(1), stealth_skill(1), 
+                        lockpicking(1), hacking(1), intimidation(1), heat_resistance(1), cold_resistance(1),
+                        persuasion(1), barter(1), education(1), faith(1), xenophobia(1), animal_handling(1) {}
+    Secondary_stats(unsigned int wisdom, unsigned int history_knowledge, unsigned int medical_knowledge,
                             unsigned int fauna_knowledge, unsigned int common_sense, unsigned int language_skill,
                             unsigned int athletics, unsigned int dexterity, unsigned int sleight_of_hand,
                             unsigned int stealth_skill, unsigned int lockpicking, unsigned int hacking, 
@@ -30,6 +34,8 @@ struct various_Secondary_stats
                             intimidation(intimidation), heat_resistance(heat_resistance), cold_resistance(cold_resistance),
                             persuasion(persuasion), barter(barter), education(education), faith(faith), 
                             xenophobia(xenophobia), animal_handling(animal_handling) {}
+                            
+    bool check_stat(unsigned int& your_stat, unsigned int difficulty_check);
     
     //knowledge based secondary stats
     unsigned int wisdom, history_knowledge, medical_knowledge, fauna_knowledge, common_sense, language_skill;
@@ -41,17 +47,6 @@ struct various_Secondary_stats
     unsigned int persuasion, barter, education, faith, xenophobia, animal_handling;
 };
 
-//mostly learned skills/experience
-//modified at the start and not changed on level but on use
-class Secondary_stats
-{
-    public:
-    Secondary_stats() {}
-    
-    private:
-    various_Secondary_stats vss_character_experiences;
-};
-
 class Secondary_stats_initializer : protected Narrative_scene
 {
     public:
@@ -61,10 +56,10 @@ class Secondary_stats_initializer : protected Narrative_scene
     void init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum);
     void on_Read(const std::string& Event_name);
     
-    void scenes_Marine_custom(various_Secondary_stats& stats_to_be_init);
-    void scenes_Naval_captain_custom(various_Secondary_stats& stats_to_be_init);
-    void scenes_Lawyer_custom(various_Secondary_stats& stats_to_be_init);
-    void scenes_Armorer_custom(various_Secondary_stats& stats_to_be_init);
-    void scenes_Economist_custom(various_Secondary_stats& stats_to_be_init);
+    void scenes_Marine_custom(Secondary_stats& stats_to_be_init);
+    void scenes_Naval_captain_custom(Secondary_stats& stats_to_be_init);
+    void scenes_Lawyer_custom(Secondary_stats& stats_to_be_init);
+    void scenes_Armorer_custom(Secondary_stats& stats_to_be_init);
+    void scenes_Economist_custom(Secondary_stats& stats_to_be_init);
 };
 #endif

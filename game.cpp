@@ -103,6 +103,5 @@ bool Game::game_main_menu()
 		}
 		yes = get_y_or_n_as_bool();
 	}
-	std::cout << "Quiting" << std::endl;
 	return false;
 }

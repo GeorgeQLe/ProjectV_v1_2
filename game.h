@@ -31,6 +31,7 @@ class Game
 	Game(unsigned int num_players, Difficulty difficulty, std::string name_of_game) 
 			: options(num_players, difficulty), game_name(name_of_game), first_time(true) {} 
 	bool game_main_menu();
+	int get_difficulty() const { return options.get_difficulty(); }
 	
 	private:
 	Game_settings options;

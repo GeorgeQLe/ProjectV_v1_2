@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -Wall -std=c++11
-OBJECTS = projectV_driver.o character_class_information.o character_setup.o Diadal.o Diadal_story.o game.o ingame_entity.o primary_character.o primary_stats.o scene.o secondary_stats.o support.o
+OBJECTS = projectV_driver.o actions.o attacks.o character_class_information.o character_setup.o combat.o Diadal.o Diadal_story.o game.o hostile.o ingame_entity.o primary_character.o primary_stats.o scene.o secondary_stats.o support.o
 
 projectV: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o projectV
@@ -8,11 +8,20 @@ projectV: $(OBJECTS)
 projectV_driver.o: projectV_driver.cpp
 	$(CC) $(CFLAGS) -c projectV_driver.cpp -o projectV_driver.o	
 	
+actions.o: actions.cpp actions.h
+	$(CC) $(CFLAGS) -c actions.cpp -o actions.o
+	
+attacks.o: attacks.cpp attacks.h
+	$(CC) $(CFLAGS) -c attacks.cpp -o attacks.o
+	
 character_class_information.o: character_class_information.cpp character_class_information.h
 	$(CC) $(CFLAGS) -c character_class_information.cpp -o character_class_information.o
 
 character_setup.o: character_setup.cpp character_setup.h
 	$(CC) $(CFLAGS) -c character_setup.cpp -o character_setup.o
+
+combat.o: combat.cpp combat.h
+	$(CC) $(CFLAGS) -c combat.cpp -o combat.o
 
 Diadal.o: Diadal.cpp Diadal.h
 	$(CC) $(CFLAGS) -c Diadal.cpp -o Diadal.o
@@ -22,6 +31,9 @@ Diadal_story.o: Diadal_story.cpp Diadal_story.h
 	
 game.o: game.cpp game.h
 	$(CC) $(CFLAGS) -c game.cpp -o game.o
+	
+hostile.o: hostile.cpp hostile.h
+	$(CC) $(CFLAGS) -c hostile.cpp -o hostile.o
 
 ingame_entity.o: ingame_entity.cpp ingame_entity.h
 	$(CC) $(CFLAGS) -c ingame_entity.cpp -o ingame_entity.o

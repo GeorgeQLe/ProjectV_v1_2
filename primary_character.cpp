@@ -1,27 +1,24 @@
+#include <iostream>
 #include "primary_character.h"
+#include "character_setup.h"
 
-Primary_character::Primary_character() : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN}, 
-                                        character_ethics(LAWFUL_NEUTRAL) 
-{
-    
-}
-
-Primary_character::Primary_character(const std::string script_name) 
+Primary_character::Primary_character() 
                 : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN}, character_ethics(LAWFUL_NEUTRAL) 
 {
-    character_creator(script_name);
+    character_creator();
 }
 
-void Primary_character::character_creator(const std::string script_name)
+void Primary_character::character_creator()
 {
     //sets name, gender, race, and character class
     //ingame_entity.h
     set_information(); 
     //sets primary stats- primary attributes and secondary attributes
     //character_setup.h
-    Character_set_up_player_characters creator(script_name);
+    Character_set_up_player_characters creator;
 	creator.primary_stats_setup(get_job(), innate_character_stats);
 	creator.secondary_stats_setup(get_job(), learned_character_stats);
+	std::cout << "This works" <<std::endl;
 }
 
 void Primary_character::reduce_or_increase_reputation(const Reputation_change& reduce_or_increase, int amount)

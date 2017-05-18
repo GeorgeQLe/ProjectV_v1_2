@@ -28,8 +28,8 @@ class Character_set_up_command
 class Character_set_up_player_characters : public Character_set_up_command
 {
     public:
-    Character_set_up_player_characters(const std::string& scenes) : factory_secondary_stats(scenes), 
-                                                        script_name(scenes), m_user_choice(NOTCREATED) 
+    Character_set_up_player_characters() : script_name("Diadal_script_character_creation.txt"), factory_secondary_stats(script_name), 
+                                            m_user_choice(NOTCREATED) 
     { 
         while(m_user_choice)
         {
@@ -41,8 +41,8 @@ class Character_set_up_player_characters : public Character_set_up_command
     void secondary_stats_setup(Job player_class, Secondary_stats& learned_character_stats);
     
     private:
-    Secondary_stats_initializer factory_secondary_stats;
     const std::string script_name;
+    Secondary_stats_initializer factory_secondary_stats;
     
     Custom_or_premade m_user_choice;
 };
