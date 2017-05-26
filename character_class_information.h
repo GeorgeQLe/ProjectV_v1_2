@@ -60,6 +60,7 @@ class Player_class_catalog
     public:
     Player_class_catalog() {}
     Player_class_catalog(const Job& player_class);
+    ~Player_class_catalog() { delete m_class_stats; }
     
     void get_class_information(const Job& player_class);
     
@@ -69,5 +70,5 @@ class Player_class_catalog
     int get_character() { return class_stats->get_character(); }
     int get_endurance() { return class_stats->get_endurance(); }
     private:
-    Player_information* class_stats;
+    Player_information* m_class_stats;
 };
