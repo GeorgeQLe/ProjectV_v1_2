@@ -1,3 +1,6 @@
+/*  Copyright 2017 George Le
+
+*/
 #include <iostream>
 #include "primary_character.h"
 #include "character_setup.h"
@@ -18,7 +21,6 @@ void Primary_character::character_creator()
     Character_set_up_player_characters creator;
 	creator.primary_stats_setup(get_job(), innate_character_stats);
 	creator.secondary_stats_setup(get_job(), learned_character_stats);
-	std::cout << "This works" <<std::endl;
 }
 
 void Primary_character::reduce_or_increase_reputation(const Reputation_change& reduce_or_increase, int amount)
@@ -31,4 +33,9 @@ void Primary_character::reduce_or_increase_reputation(const Reputation_change& r
     {
         innate_character_stats.increase_reputation(amount);
     }
+}
+
+void Primary_character::attack()
+{
+    // TO BE IMPLEMENTED
 }

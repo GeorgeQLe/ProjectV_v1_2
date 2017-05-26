@@ -5,7 +5,7 @@
 #include "combat.h"
 #include "hostile.h"
 
-Result one_v_one_single_turn(std::map<int, Primary_character*>& list_of_characters, std::map<int, Hostile> list_of_hostiles)
+Result single_turn(std::map<int, Primary_character*>& list_of_characters, std::map<int, Hostile>& list_of_hostiles)
 {
     Result victory_or_loss = FIGHTING;
     return victory_or_loss;
@@ -26,7 +26,7 @@ Result one_v_one_duel(std::map<int, Primary_character*>& list_of_characters, int
     
     while(victory_or_loss == NOT_STARTED)
     {
-        victory_or_loss = one_v_one_single_turn(list_of_characters, list_of_hostiles);
+        victory_or_loss = single_turn(list_of_characters, list_of_hostiles);
         if(turn_counter == 100)
         {
             victory_or_loss = TIE;

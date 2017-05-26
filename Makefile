@@ -2,6 +2,8 @@ CC = g++
 CFLAGS = -Wall -std=c++11
 OBJECTS = projectV_driver.o actions.o attacks.o character_class_information.o character_setup.o combat.o Diadal.o Diadal_story.o game.o hostile.o ingame_entity.o primary_character.o primary_stats.o scene.o secondary_stats.o support.o
 
+all: projectV
+
 projectV: $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o projectV
 	

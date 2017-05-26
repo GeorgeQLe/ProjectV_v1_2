@@ -32,7 +32,7 @@ void Diadal::game_loop()
         int choice = get_number_from_user(1, 3);
         std::cout << std::endl;
         if(choice == 1)
-        {   
+        {
             new_game();
         }
         else if(choice == 2)
@@ -83,7 +83,6 @@ void Diadal::new_game()
         // returns a result from the battle, passing in the class method m_list_of_characters 
         // and the class method, another nested class Game's method get_difficulty which
         // returns the game difficulty returned as an int
-        std::map<int, Primary_character*> list_of_characters;
-        status = one_v_one_duel(list_of_characters, standard_game.get_difficulty());
+        status = one_v_one_duel(m_list_of_characters, standard_game.get_difficulty());
     }while(status != PLAYER_DEATH);
 }

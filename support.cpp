@@ -5,7 +5,6 @@
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include <limits>
 #include <sstream>
 #include "support.h"
@@ -34,6 +33,19 @@ void read_files(const std::string& file_name)
     }
     
     file.close();
+}
+
+void print_line(const std::string& line)
+{
+    std::cout << line << std::endl;
+}
+
+void print_list(const std::vector<std::string>& list_of_strings)
+{
+    for(auto it = list_of_strings.begin(); it != list_of_strings.end(); ++it)
+    {
+        std::cout << *it << "\n";
+    }
 }
 
 int get_number_from_user(int smallest_possible_choice, int largest_possible_choice)
