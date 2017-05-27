@@ -1,3 +1,5 @@
+project(projectV)
+
 cmake_minimum_required(VERSION 3.0)
 cmake_policy(VERSION 3.0)
 
@@ -50,7 +52,19 @@ set(DIADAL_HEADERS
 
 include_directories(include)
 
-add_executable(projectV
+add_executable(${PROJECT_NAME}
     ${DIADAL_HEADERS}
     ${DIADAL_SOURCES}
 )
+
+set(DIADAL_DATA
+    data/Diadal_script_intro.txt
+    data/Diadal_text_files.txt
+    data/Diadal_script_character_creation.txt
+    data/Diadal_script_prologue.txt
+)
+
+foreach(DATA ${DIADAL_DATA})
+    get_filename_component(DATA_FILENAME ${DATA} NAME)
+    configure_file(${DATA} ${CMAKE_CURRENT_BINARY_DIR}/${DATA_FILENAME} COPYONLY)
+endforeach()
