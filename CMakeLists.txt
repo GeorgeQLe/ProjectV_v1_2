@@ -10,43 +10,45 @@ elseif(WIN32)
 endif()
 
 set(DIADAL_SOURCES
-    actions.cpp
-    attacks.cpp
-    character_class_information.cpp
-    character_setup.cpp
-    combat.cpp
-    Diadal.cpp
-    Diadal_story.cpp
-    Diadal_story.cpp
-    game.cpp
-    hostile.cpp
-    ingame_entity.cpp
-    primary_character.cpp
-    primary_stats.cpp
-    projectV_driver.cpp
-    scene.cpp
-    secondary_stats.cpp
-    support.cpp
+    src/actions.cpp
+    src/attacks.cpp
+    src/character_class_information.cpp
+    src/character_setup.cpp
+    src/combat.cpp
+    src/Diadal.cpp
+    src/Diadal_story.cpp
+    src/Diadal_story.cpp
+    src/game.cpp
+    src/hostile.cpp
+    src/ingame_entity.cpp
+    src/primary_character.cpp
+    src/primary_stats.cpp
+    src/projectV_driver.cpp
+    src/scene.cpp
+    src/secondary_stats.cpp
+    src/support.cpp
 )
 
 set(DIADAL_HEADERS
-    actions.h
-    attacks.h
-    character_class_information.h
-    character_setup.h
-    combat.h
-    Diadal.h
-    Diadal_story.h
-    Diadal_story.h
-    game.h
-    hostile.h
-    ingame_entity.h
-    primary_character.h
-    primary_stats.h
-    scene.h
-    secondary_stats.h
-    support.h
+    include/actions.h
+    include/attacks.h
+    include/character_class_information.h
+    include/character_setup.h
+    include/combat.h
+    include/Diadal.h
+    include/Diadal_story.h
+    include/Diadal_story.h
+    include/game.h
+    include/hostile.h
+    include/ingame_entity.h
+    include/primary_character.h
+    include/primary_stats.h
+    include/scene.h
+    include/secondary_stats.h
+    include/support.h
 )
+
+include_directories(include)
 
 add_executable(projectV
     ${DIADAL_HEADERS}
