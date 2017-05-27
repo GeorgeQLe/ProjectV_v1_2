@@ -1,3 +1,6 @@
+/*  Copyright 2017 George Le
+    Stores all of my primary_character stats for use in character creation
+*/
 #include "ingame_entity.h"
 #include "primary_stats.h"
 
@@ -64,11 +67,11 @@ class Player_class_catalog
     
     void get_class_information(const Job& player_class);
     
-    int get_strength() { return class_stats->get_strength(); }
-    int get_leadership() { return class_stats->get_leadership(); }
-    int get_intelligence() { return class_stats->get_intelligence(); }
-    int get_character() { return class_stats->get_character(); }
-    int get_endurance() { return class_stats->get_endurance(); }
+    int get_strength() { return m_class_stats->get_strength(); }
+    int get_leadership() { return m_class_stats->get_leadership(); }
+    int get_intelligence() { return m_class_stats->get_intelligence(); }
+    int get_character() { return m_class_stats->get_character(); }
+    int get_endurance() { return m_class_stats->get_endurance(); }
     private:
     Player_information* m_class_stats;
 };

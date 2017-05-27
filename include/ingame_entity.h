@@ -22,6 +22,9 @@ class Ingame_entity_human
 	Gender get_gender() const { return m_entity_gender; }
 	Race get_race() const { return m_entity_race; }
 	Job get_job() const { return m_entity_class; }
+	std::string get_gender_as_string() const;
+	std::string get_race_as_string() const;
+	std::string get_job_as_string() const;
 	
 	protected:
 	void set_information();

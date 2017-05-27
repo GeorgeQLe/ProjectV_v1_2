@@ -1,5 +1,5 @@
 /*  Copyright 2017 George Le
-
+    Declaration of ingame entities' actions
 */
 #ifndef ACTIONS_H
 #define ACTIONS_H

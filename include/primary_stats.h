@@ -24,7 +24,7 @@ class Primary_attributes
 	int character() const { return m_character; }
 	int endurance() const { return m_endurance; }
 	
-	private:
+	//private:
 	int m_strength;
 	int m_leadership;
 	int m_intelligence;
@@ -242,8 +242,8 @@ class Primary_stats
 	
 	void reduce_reputation(int amount);
 	void increase_reputation(int amount);
-	
-	private:
+
+	//private:
 	Primary_attributes m_stat_modifiers;
 	Secondary_attributes m_supporting_stat_modifiers;
 	

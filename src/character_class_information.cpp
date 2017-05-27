@@ -1,3 +1,6 @@
+/*  Copyright 2017 George Le
+
+*/
 #include "character_class_information.h"
 
 Player_class_catalog::Player_class_catalog(const Job& player_class) : m_class_stats(nullptr)

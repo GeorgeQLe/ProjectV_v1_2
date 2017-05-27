@@ -1,3 +1,6 @@
+/*	Copyright 2016 George Le
+    Definitions of functions declared in Diadal.h
+*/
 #include <iostream>
 #include <fstream>
 #include "Diadal.h"
@@ -75,7 +78,6 @@ void Diadal::new_game()
         m_list_of_characters.emplace(++m_number_of_party_members, player);
         m_new_game = false;
     }
-    
     Result status;
     // test loop for combat
     do

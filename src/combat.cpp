@@ -1,5 +1,5 @@
 /*  Copyright 2017 George Le
-
+    Definitions of functions declared in combat.h and defines function
 */
 #include <vector>
 #include "combat.h"
@@ -29,7 +29,7 @@ Result one_v_one_duel(std::map<int, Primary_character*>& list_of_characters, int
         victory_or_loss = single_turn(list_of_characters, list_of_hostiles);
         if(turn_counter == 100)
         {
-            victory_or_loss = TIE;
+            victory_or_loss = PLAYER_DEATH;
         }
         turn_counter++;
     }

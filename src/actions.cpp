@@ -1,5 +1,5 @@
 /*  Copyright 2017 George Le
-
+    Definitions of functions declared in actions.h
 */
 #include <iostream>
 #include "actions.h"

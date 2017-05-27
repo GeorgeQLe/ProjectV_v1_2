@@ -86,8 +86,8 @@ struct List_of_attacks
     // pointer to Ultimate attacks and Item attacks to 
     // allow for polymorphism 
     // TO BE IMPLEMENTED WHEN ULTIMATE ATTACKS AND ITEMS ARE DESIGNED
-    Ultimate_attacks* m_ult;
-    Item_attack* m_use_offensive_item;
+    Ultimate_attacks* pm_ult;
+    Item_attack* pm_use_offensive_item;
     // convienent collection of attack names
     // Primary Attack is index 0 by default
     // Ultimate Attack is index 1

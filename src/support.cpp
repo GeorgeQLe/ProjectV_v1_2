@@ -2,7 +2,6 @@
     This file provides definitions to the generic supporting functions 
     declared in support.h, see header file for details
 */
-
 #include <iostream>
 #include <fstream>
 #include <limits>

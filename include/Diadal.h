@@ -1,5 +1,5 @@
 /*	Copyright 2017 George Le
-	
+	Declaration of the main game controller
 */
 #ifndef DIADAL_H
 #define DIADAL_H
