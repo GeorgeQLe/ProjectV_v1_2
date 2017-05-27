@@ -65,6 +65,5 @@ set(DIADAL_DATA
 )
 
 foreach(DATA ${DIADAL_DATA})
-    get_filename_component(DATA_FILENAME ${DATA} NAME)
     configure_file(${DATA} ${CMAKE_CURRENT_BINARY_DIR}/${DATA_FILENAME} COPYONLY)
 endforeach()
