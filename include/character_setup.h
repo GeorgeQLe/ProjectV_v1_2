@@ -15,6 +15,8 @@
 
 enum Custom_or_premade { NOTCREATED, CUSTOM, PREMADE };
 
+// function to get a choice from the user of whether or not to use the preset classes made
+// or to directly control their starting stats
 Custom_or_premade get_custom_or_premade();
 
 class Character_set_up_command
@@ -25,10 +27,10 @@ class Character_set_up_command
     virtual void secondary_stats_setup(Job player_class, Secondary_stats& learned_character_stats) = 0;
 };
 
-class Character_set_up_player_characters : public Character_set_up_command
+class Factory_player_characters : public Character_set_up_command
 {
     public:
-    Character_set_up_player_characters() : script_name("Diadal_script_character_creation.txt"), factory_secondary_stats(script_name), 
+    Factory_player_characters() : script_name("Diadal_script_character_creation.txt"), factory_secondary_stats(script_name), 
                                             m_user_choice(NOTCREATED) 
     { 
         while(m_user_choice)
@@ -49,12 +51,13 @@ class Character_set_up_player_characters : public Character_set_up_command
 
 class Character_set_up_hostile_characters : public Character_set_up_command
 {
-    //does something different than for player characters   
+    // does something different than for player characters   
+    // probably not will be used
 };
 
 class Character_set_up_npc : public Character_set_up_command
 {
-    //sets up character for npcs  
+    // sets up character for npcs  
 };
 
 #endif

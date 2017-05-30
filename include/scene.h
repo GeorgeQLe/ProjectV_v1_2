@@ -4,8 +4,12 @@
     saved at specified key values
     
     Designed using the observer pattern
+    
+    Declaration:
+        Classes:
+            -Game_script
+            -Narrative_scene
 */
-
 #ifndef SCENE_H
 #define SCENE_H
 #include <string>
@@ -14,6 +18,8 @@
 class Game_script
 {
     public:
+    // default constructor <- should never happen throughout the game since
+    // Narrative scene should be the only class where Game_script 
     Game_script() {}
     Game_script(const std::string& file_name) { load_game_script(file_name); }
     void load_game_script(const std::string& file_name);

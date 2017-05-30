@@ -1,5 +1,6 @@
 /*  Copyright 2017 George Le
-    Definitions of functions declared in combat.h and defines function
+    Definitions of functions declared in combat.h and defines functions to be
+    used specifically with the functions in combat.h ONLY!!!
 */
 #include <vector>
 #include "combat.h"
@@ -8,6 +9,7 @@
 Result single_turn(std::map<int, Primary_character*>& list_of_characters, std::map<int, Hostile>& list_of_hostiles)
 {
     Result victory_or_loss = FIGHTING;
+    
     return victory_or_loss;
 }
 
@@ -33,6 +35,5 @@ Result one_v_one_duel(std::map<int, Primary_character*>& list_of_characters, int
         }
         turn_counter++;
     }
-    
     return victory_or_loss;
 }

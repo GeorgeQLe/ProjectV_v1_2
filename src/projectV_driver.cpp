@@ -2,27 +2,21 @@
     Project Victory Alpha version 1.2
     Date: 12/16/16 - 
     
-    Version objective: 1. Character redesign to suit OOP design patterns (DESIGNING)
+    Version objective: 1. Character redesign to suit OOP design patterns (FINISHING)
     						a. Ingame entity(controllable) (base) (DONE-ISH)
-    						    -Character creation (IN PROGRESS)
-    						b. NPC(derived)
-    						c. Allies (controllable)(derived)
-    						d. Hostiles (base)
-    						e. Instance Allies
-                       2. Combat system
-                            a.Player combat
-                            b.Player gear modifier
-                            c.Player can heal/use items
-                            d.Player can flee/can use modified flee action
-                            e.Hostiles attack
-                            f.Hostiles heal/use items
-                            g.Random number generator->attack accuracy hit/miss
-                       3. Travel system (NOT STARTED)
-                            a.Travel a to b 
-                            b.Initiate combat from travels 
-                            c.Random NPC encounter->noncombat
-                            d.Money system
-                            e.Trade with caravan
+    						    -Character creation (DONE-ISH) <- CUSTOM character creation delayed to v 1.3
+    						b. NPC(derived) <- delayed to version 1.3
+    						c. Allies (controllable)(derived) <- delayed to version 1.3
+    						d. Hostiles (base) (DONE-ISH)
+    						e. Instance Allies <- delayed to version 1.3
+                       2. Combat system (IN PROGRESS)
+                            a.Player combat (IN PROGRESS)
+                            b.Player gear modifier <- delayed to version 1.4
+                            c.Player can heal/use items <- delayed to version 1.4
+                            d.Player can flee/can use modified flee action (IN PROGRESS)
+                            e.Hostiles attack (IN PROGRESS)
+                            f.Hostiles heal/use items <- delayed to version 1.4
+                            g.Random number generator->attack accuracy hit/miss (IN PROGRESS)
                             
     Notation notes: Code is written in snake_case and utilizes hungarian notation
     

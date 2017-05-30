@@ -18,7 +18,7 @@ void Primary_character::character_creator()
     set_information(); 
     //sets primary stats- primary attributes and secondary attributes
     //character_setup.h
-    Character_set_up_player_characters creator;
+    Factory_player_characters creator;
 	creator.primary_stats_setup(get_job(), innate_character_stats);
 	creator.secondary_stats_setup(get_job(), learned_character_stats);
 }

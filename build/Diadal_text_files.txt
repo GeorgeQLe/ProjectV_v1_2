@@ -1,4 +1,2 @@
-DIADAL_INTRO
-Diadal_script_intro.txt
 DIADAL_PROLOGUE
 Diadal_script_prologue.txt

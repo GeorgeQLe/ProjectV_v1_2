@@ -18,7 +18,6 @@ Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new
         {
             if(getline(file, second_line)) // Receives the actual file name for the script to use
             {
-                std::cout << line << " " << second_line << std::endl;
                 m_script_names[line] = second_line;
             }
         }

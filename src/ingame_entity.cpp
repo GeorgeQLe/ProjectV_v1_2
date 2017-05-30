@@ -1,12 +1,37 @@
 /*  Copyright 2016 George Le
-
+    Definition of functions declared in ingame_entity.h
 */
 #include <iostream>
 #include "ingame_entity.h"
 #include "support.h"
 
+// special constructor for passing ints in the creation of an object
+// not recommended for use, USE THE ENUMS
+Ingame_entity_human::Ingame_entity_human(const std::string& name, int gender, int race, int job) : m_entity_name(name) 
+{
+    // MAX_GENDER value found in ingame_entity.h
+    if(gender > 0 && gender <= MAX_GENDER)
+    {
+        // private member function of ingame_entity_human
+	    set_gender(gender); 
+    }
+    // MAX_RACE value found in ingame_entity.h
+	if(race > 0 && race <= MAX_RACE)
+	{
+	    // private member function of ingame_entity_human
+	    set_race(race); 
+	}
+	// MAX_CLASSES value found in ingame_entity.h
+	if(job > 0 && job<= MAX_CLASSES)
+	{
+	    // private member function of ingame_entity_human
+	    set_job(job);
+	}
+}
+
 std::string Ingame_entity_human::get_gender_as_string() const
 {
+    // m_entity_gender is a member variable of the Ingame_entity_human class found in ingame_entity.h
     switch(m_entity_gender)
     {
         case 1:
@@ -26,6 +51,7 @@ std::string Ingame_entity_human::get_gender_as_string() const
 
 std::string Ingame_entity_human::get_race_as_string() const
 {
+    // m_entity_race is a member variable of the Ingame_entity_human class found in ingame_entity.h
     switch(m_entity_race)
     {
         case 1:
@@ -54,6 +80,7 @@ std::string Ingame_entity_human::get_race_as_string() const
 
 std::string Ingame_entity_human::get_job_as_string() const
 {
+    // m_entity_class is a member variable of the Ingame_entity_human class found in ingame_entity.h
     switch(m_entity_class)
     {
         case 1:
@@ -86,6 +113,7 @@ std::string Ingame_entity_human::get_job_as_string() const
     return "UNEMPLOYED Programmer messed up... Wait that's me...";
 }
 
+// TO BE REDONE
 void Ingame_entity_human::set_information()
 {
     std::cout << "This is a temporary build\n";

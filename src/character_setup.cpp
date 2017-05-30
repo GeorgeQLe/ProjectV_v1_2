@@ -1,44 +1,17 @@
 /*  Copyright 2017 George Le
-    
+    Defines the functions declared in character_setup.h  
 */
 #include <iostream>
 #include "character_class_information.h"
 #include "character_setup.h"
 #include "support.h"
 
-void Character_set_up_player_characters::primary_stats_setup(Job player_class, Primary_stats& stats_to_be_setup)
-{
-    m_user_choice = get_custom_or_premade();
-    if(m_user_choice == PREMADE)
-    {
-        Player_class_catalog premade_class_information(player_class);
-        stats_to_be_setup.init_primary_stats(premade_class_information.get_strength(), premade_class_information.get_leadership(),
-                                                        premade_class_information.get_intelligence(), premade_class_information.get_character(),
-                                                        premade_class_information.get_endurance());
-    }
-    else if(m_user_choice == CUSTOM)
-    {
-        //TO DESIGN
-    }
-}
-
-void Character_set_up_player_characters::secondary_stats_setup(Job player_class, Secondary_stats& learned_character_stats)
-{
-    if(m_user_choice == PREMADE)
-    {
-        factory_secondary_stats.init_secondary_stats_non_custom(learned_character_stats, static_cast<int>(player_class));
-    }
-    else if(m_user_choice == CUSTOM)
-    {
-        factory_secondary_stats.init_secondary_stats_custom(learned_character_stats, static_cast<int>(player_class));
-    }
-}
-
 Custom_or_premade get_custom_or_premade()
 {
     std::cout << "Would you like to customize your stats or use the preset class stats?\n";
     std::cout << "1. Custom\n2. Preset\nInput (1-2): ";
     
+    // function get_number_from_user is declared in support.h
     int choice = get_number_from_user(1, 2);
     
     if(choice == 1)
@@ -48,11 +21,12 @@ Custom_or_premade get_custom_or_premade()
         
         if(get_y_or_n_as_bool() == false)
         {
+            // recursive call in the case that the player wants to change their decision
             get_custom_or_premade();
         }
         else
         {
-            return CUSTOM;    
+            return CUSTOM;
         }
     }
     else if(choice == 2)
@@ -62,6 +36,7 @@ Custom_or_premade get_custom_or_premade()
         
         if(get_y_or_n_as_bool() == false)
         {
+            // recursive call in the case that the player wants to change their decision
             get_custom_or_premade();
         }
         else
@@ -69,6 +44,44 @@ Custom_or_premade get_custom_or_premade()
             return PREMADE;
         }
     }
-    
+    // should not return NOTCREATED as get_number_from_user should only return 1 or 2
     return NOTCREATED;
+}
+
+// this function calls 
+void Factory_player_characters::primary_stats_setup(Job player_class, Primary_stats& stats_to_be_setup)
+{
+    // m_user_choice is a member variable of the Factory_player_characters class
+    // it is an enumerated type
+    m_user_choice = get_custom_or_premade();
+    if(m_user_choice == PREMADE)
+    {
+        // factory class designed to initialize the player's primary stats
+        // found in character_class_information.h
+        Player_class_catalog premade_class_information(player_class);
+        // stats_to_be_setup is a Primary_stats class
+        stats_to_be_setup.init_primary_stats(premade_class_information.get_strength(), premade_class_information.get_leadership(),
+                                                        premade_class_information.get_intelligence(), premade_class_information.get_character(),
+                                                        premade_class_information.get_endurance());
+    }
+    else if(m_user_choice == CUSTOM)
+    {
+        // TO BE DESIGNED
+    }
+}
+
+void Factory_player_characters::secondary_stats_setup(Job player_class, Secondary_stats& learned_character_stats)
+{
+    // m_user_choice is a member variable of the Factory_player_characters class
+    // it is an enumerated type
+    if(m_user_choice == PREMADE)
+    {
+        // factory_secondary_stats is a Secondary_stats_initializer class
+        factory_secondary_stats.init_secondary_stats_non_custom(learned_character_stats, static_cast<int>(player_class));
+    }
+    else if(m_user_choice == CUSTOM)
+    {
+        // TO BE DESIGNED
+        factory_secondary_stats.init_secondary_stats_custom(learned_character_stats, static_cast<int>(player_class));
+    }
 }

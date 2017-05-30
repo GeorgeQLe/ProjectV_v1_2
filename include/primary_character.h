@@ -1,5 +1,5 @@
 /*	Copyright 2017 George Le
-
+	
 */
 
 #ifndef PRIMARY_CHARACTER_H
