@@ -8,47 +8,42 @@
 
 Custom_or_premade get_custom_or_premade()
 {
-    std::cout << "Would you like to customize your stats or use the preset class stats?\n";
-    std::cout << "1. Custom\n2. Preset\nInput (1-2): ";
-    
-    // function get_number_from_user is declared in support.h
-    int choice = get_number_from_user(1, 2);
-    
-    if(choice == 1)
+    Custom_or_premade user_choice = NOTCREATED;
+    bool retry;
+    do
     {
-        std::cout << "You elected to create a custom class.\n";
-        std::cout << "Are you sure? (y/n): ";
+        retry = true;
+        std::cout << "Would you like to customize your stats or use the preset class stats?\n";
+        std::cout << "1. Custom\n2. Preset\nInput (1-2): ";
         
-        if(get_y_or_n_as_bool() == false)
-        {
-            // recursive call in the case that the player wants to change their decision
-            get_custom_or_premade();
-        }
-        else
-        {
-            return CUSTOM;
-        }
-    }
-    else if(choice == 2)
-    {
-        std::cout << "You elected to use the premade class.\n";
-        std::cout << "Are you sure? (y/n): ";
+        // function get_number_from_user is declared in support.h
+        int choice = get_number_from_user(1, 2);
         
-        if(get_y_or_n_as_bool() == false)
+        if(choice == 1)
         {
-            // recursive call in the case that the player wants to change their decision
-            get_custom_or_premade();
+            std::cout << "You elected to create a custom class.\n";
+            std::cout << "Are you sure? (y/n): ";
+            retry = get_y_or_n_as_bool();
+            if(retry == false)
+            {
+                user_choice = CUSTOM;
+            }
         }
-        else
+        else if(choice == 2)
         {
-            return PREMADE;
+            std::cout << "You elected to use the premade class.\n";
+            std::cout << "Are you sure? (y/n): ";
+            retry = get_y_or_n_as_bool();
+            if(retry == false)
+            {
+                user_choice = PREMADE;
+            }
         }
-    }
+    } while(retry);   
     // should not return NOTCREATED as get_number_from_user should only return 1 or 2
-    return NOTCREATED;
+    return user_choice;
 }
 
-// this function calls 
 void Factory_player_characters::primary_stats_setup(Job player_class, Primary_stats& stats_to_be_setup)
 {
     // m_user_choice is a member variable of the Factory_player_characters class

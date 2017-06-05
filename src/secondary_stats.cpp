@@ -50,15 +50,9 @@ void Secondary_stats_initializer::init_secondary_stats_custom(Secondary_stats& s
     //woah some complex shit to be designed
 }
 
-void Secondary_stats_initializer::on_Read(const std::string& Event_name)
-{
-    read_from_script(Event_name);
-}
-
 void Secondary_stats_initializer::scenes_Marine_custom(Secondary_stats& stats_to_be_init)
 {
-    on_Read("SCENE_ONE_MARINE_CUSTOM");
-    get_number_from_user(1, 4);
+    
 }
 
 void Secondary_stats_initializer::scenes_Naval_captain_custom(Secondary_stats& stats_to_be_init)

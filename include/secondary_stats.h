@@ -2,7 +2,6 @@
 #define SECONDARY_STATS_H
 
 #include <string>
-#include "scene.h"
 
 //defunct-commented just in case
 // enum Type_of_secondary_stats { KNOWLEDGE_BASED_STATS = 1, ACTIONS_BASED_STATS, STATURE_BASED_STATS, INTERACTION_BASED_STATS};
@@ -47,10 +46,10 @@ class Secondary_stats
     unsigned int persuasion, barter, education, faith, xenophobia, animal_handling;
 };
 
-class Secondary_stats_initializer : protected Narrative_scene
+class Secondary_stats_initializer
 {
     public:
-    Secondary_stats_initializer(const std::string& script_name) : Narrative_scene(script_name) {}  
+    Secondary_stats_initializer(const std::string& script_name) : custom_creation_script(script_name) {}  
     
     void init_secondary_stats_non_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum);
     void init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum);
@@ -61,5 +60,7 @@ class Secondary_stats_initializer : protected Narrative_scene
     void scenes_Lawyer_custom(Secondary_stats& stats_to_be_init);
     void scenes_Armorer_custom(Secondary_stats& stats_to_be_init);
     void scenes_Economist_custom(Secondary_stats& stats_to_be_init);
+    
+    std::string custom_creation_script;
 };
 #endif

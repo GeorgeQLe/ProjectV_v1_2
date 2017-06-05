@@ -26,7 +26,6 @@ set(DIADAL_SOURCES
     src/primary_character.cpp
     src/primary_stats.cpp
     src/projectV_driver.cpp
-    src/scene.cpp
     src/secondary_stats.cpp
     src/support.cpp
 )
@@ -45,7 +44,6 @@ set(DIADAL_HEADERS
     include/ingame_entity.h
     include/primary_character.h
     include/primary_stats.h
-    include/scene.h
     include/secondary_stats.h
     include/support.h
 )

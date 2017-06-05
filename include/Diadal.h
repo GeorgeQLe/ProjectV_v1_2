@@ -25,7 +25,6 @@ class Diadal
 	int m_number_of_party_members;
 	
 	std::map<int, Primary_character*> m_list_of_characters;
-	std::map<std::string, std::string> m_script_names;
 };
 
 #endif

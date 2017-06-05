@@ -10,23 +10,7 @@
 
 Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), m_number_of_party_members(0) 
 {
-    std::ifstream file("Diadal_text_files.txt");
-    if(file.is_open())
-    {
-        std::string line(""), second_line("");
-        while(getline(file, line)) // Receives the flags for the file names (ALL CAPS)
-        {
-            if(getline(file, second_line)) // Receives the actual file name for the script to use
-            {
-                m_script_names[line] = second_line;
-            }
-        }
-    }
-    else
-    {
-        std::cout << "Missing critical file Diadal_text_files.txt...Exiting program" << std::endl;
-        exit(1);
-    }
+    read_files("Diadal_script_intro.txt");   
 }
 
 void Diadal::game_loop()

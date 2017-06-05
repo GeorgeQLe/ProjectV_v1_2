@@ -11,7 +11,6 @@
 #include "ingame_entity.h"
 #include "primary_stats.h"
 #include "secondary_stats.h"
-#include "scene.h"
 
 enum Custom_or_premade { NOTCREATED, CUSTOM, PREMADE };
 

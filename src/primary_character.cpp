@@ -1,5 +1,5 @@
 /*  Copyright 2017 George Le
-
+    Definitions of functions declared in primary_character.h
 */
 #include <iostream>
 #include "primary_character.h"

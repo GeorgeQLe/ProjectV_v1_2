@@ -423,30 +423,6 @@ src/projectV_driver.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/projectV_driver.cpp.s
 .PHONY : src/projectV_driver.cpp.s
 
-src/scene.o: src/scene.cpp.o
-.PHONY : src/scene.o
-
-# target to build an object file
-src/scene.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/scene.cpp.o
-.PHONY : src/scene.cpp.o
-
-src/scene.i: src/scene.cpp.i
-.PHONY : src/scene.i
-
-# target to preprocess a source file
-src/scene.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/scene.cpp.i
-.PHONY : src/scene.cpp.i
-
-src/scene.s: src/scene.cpp.s
-.PHONY : src/scene.s
-
-# target to generate assembly for a file
-src/scene.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/scene.cpp.s
-.PHONY : src/scene.cpp.s
-
 src/secondary_stats.o: src/secondary_stats.cpp.o
 .PHONY : src/secondary_stats.o
 
@@ -543,9 +519,6 @@ help:
 	@echo "... src/projectV_driver.o"
 	@echo "... src/projectV_driver.i"
 	@echo "... src/projectV_driver.s"
-	@echo "... src/scene.o"
-	@echo "... src/scene.i"
-	@echo "... src/scene.s"
 	@echo "... src/secondary_stats.o"
 	@echo "... src/secondary_stats.i"
 	@echo "... src/secondary_stats.s"
