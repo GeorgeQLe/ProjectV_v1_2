@@ -23,6 +23,7 @@
         Ex. 
             int this_is_an_int;
             int* p_this_is_an_int_pointer;
+            int f_this_is_a_function_variable;
             Enumerated types(enums) are written in ALL CAPS
             enum Example { ZERO, ONE, TWO = 3};
             

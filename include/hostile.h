@@ -8,24 +8,30 @@
 #define HOSTILE_H
 
 #include <string>
+#include <map>
 #include "ingame_entity.h"
 #include "primary_stats.h"
 #include "actions.h"
+#include "basic_state_AI.h"
 
 // test enemy
 class Hostile : public Ingame_entity_human
 {
     public:
-    Hostile() : Ingame_entity_human("Dummy", 1, 1, 1), hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) {}    
+    Hostile() : Ingame_entity_human("Dummy", 1, 1, 1), m_hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) {}    
     
     // three functions for inheriting classes to override... please override them
+    virtual void update();
     virtual void attack();
     virtual void move();
     virtual void flee();
     
     protected:
-    Primary_stats hostile_stats;
-    Actions potiential_actions;
+    Primary_stats m_hostile_stats;
+    Actions m_potiential_actions;
 };
+
+//adds hostiles to a list of hostile characters to be used in combat
+void add_hostile(std::map<int, Hostile>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int);
 
 #endif

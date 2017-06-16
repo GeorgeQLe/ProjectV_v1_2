@@ -21,6 +21,7 @@ class Primary_character : public Ingame_entity_human
 	Primary_character();
 	
 	void character_creator();
+	void party_character_creator();
 	void reduce_or_increase_reputation(const Reputation_change& reduce_or_increase, int amount);
 	
 	void attack();
@@ -28,10 +29,11 @@ class Primary_character : public Ingame_entity_human
 	private:
 	std::string script_name;
 	
-	Primary_stats innate_character_stats;
-	Secondary_stats learned_character_stats;
-	Alignment character_ethics;
-	Actions possible_actions;
+	Primary_stats m_innate_character_stats;
+	Secondary_stats m_learned_character_stats;
+	Alignment m_character_ethics;
+	Actions m_possible_actions;
+	bool m_player_character;
 };
 
 #endif

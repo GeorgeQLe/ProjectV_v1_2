@@ -207,6 +207,30 @@ src/attacks.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/attacks.cpp.s
 .PHONY : src/attacks.cpp.s
 
+src/basic_state_AI.o: src/basic_state_AI.cpp.o
+.PHONY : src/basic_state_AI.o
+
+# target to build an object file
+src/basic_state_AI.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/basic_state_AI.cpp.o
+.PHONY : src/basic_state_AI.cpp.o
+
+src/basic_state_AI.i: src/basic_state_AI.cpp.i
+.PHONY : src/basic_state_AI.i
+
+# target to preprocess a source file
+src/basic_state_AI.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/basic_state_AI.cpp.i
+.PHONY : src/basic_state_AI.cpp.i
+
+src/basic_state_AI.s: src/basic_state_AI.cpp.s
+.PHONY : src/basic_state_AI.s
+
+# target to generate assembly for a file
+src/basic_state_AI.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/basic_state_AI.cpp.s
+.PHONY : src/basic_state_AI.cpp.s
+
 src/character_class_information.o: src/character_class_information.cpp.o
 .PHONY : src/character_class_information.o
 
@@ -492,6 +516,9 @@ help:
 	@echo "... src/attacks.o"
 	@echo "... src/attacks.i"
 	@echo "... src/attacks.s"
+	@echo "... src/basic_state_AI.o"
+	@echo "... src/basic_state_AI.i"
+	@echo "... src/basic_state_AI.s"
 	@echo "... src/character_class_information.o"
 	@echo "... src/character_class_information.i"
 	@echo "... src/character_class_information.s"

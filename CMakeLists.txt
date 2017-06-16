@@ -14,6 +14,7 @@ endif()
 set(DIADAL_SOURCES
     src/actions.cpp
     src/attacks.cpp
+    src/basic_state_AI.cpp
     src/character_class_information.cpp
     src/character_setup.cpp
     src/combat.cpp
@@ -33,6 +34,7 @@ set(DIADAL_SOURCES
 set(DIADAL_HEADERS
     include/actions.h
     include/attacks.h
+    include/basic_state_AI.h
     include/character_class_information.h
     include/character_setup.h
     include/combat.h
