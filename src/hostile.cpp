@@ -3,6 +3,11 @@
 */
 #include "hostile.h"
 
+void Hostile::update()
+{
+    // TO BE IMPLEMENTED
+}
+
 void Hostile::attack()
 {
     // TO BE IMPLEMENTED

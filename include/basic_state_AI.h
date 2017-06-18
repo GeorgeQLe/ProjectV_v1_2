@@ -85,8 +85,8 @@ class State_machine
     void update() const;
     // change to a new state
     void change_state(Base_state<Entity_type>* p_new_state);
-    // 
-    void revert_previous_state() { change_state(mp_previous_state); }
+    // change to previous state
+    void change_to_previous_state() { change_state(mp_previous_state); }
     
     private:
     // a pointer to the owner of this state machine
@@ -94,10 +94,8 @@ class State_machine
     
     // stores what the current state is
     Base_state<Entity_type>* mp_currecnt_state;
-    
     // stores what the previous state is
     Base_state<Entity_type>* mp_previous_state;
-    
     // this state is called for every update
     Base_state<Entity_type>* mp_global_state;
 };

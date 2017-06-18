@@ -19,16 +19,20 @@ class Hostile : public Ingame_entity_human
 {
     public:
     Hostile() : Ingame_entity_human("Dummy", 1, 1, 1), m_hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) {}    
-    
-    // three functions for inheriting classes to override... please override them
+    ~Hostile() { delete mp_AI_system; }
+    // four functions for inheriting classes to override... please override them
     virtual void update();
     virtual void attack();
     virtual void move();
     virtual void flee();
     
-    protected:
+    private:
+    void get_AI() { mp_AI_system = new State_machine<Hostile>(this); }
+    
     Primary_stats m_hostile_stats;
     Actions m_potiential_actions;
+    
+    State_machine<Hostile>* mp_AI_system;
 };
 
 //adds hostiles to a list of hostile characters to be used in combat
