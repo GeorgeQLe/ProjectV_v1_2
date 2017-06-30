@@ -9,10 +9,10 @@
 Custom_or_premade get_custom_or_premade()
 {
     Custom_or_premade user_choice = NOTCREATED;
-    bool retry;
+    bool confirm = false;
     do
     {
-        retry = true;
+        confirm = false;
         std::cout << "Would you like to customize your stats or use the preset class stats?\n";
         std::cout << "1. Custom\n2. Preset\nInput (1-2): ";
         
@@ -23,8 +23,8 @@ Custom_or_premade get_custom_or_premade()
         {
             std::cout << "You elected to create a custom class.\n";
             std::cout << "Are you sure? (y/n): ";
-            retry = get_y_or_n_as_bool();
-            if(retry == false)
+            confirm = get_y_or_n_as_bool();
+            if(confirm == true)
             {
                 user_choice = CUSTOM;
             }
@@ -33,13 +33,13 @@ Custom_or_premade get_custom_or_premade()
         {
             std::cout << "You elected to use the premade class.\n";
             std::cout << "Are you sure? (y/n): ";
-            retry = get_y_or_n_as_bool();
-            if(retry == false)
+            confirm = get_y_or_n_as_bool();
+            if(confirm == true)
             {
                 user_choice = PREMADE;
             }
-        }
-    } while(retry);   
+        }   
+    } while(!confirm);   
     // should not return NOTCREATED as get_number_from_user should only return 1 or 2
     return user_choice;
 }

@@ -36,7 +36,12 @@
                 int* pm_this_is_a_pointer_to_a_member_variable;
             }
 */
+#include <iostream>
+#include <vector>
 #include "Diadal.h"
+#include "vector_quicksort.h"
+
+using namespace std;
 
 int main()
 {
@@ -46,4 +51,5 @@ int main()
     {
         game_instance.game_loop();
     }
+    
 }

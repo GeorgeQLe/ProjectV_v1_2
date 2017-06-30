@@ -37,6 +37,10 @@ class Ingame_entity_human
 	Gender get_gender() const { return m_entity_gender; }
 	Race get_race() const { return m_entity_race; }
 	Job get_job() const { return m_entity_class; }
+	
+	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
+	// combat turn order
+	virtual unsigned int speed() const = 0;
 	// special accessor functions that return strings instead of an enumerated type
 	std::string get_gender_as_string() const;
 	std::string get_race_as_string() const;

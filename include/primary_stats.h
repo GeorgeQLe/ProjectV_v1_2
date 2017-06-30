@@ -236,14 +236,14 @@ class Primary_stats
 	unsigned int experience_points() const { return m_experience_points; }
 	unsigned int experience_points_needed() const { return m_experience_points_needed; }
 	unsigned int total_health() const { return m_total_health; }
-	int current_health_total() const { return m_current_health_total; }
+	unsigned int current_health_total() const { return m_current_health_total; }
 	unsigned int defense() const { return m_defense; }
 	unsigned int speed() const { return m_speed; }
 	
 	void reduce_reputation(int amount);
 	void increase_reputation(int amount);
 
-	//private:
+	private:
 	Primary_attributes m_stat_modifiers;
 	Secondary_attributes m_supporting_stat_modifiers;
 	

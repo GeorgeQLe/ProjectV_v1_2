@@ -3,23 +3,27 @@
     used specifically with the functions in combat.h ONLY!!!
 */
 #include "combat.h"
+#include "vector_quicksort.h"
 
-std::vector<Ingame_entity_human*> turn_order(const std::map<int, Primary_character*>& list_of_characters, 
-                                            const std::map<int, Hostile*>& list_of_hostiles)
+std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
+                                            const std::vector<Hostile*>& list_of_hostiles)
 {
+    // initialize the turn order with the list of player characters
     std::vector<Ingame_entity_human*> f_turn_order;
-    //Ingame_entity_human* p_fastest_character;
+    Ingame_entity_human* p_fastest_character, *p_temp;
     unsigned int number_of_combatants = list_of_characters.size() + list_of_hostiles.size();
-    
-    // ensure that turn order has all combatants
-    while(f_turn_order.size() != number_of_combatants)
+    for(unsigned int i = 0; i != list_of_characters.size(); i++)
     {
-        // finds fastest player character and pushes them into the turn order 
-        for(unsigned int i = 0; i < list_of_characters.size(); i++)
-        {
-            // compares two player characters and selects the character with the highest speed
-        }
+        f_turn_order.push_back(list_of_characters.at(i));
     }
+    for(unsigned int i = 0; i != list_of_hostiles.size(); i++)
+    {
+        f_turn_order.push_back(list_of_hostiles.at(i));
+    }
+    
+    // sort the turn order from fastest characters to slowest characters
+    // implements quick sort to sort player characters
+    quicksort(f_turn_order, 0, f_turn_order.size());
     
     return f_turn_order;
 }
@@ -37,7 +41,7 @@ Result one_v_one_duel(std::vector<Ingame_entity_human*>& list_of_combatants)
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
     // creates a map to store hostiles at a specific index
-    std::map<int, Hostile*> list_of_hostiles;
+    std::vector<Hostile*> list_of_hostiles;
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     // turn order holds a reference to the player party and all hostiles
@@ -58,12 +62,12 @@ Result one_v_one_duel(std::vector<Ingame_entity_human*>& list_of_combatants)
     return victory_or_loss;
 }
 
-Result party_v_one_duel(std::map<int, Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
+Result party_v_one_duel(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
     // creates a map to store hostiles at a specific index
-    std::map<int, Hostile*> list_of_hostiles;
+    std::vector<Hostile*> list_of_hostiles;
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     // turn order holds a reference to the player party and all hostiles

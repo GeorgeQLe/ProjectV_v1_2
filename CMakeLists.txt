@@ -29,6 +29,7 @@ set(DIADAL_SOURCES
     src/projectV_driver.cpp
     src/secondary_stats.cpp
     src/support.cpp
+    src/vector_quicksort.cpp
 )
 
 set(DIADAL_HEADERS
@@ -48,6 +49,7 @@ set(DIADAL_HEADERS
     include/primary_stats.h
     include/secondary_stats.h
     include/support.h
+    include/vector_quicksort.h
 )
 
 include_directories(include)

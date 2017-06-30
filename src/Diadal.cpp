@@ -65,8 +65,8 @@ void Diadal::new_game()
     {
         // creates the player character and puts it into the list of player
         // controlled party members
-        Primary_character* player = new Primary_character();
-        m_list_of_characters.emplace(++m_number_of_party_members, player);
+        Primary_character* player = new Primary_character(true);
+        m_list_of_characters.push_back(player);
         m_new_game = false;
     }
     Result status;

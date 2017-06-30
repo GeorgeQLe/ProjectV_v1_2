@@ -1,7 +1,10 @@
 /*  Copyright 2017 George Le
     
     Implements a basic game AI as a finite state machine. Designed using the state design pattern.
-    Completely generic
+    Completely generic with the use of templates
+    
+    Declaration:
+        -
 */
 #ifndef BASIC_STATE_AT_H
 #define BASIC_STATE_AT_H

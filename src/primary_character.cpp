@@ -5,10 +5,20 @@
 #include "primary_character.h"
 #include "character_setup.h"
 
-Primary_character::Primary_character() 
+Primary_character::Primary_character(bool f_player) 
                 : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
 {
-    character_creator();
+    // checks if the primary_character to be created is the player
+    if(f_player)
+    {
+        // if so call the special player character creation
+        character_creator();
+    }
+    else
+    {
+        // called to create the player's party characters
+        party_character_creator();
+    }
 }
 
 void Primary_character::character_creator()
@@ -28,16 +38,36 @@ void Primary_character::party_character_creator()
     // TO BE DESIGNED
 }
 
-void Primary_character::reduce_or_increase_reputation(const Reputation_change& reduce_or_increase, int amount)
+void Primary_character::reduce_or_increase_reputation(Change_stat f_reduce_or_increase, int f_amount)
 {
-    if(reduce_or_increase == REDUCE)
+    if(f_reduce_or_increase == REDUCE)
     {
-        m_innate_character_stats.reduce_reputation(amount);
+        m_innate_character_stats.reduce_reputation(f_amount);
     }
-    else if(reduce_or_increase == INCREASE)
+    else if(f_reduce_or_increase == INCREASE)
     {
-        m_innate_character_stats.increase_reputation(amount);
+        m_innate_character_stats.increase_reputation(f_amount);
     }
+}
+
+unsigned int Primary_character::level() const
+{
+    return m_innate_character_stats.level();
+}
+
+unsigned int Primary_character::total_health() const
+{
+    return m_innate_character_stats.total_health();
+}
+
+unsigned int Primary_character::current_health_total() const
+{
+    return m_innate_character_stats.current_health_total();
+}
+
+unsigned int Primary_character::speed() const
+{
+    return m_innate_character_stats.speed();
 }
 
 void Primary_character::attack()

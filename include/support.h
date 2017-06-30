@@ -1,5 +1,16 @@
 /*  Copyright 2016 George Le
     Very useful functions for any project really
+    
+    Declaration:
+        -functions
+            -void read_files(const std::string& file_name)
+            -void print_line(const std::string& line)
+            -void print_list(const std::vector<std::string>& list_of_strings)
+            -int get_number_from_user(int smallest_possible_choice, int largest_possible_choice)
+            -std::string getline_from_user_unrestricted()
+            -std::string getline_from_user_restricted(unsigned int min_length, unsigned int max_length)
+            -bool get_y_or_n_as_bool()
+            -void clear_screen()
 */
 #ifndef SUPPORT_H
 #define SUPPORT_H

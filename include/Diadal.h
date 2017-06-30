@@ -3,7 +3,7 @@
 */
 #ifndef DIADAL_H
 #define DIADAL_H
-#include <map>
+#include <vector>
 #include "game.h"
 #include "primary_character.h"
 
@@ -24,7 +24,7 @@ class Diadal
 	bool m_new_game;
 	int m_number_of_party_members;
 	
-	std::map<int, Primary_character*> m_list_of_characters;
+	std::vector<Primary_character*> m_list_of_characters;
 };
 
 #endif
