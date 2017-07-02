@@ -18,11 +18,11 @@ std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character
     {
         f_turn_order.push_back(list_of_hostiles.at(i));
     }
-    
+
     // sort the turn order from fastest characters to slowest characters
     // implements quick sort to sort player characters
-    quicksort(f_turn_order, 0, f_turn_order.size());
-    
+    quicksort(f_turn_order, 0, f_turn_order.size(), Ingame_entity_human::SpeedCompare());
+
     return f_turn_order;
 }
 

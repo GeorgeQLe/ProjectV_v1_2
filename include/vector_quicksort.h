@@ -11,11 +11,11 @@
 
 #include <vector>
 
-template<class T>
-void quicksort(std::vector<T>& list, unsigned int left, unsigned int right);
+template<class T, class Compare = std::less_equal<T>>
+void quicksort(std::vector<T>& list, unsigned int left, unsigned int right, const Compare& comp = Compare());
 
-template<class T>
-int partition(std::vector<T>& list, unsigned int left, unsigned int right);
+template<class T, class Compare = std::less_equal<T>>
+int partition(std::vector<T>& list, unsigned int left, unsigned int right, const Compare& comp = Compare());
 
 #include "vector_quicksort.imp"
 

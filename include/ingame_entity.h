@@ -51,7 +51,16 @@ class Ingame_entity_human
 	// the entity is dead or unable to take an action
 	// returns false by default if not overloaded
 	virtual bool turn() { return false; }
-	
+
+	struct SpeedCompare
+	{
+	public:
+		bool operator()(const Ingame_entity_human& a, const Ingame_entity_human& b) const
+		{
+			return a.speed() <= b.speed();
+		}
+	};
+
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character
 	void set_information();
