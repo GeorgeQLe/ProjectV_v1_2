@@ -31,6 +31,8 @@ void Primary_character::character_creator()
     Factory_player_characters f_creator;
 	f_creator.primary_stats_setup(get_job(), m_innate_character_stats);
 	f_creator.secondary_stats_setup(get_job(), m_learned_character_stats);
+	
+	print_stats();
 }
 
 void Primary_character::party_character_creator()
@@ -68,6 +70,38 @@ unsigned int Primary_character::current_health_total() const
 unsigned int Primary_character::speed() const
 {
     return m_innate_character_stats.speed();
+}
+
+void Primary_character::print_header_stats()
+{
+    std::cout << "Level: " << level() << std::endl;
+    std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
+    std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" 
+            << m_innate_character_stats.experience_points_needed() << std::endl;
+}
+
+void Primary_character::print_stats()
+{
+    std::cout << "Level: " << level() << std::endl;
+    std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
+    std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" << 
+        m_innate_character_stats.experience_points_needed() << std::endl;
+    std::cout << "Strength: " << m_innate_character_stats.strength() << std::endl;
+    std::cout << "Leadership: " << m_innate_character_stats.leadership() << std::endl;
+    std::cout << "Intelligence: " << m_innate_character_stats.intelligence() << std::endl;
+    std::cout << "Character: " << m_innate_character_stats.character() << std::endl;
+    std::cout << "Endurance: " << m_innate_character_stats.endurance() << std::endl;
+}
+
+bool Primary_character::turn()
+{
+    bool success = false;
+    if(current_health_total() > 0)
+    {
+        success = true;
+           
+    }
+    return success;
 }
 
 void Primary_character::attack()

@@ -46,6 +46,12 @@ class Ingame_entity_human
 	std::string get_race_as_string() const;
 	std::string get_job_as_string() const;
 	
+	// function to take a turn during combat, can be overloaded for deriving classes that actually
+	// can be in combat. function will return true if entity took a successful action and false if
+	// the entity is dead or unable to take an action
+	// returns false by default if not overloaded
+	virtual bool turn() { return false; }
+	
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character
 	void set_information();

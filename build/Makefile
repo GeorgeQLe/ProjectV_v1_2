@@ -495,30 +495,6 @@ src/support.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/support.cpp.s
 .PHONY : src/support.cpp.s
 
-src/vector_quicksort.o: src/vector_quicksort.cpp.o
-.PHONY : src/vector_quicksort.o
-
-# target to build an object file
-src/vector_quicksort.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/vector_quicksort.cpp.o
-.PHONY : src/vector_quicksort.cpp.o
-
-src/vector_quicksort.i: src/vector_quicksort.cpp.i
-.PHONY : src/vector_quicksort.i
-
-# target to preprocess a source file
-src/vector_quicksort.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/vector_quicksort.cpp.i
-.PHONY : src/vector_quicksort.cpp.i
-
-src/vector_quicksort.s: src/vector_quicksort.cpp.s
-.PHONY : src/vector_quicksort.s
-
-# target to generate assembly for a file
-src/vector_quicksort.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/vector_quicksort.cpp.s
-.PHONY : src/vector_quicksort.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -576,9 +552,6 @@ help:
 	@echo "... src/support.o"
 	@echo "... src/support.i"
 	@echo "... src/support.s"
-	@echo "... src/vector_quicksort.o"
-	@echo "... src/vector_quicksort.i"
-	@echo "... src/vector_quicksort.s"
 .PHONY : help
 
 

@@ -14,12 +14,12 @@ enum Result { NOT_STARTED = -1, FIGHTING, PLAYER_DEATH, PLAYER_VICTORY, TIE};
 std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
                                             const std::vector<Hostile*>& list_of_hostiles);
 
-// Function that plays out one turn of 
-Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants);
+// Function that plays out one turn of combat
+Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsigned int number_of_player_characters);
 
 // Function that plays a 1v1 turn-based battle between a PLAYER-controlled primary_character and one hostile
 // If the PLAYER-controlled party has more than one primary_character then call a different function
-Result one_v_one_duel(std::vector<Ingame_entity_human*>& list_of_combatants);
+Result one_v_one_duel(std::vector<Primary_character*>& list_of_combatants);
 
 Result party_v_one_duel(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int);
 

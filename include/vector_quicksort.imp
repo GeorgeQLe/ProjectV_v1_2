@@ -37,7 +37,7 @@ int partition(std::vector<T>& list, unsigned int left, unsigned int right)
         // change functions for what you want to compare in the vectors
         // if the element in the vector at the left+1 position is less than or 
         // equal to the element at the left position then execute within this
-        if(list.at(i).speed() <= f_temp.speed())
+        if(list.at(i)->speed() <= f_temp->speed())
         {
             // increment the partition
             f_partition++;

@@ -1,5 +1,11 @@
 /*  Copyright 2017 George Le
     Declaration of ingame entities' actions
+    
+    Declarations:
+        Classes:
+            -Movement_action
+            -Flee_action
+            -Actions
 */
 #ifndef ACTIONS_H
 #define ACTIONS_H
@@ -7,8 +13,6 @@
 #include <string>
 #include <vector>
 #include "attacks.h"
-
-enum Possible_actions { DEFAULT_POSSIBLE_ACTIONS, ATTACKS, ITEMS, MOVEMENT, FLEE};
 
 class Movement_action
 {
@@ -38,11 +42,15 @@ class Actions : public Movement_action, public Flee_action
 {
     public:
     Actions();
-    Possible_actions select_actions();
-    void list_possible_actions();
-    private:
-    List_of_attacks possible_attacks;
     
+    // Prints to the screen all of the possible actions available to the entity
+    void list_possible_actions();
+    // Used in conjuction with above function to recieve user input on which 
+    // action they want to perform then evaluates it if it is move or flee.
+    // Returns true if the user wants to attack or use item, false if anything else
+    bool select_actions(int& choice);
+    
+    private:
     std::vector<std::string> list_of_action_names;
     // TO BE DESIGNED
     // class to interact with Inventory in Inventory.h

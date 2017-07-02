@@ -33,17 +33,39 @@ Actions::Actions()
     list_of_action_names.push_back("4. Flee");
 }
 
-Possible_actions Actions::select_actions()
-{
-    std::cout << "What action would you like to do?\n";
-    list_possible_actions();
-    return static_cast<Possible_actions>(get_number_from_user(1, 4));
-}
-
 void Actions::list_possible_actions()
 {
     for(auto it = list_of_action_names.begin(); it != list_of_action_names.end(); it++)
     {
         std::cout << *it << "\n";
     }
+}
+
+bool Actions::select_actions(int& choice)
+{
+    std::cout << "What would you like to do?\n";
+    list_possible_actions();
+    int f_user_choice = get_number_from_user(1, 4);
+    bool attack_or_item = false;
+    switch(f_user_choice)
+    {
+        case 1:
+        case 3:
+        attack_or_item = true;
+        break;
+        case 2:
+        move();
+        break;
+        case 4:
+        if(flee())
+        {
+            std::cout << "You successful fled!\n";
+        }
+        else
+        {
+            std::cout << "You failed to run away!\n";
+        }
+        break;
+    }
+    return attack_or_item;
 }

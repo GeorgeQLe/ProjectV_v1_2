@@ -17,4 +17,6 @@ void quicksort(std::vector<T>& list, unsigned int left, unsigned int right);
 template<class T>
 int partition(std::vector<T>& list, unsigned int left, unsigned int right);
 
+#include "vector_quicksort.imp"
+
 #endif

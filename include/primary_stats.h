@@ -240,6 +240,12 @@ class Primary_stats
 	unsigned int defense() const { return m_defense; }
 	unsigned int speed() const { return m_speed; }
 	
+	int strength() const { return m_stat_modifiers.strength(); }
+	int leadership() const { return m_stat_modifiers.leadership(); }
+	int intelligence() const { return m_stat_modifiers.intelligence(); }
+	int character() const { return m_stat_modifiers.character(); }
+	int endurance() const { return m_stat_modifiers.endurance(); }
+	
 	void reduce_reputation(int amount);
 	void increase_reputation(int amount);
 

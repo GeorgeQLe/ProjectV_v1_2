@@ -8,10 +8,8 @@
 std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
                                             const std::vector<Hostile*>& list_of_hostiles)
 {
-    // initialize the turn order with the list of player characters
+    // initialize the turn order
     std::vector<Ingame_entity_human*> f_turn_order;
-    Ingame_entity_human* p_fastest_character, *p_temp;
-    unsigned int number_of_combatants = list_of_characters.size() + list_of_hostiles.size();
     for(unsigned int i = 0; i != list_of_characters.size(); i++)
     {
         f_turn_order.push_back(list_of_characters.at(i));
@@ -28,15 +26,30 @@ std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character
     return f_turn_order;
 }
 
-Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants)
+Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsigned int number_of_player_characters)
 {
     // return value of the function, set initially to fighting
     Result victory_or_loss = FIGHTING;
+    // if count of players not able to take actions is equal to
+    // number of player characters, check if player team all died
+    unsigned int counter = 0;
+    bool success = false;
+    
+    // loop to let every object take a turn
+    for(auto it = list_of_combatants.begin(); it != list_of_combatants.end(); it++)
+    {
+        // what ugly syntax double dereference
+        success = (*it)->turn();
+        if(success == false)
+        {
+            ++counter;
+        }
+    }
     
     return victory_or_loss; // should either return fighting, player_victory or player_death
 }
 
-Result one_v_one_duel(std::vector<Ingame_entity_human*>& list_of_combatants)
+Result one_v_one_duel(std::vector<Primary_character*>& list_of_combatants)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
@@ -51,7 +64,7 @@ Result one_v_one_duel(std::vector<Ingame_entity_human*>& list_of_combatants)
     while(victory_or_loss == NOT_STARTED)
     {
         // plays out one turn of the current encounter
-        
+        f_list_of_combatants = turn_order(list_of_combatants, list_of_hostiles);
         // for demo only, way to leave while loop to avoid infinite loop
         if(turn_counter == 100)
         {
@@ -90,7 +103,7 @@ Result party_v_one_duel(std::vector<Primary_character*>& list_of_characters, int
         {
             victory_or_loss = PLAYER_DEATH;
         }
-        turn_counter++;
+        ++turn_counter;
     }
     return victory_or_loss;
 }

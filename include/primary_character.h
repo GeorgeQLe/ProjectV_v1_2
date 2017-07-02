@@ -24,7 +24,7 @@ class Primary_character : public Ingame_entity_human
 	public:
 	Primary_character(bool f_player);
 	
-	// 
+	// functions used to undergo character creation for the player
 	void character_creator();
 	void party_character_creator();
 	
@@ -36,6 +36,12 @@ class Primary_character : public Ingame_entity_human
 	unsigned int total_health() const;
 	unsigned int current_health_total() const;
 	unsigned int speed() const;
+	
+	void print_header_stats();
+	void print_stats();
+	
+	// function called once per turn of combat
+	bool turn();
 	
 	// calls this function during an attack to recieve
 	// the damage of the selected attack
@@ -51,6 +57,9 @@ class Primary_character : public Ingame_entity_human
 	Alignment m_character_ethics;
 	// declared in actions.h
 	Actions m_possible_actions;
+	// declared in attacks.h
+	List_of_attacks character_possible_attacks;
+	// is this primary_character the player character or a party member?
 	bool m_player_character;
 };
 
