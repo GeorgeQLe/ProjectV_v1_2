@@ -3,19 +3,19 @@
     
     Declarations:
         -Functions:
-            -void quicksort(std::vector<T>& list, unsigned int left, unsigned int right)
-            -int partition(std::vector<T>& list, unsigned int left, unsigned int right)
+            -void quicksort(std::vector<Object>& list, unsigned int left, unsigned int right)
+            -int partition(std::vector<Object>& list, unsigned int left, unsigned int right)
 */
 #ifndef VECTOR_QUICKSORT_H
 #define VECTOR_QUICKSORT_H
 
 #include <vector>
 
-template<class T>
-void quicksort(std::vector<T>& list, unsigned int left, unsigned int right);
+template<class Object, class Compare = std::less_equal<Object>>
+void quicksort(std::vector<Object>& list, unsigned int left, unsigned int right, const Compare& comp = Compare());
 
-template<class T>
-int partition(std::vector<T>& list, unsigned int left, unsigned int right);
+template<class Object, class Compare = std::less_equal<Object>>
+int partition(std::vector<Object>& list, unsigned int left, unsigned int right, const Compare& comp = Compare());
 
 #include "vector_quicksort.imp"
 

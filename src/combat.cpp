@@ -21,7 +21,7 @@ std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character
     
     // sort the turn order from fastest characters to slowest characters
     // implements quick sort to sort player characters
-    quicksort(f_turn_order, 0, f_turn_order.size());
+    quicksort(f_turn_order, 0, f_turn_order.size(), Ingame_entity_human::speed_compare());
     
     return f_turn_order;
 }
@@ -49,22 +49,31 @@ Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsign
     return victory_or_loss; // should either return fighting, player_victory or player_death
 }
 
-Result one_v_one_duel(std::vector<Primary_character*>& list_of_combatants)
+Result one_v_one_duel(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
-    // creates a map to store hostiles at a specific index
+    // checks if it's really a one v one fight
+    if(list_of_characters.size() != 1)
+    {
+        // call another combat function depending on the size of your party
+        victory_or_loss = party_v_one_duel(list_of_characters, enum_difficult_converted_to_int);   
+    }
+    // creates a vector to store hostiles at a specific index
     std::vector<Hostile*> list_of_hostiles;
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     // turn order holds a reference to the player party and all hostiles
     std::vector<Ingame_entity_human*> f_list_of_combatants;
-    
+    // sets up the turn order for the game
+    f_list_of_combatants = turn_order(list_of_characters, list_of_hostiles);
     // main combat loop
     while(victory_or_loss == NOT_STARTED)
     {
         // plays out one turn of the current encounter
-        f_list_of_combatants = turn_order(list_of_combatants, list_of_hostiles);
+        victory_or_loss = single_turn(f_list_of_combatants, f_list_of_combatants.size());
+        // if speed change then redo the turn order
+        
         // for demo only, way to leave while loop to avoid infinite loop
         if(turn_counter == 100)
         {
@@ -84,19 +93,15 @@ Result party_v_one_duel(std::vector<Primary_character*>& list_of_characters, int
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     // turn order holds a reference to the player party and all hostiles
-    std::vector<Ingame_entity_human*> list_of_combatants;
-    
-    // checks if it's really a one v one fight
-    if(list_of_characters.size() != 1)
-    {
-        // call another combat function depending on the size of your party
-        // TO BE DESIGNED
-    }
-    
+    std::vector<Ingame_entity_human*> f_list_of_combatants;
+    // sets up the turn order for the game
+    f_list_of_combatants = turn_order(list_of_characters, list_of_hostiles);
     // main combat loop
     while(victory_or_loss == NOT_STARTED)
     {
         // plays out one turn of the current encounter
+        victory_or_loss = single_turn(f_list_of_combatants, f_list_of_combatants.size());
+        // if speed change then redo the turn order
         
         // for demo only, way to leave while loop to avoid infinite loop
         if(turn_counter == 100)

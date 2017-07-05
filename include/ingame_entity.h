@@ -41,6 +41,17 @@ class Ingame_entity_human
 	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
 	// combat turn order
 	virtual unsigned int speed() const = 0;
+	// adds a comparator for comparing ingame_entity's speeds
+	struct speed_compare
+	{
+		public:
+		// overloads () operator for use as functor to facilitate comparing of speeds
+		bool operator()(const Ingame_entity_human* first, const Ingame_entity_human* second) const
+		{
+			return first->speed()<=second->speed();
+		}
+	};
+	
 	// special accessor functions that return strings instead of an enumerated type
 	std::string get_gender_as_string() const;
 	std::string get_race_as_string() const;

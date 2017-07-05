@@ -95,13 +95,18 @@ void Primary_character::print_stats()
 
 bool Primary_character::turn()
 {
-    bool success = false;
+    bool f_success = false;
+    int f_select_actions;
     if(current_health_total() > 0)
     {
-        success = true;
-           
+        f_success = true;
+        m_possible_actions.list_possible_actions();
+        if(m_possible_actions.select_actions(&f_select_actions))
+        {
+            
+        }
     }
-    return success;
+    return f_success;
 }
 
 void Primary_character::attack()

@@ -4,7 +4,9 @@
     Completely generic with the use of templates
     
     Declaration:
-        -
+        Class:
+            -Base_state
+            -State_machine
 */
 #ifndef BASIC_STATE_AT_H
 #define BASIC_STATE_AT_H
@@ -22,51 +24,6 @@ class Base_state
     // displays a little message to let player know the change in state of hostiles
     virtual void exit(Entity_type*) = 0;
     virtual ~Base_state() {}
-};
-
-template<class Entity_type>
-class Idle_state : public Base_state<Entity_type>
-{
-    public:
-    void enter(Entity_type* p_character);
-    void evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
-};
-
-template<class Entity_type>
-class Aggressive_state : public Base_state<Entity_type>
-{
-    public:
-    void enter(Entity_type* p_character);
-    void evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
-};
-
-template<class Entity_type>
-class Defensive_state : public Base_state<Entity_type>
-{
-    public:
-    void enter(Entity_type* p_character);
-    void evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
-};
-
-template<class Entity_type>
-class Run_state : public Base_state<Entity_type>
-{
-    public:
-    void enter(Entity_type* p_character);
-    void evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
-};
-
-template<class Entity_type>
-class Desparate_state : public Base_state<Entity_type>
-{
-    public:
-    void enter(Entity_type* p_character);
-    void evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
 };
 
 template<class Entity_type>

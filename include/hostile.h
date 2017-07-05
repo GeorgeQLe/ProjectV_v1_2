@@ -27,6 +27,7 @@ class Hostile : public Ingame_entity_human
     virtual void flee();
     
     private:
+    // function to recieve an AI system
     void get_AI() { mp_AI_system = new State_machine<Hostile>(this); }
     
     Primary_stats m_hostile_stats;

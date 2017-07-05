@@ -5,39 +5,39 @@
 #include <algorithm> // for std::swap()
 #include "vector_quicksort.h"
 
-template<class T>
-void quicksort(std::vector<T>& list, unsigned int left, unsigned int right)
+template<class Object, class Compare>
+void quicksort(std::vector<Object>& list, unsigned int left, unsigned int right, const Compare& comp)
 {
     int f_partition;
     // ensure that left is less than right as it should
     if(left < right)
     {
         // get the partition for the quick sort and sort from the left to the right
-        f_partition = partition(list, left, right);
+        f_partition = partition(list, left, right, comp);
         // recursively call quicksort with the new partition being the right
-        quicksort(list , left, f_partition);  
+        quicksort(list , left, f_partition, comp);  
         // recursively call quicksort with the new partition incremented by 1 being
         // the left hand side
-        quicksort(list, f_partition+1, right);
+        quicksort(list, f_partition+1, right, comp);
     }
 }
 
-template<class T>
-int partition(std::vector<T>& list, unsigned int left, unsigned int right)
+template<class Object, class Compare>
+int partition(std::vector<Object>& list, unsigned int left, unsigned int right, const Compare& comp)
 {
     // set partition equal to the right
     int f_partition = left;
     // create a temporary reference to the element in the vector at the left
-    T f_temp = list.at(left);
+    Object f_temp = list.at(left);
     
     // compare from the left hand element to the right hand element, the right
     // hand element being the partition
     for(unsigned int i = left+1; i < right; i++)
     {
-        // change functions for what you want to compare in the vectors
+        // generic function in condition for what you want to compare in the vectors
         // if the element in the vector at the left+1 position is less than or 
         // equal to the element at the left position then execute within this
-        if(list.at(i)->speed() <= f_temp->speed())
+        if(comp(list.at(i), f_temp))
         {
             // increment the partition
             f_partition++;
