@@ -32,10 +32,10 @@ class Primary_character : public Ingame_entity_human
 	void reduce_or_increase_reputation(Change_stat f_reduce_or_increase, int f_amount);
 	
 	// accessor functions
-	unsigned int level() const;
-	unsigned int total_health() const;
-	unsigned int current_health_total() const;
-	unsigned int speed() const;
+	unsigned int level() const { return m_innate_character_stats.level(); }
+	unsigned int total_health() const { return m_innate_character_stats.total_health(); }
+	unsigned int current_health_total() const { return m_innate_character_stats.current_health_total(); }
+	unsigned int speed() const { return m_innate_character_stats.speed(); }
 	
 	// prints stats for combat
 	void print_header_stats();
@@ -43,12 +43,19 @@ class Primary_character : public Ingame_entity_human
 	void print_stats();
 	
 	// function called once per turn of combat
+	// return true if the character was able to successfully complete a turn
+	// else return false if for some reason the player couldn't take their turn
 	bool turn(std::vector<Ingame_entity_human*>& turn_order);
+	
+	// function to called to let the character choose an offensive action
+	// returns true if the character selects an action, returns false if the
+	// character wants to return to the previous prompt
+	bool action(std::vector<Ingame_entity_human*>& turn_order);
 	
 	// calls this function during an attack to recieve
 	// the damage of the selected attack
-	void attack(std::vector<Ingame_entity_human*>& turn_order);
-
+	void attack() {}
+	
 	private:
 	// declared in primary_stats.h
 	Primary_stats m_innate_character_stats;
