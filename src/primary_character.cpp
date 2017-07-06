@@ -4,6 +4,7 @@
 #include <iostream>
 #include "primary_character.h"
 #include "character_setup.h"
+#include "support.h"
 
 Primary_character::Primary_character(bool f_player) 
                 : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
@@ -25,14 +26,12 @@ void Primary_character::character_creator()
 {
     //sets name, gender, race, and character class
     //ingame_entity.h
-    set_information(); 
+    //set_information(); 
     //sets primary stats- primary attributes and secondary attributes
     //character_setup.h
     Factory_player_characters f_creator;
 	f_creator.primary_stats_setup(get_job(), m_innate_character_stats);
 	f_creator.secondary_stats_setup(get_job(), m_learned_character_stats);
-	
-	print_stats();
 }
 
 void Primary_character::party_character_creator()
@@ -74,7 +73,7 @@ unsigned int Primary_character::speed() const
 
 void Primary_character::print_header_stats()
 {
-    std::cout << "Level: " << level() << std::endl;
+    std::cout << "Name:" << get_name() << " Level: " << level() << std::endl;
     std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
     std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" 
             << m_innate_character_stats.experience_points_needed() << std::endl;
@@ -93,23 +92,35 @@ void Primary_character::print_stats()
     std::cout << "Endurance: " << m_innate_character_stats.endurance() << std::endl;
 }
 
-bool Primary_character::turn()
+bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
 {
     bool f_success = false;
-    int f_select_actions;
     if(current_health_total() > 0)
     {
         f_success = true;
-        m_possible_actions.list_possible_actions();
-        if(m_possible_actions.select_actions(&f_select_actions))
+        if(m_possible_actions.select_actions())
         {
-            
+            attack(turn_order);
         }
     }
     return f_success;
 }
 
-void Primary_character::attack()
+void Primary_character::attack(std::vector<Ingame_entity_human*>& turn_order)
 {
-    // TO BE IMPLEMENTED
+    std::cout << "What action would you like to perform?" << std::endl;
+    m_character_possible_attacks.list_attacks();
+    int f_select_actions = get_number_from_user(1, 3);
+    if(f_select_actions == ATTACK)
+    {
+        std::cout << "Primary_attack" << std::endl;
+    }
+    else if(f_select_actions == ULTIMATE)
+    {
+        std::cout << "Ultimate_attack" << std::endl;
+    }
+    else if(f_select_actions == ITEM)
+    {
+        std::cout << "Items" << std::endl;
+    }
 }

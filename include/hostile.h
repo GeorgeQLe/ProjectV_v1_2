@@ -30,6 +30,9 @@ class Hostile : public Ingame_entity_human
     // function to recieve an AI system
     void get_AI() { mp_AI_system = new State_machine<Hostile>(this); }
     
+    // 
+    bool is_hostile;
+    
     Primary_stats m_hostile_stats;
     Actions m_potiential_actions;
     

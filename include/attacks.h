@@ -8,6 +8,7 @@
 #include <vector>
 
 enum Stat { DAMAGE = 1, AMMO, SPEED};
+enum Type_of_attack { NO_ATTACK, ATTACK, ULTIMATE, ITEM};
 
 struct Attack_stats
 {
@@ -80,6 +81,9 @@ struct List_of_attacks
     // attack names, index 0 for primary attacks, 1 for ult, and 2 for item.
     // Also assigns those names to the attacks themselves.
     List_of_attacks(std::vector<std::string> list_of_attack_names);
+    
+    // lists out the name of the three possible attack options
+    void list_attacks();
     
     // The three classes that make up the struct
     Primary_attacks m_primary_attack;

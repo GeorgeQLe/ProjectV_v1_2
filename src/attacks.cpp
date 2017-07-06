@@ -1,6 +1,7 @@
 /*  Copyright 2017 George Le
     
 */
+#include <iostream>
 #include "attacks.h"
 
 void Attacks::update(Stat to_be_changed, int new_stat_amount)
@@ -64,4 +65,14 @@ List_of_attacks::List_of_attacks(std::vector<std::string> list_of_attack_names)
     m_possible_attacks.push_back(true);
     m_possible_attacks.push_back(true);
     m_possible_attacks.push_back(true);
+}
+
+void List_of_attacks::list_attacks()
+{
+    int counter = 0;
+    for(auto it = m_list_of_attack_names.begin(); it != m_list_of_attack_names.end(); it++)
+    {
+        ++counter;
+        std::cout << counter << "." << *it << std::endl;
+    }
 }

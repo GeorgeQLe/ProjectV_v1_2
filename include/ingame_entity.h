@@ -15,6 +15,7 @@
 #define MAX_RACE 6
 #define MAX_CLASSES 8
 #include <string>
+#include <vector>
 
 enum Gender {UNINIT , MALE, FEMALE, OTHER_ORIENTATION};
 enum Race {UNSET, WHITE, BLACK, ASIAN, HISPANIC, INDIGENOUS, OTHER};
@@ -37,6 +38,8 @@ class Ingame_entity_human
 	Gender get_gender() const { return m_entity_gender; }
 	Race get_race() const { return m_entity_race; }
 	Job get_job() const { return m_entity_class; }
+	
+	virtual void print_header_stats() {}
 	
 	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
 	// combat turn order
@@ -61,7 +64,7 @@ class Ingame_entity_human
 	// can be in combat. function will return true if entity took a successful action and false if
 	// the entity is dead or unable to take an action
 	// returns false by default if not overloaded
-	virtual bool turn() { return false; }
+	virtual bool turn(std::vector<Ingame_entity_human*>& turn_order) { return false; }
 	
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character

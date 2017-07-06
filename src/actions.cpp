@@ -27,10 +27,9 @@ bool Flee_action::flee()
 
 Actions::Actions()
 {
-    list_of_action_names.push_back("1. Attack");
+    list_of_action_names.push_back("1. Action");
     list_of_action_names.push_back("2. Move");
-    list_of_action_names.push_back("3. Item");
-    list_of_action_names.push_back("4. Flee");
+    list_of_action_names.push_back("3. Flee");
 }
 
 void Actions::list_possible_actions()
@@ -41,10 +40,11 @@ void Actions::list_possible_actions()
     }
 }
 
-bool Actions::select_actions(int* action_selected)
+bool Actions::select_actions()
 {
     std::cout << "What would you like to do?\n";
     list_possible_actions();
+    std::cout << "Input:";
     int f_user_choice = get_number_from_user(1, 4);
     bool attack = false;
     switch(f_user_choice)
@@ -57,9 +57,6 @@ bool Actions::select_actions(int* action_selected)
         move();
         break;
         case 3:
-        // TO BE IMPLEMENTED
-        break;
-        case 4:
         if(flee())
         {
             std::cout << "You successful fled!\n";

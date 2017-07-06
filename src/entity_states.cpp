@@ -2,6 +2,7 @@
     
     Definitions of functions declared in entity_stats.h
 */
+#include "entity_states.h"
 
 template<class Entity_type>
 void Idle_state<Entity_type>::enter(Entity_type* p_character)
@@ -84,7 +85,7 @@ void Desparate_state<Entity_type>::enter(Entity_type* p_character)
 template<class Entity_type>
 void Desparate_state<Entity_type>::evaluate(Entity_type* p_character)
 {
-    // will charge at opponent and attack them
+    // will charge(gameplay-wise move closer) at opponent and attack them
 }
 
 template<class Entity_type>

@@ -4,6 +4,7 @@
 */
 #ifndef ENTITY_STATES_H
 #define ENTITY_STATES_H
+#include "basic_state_AI.h"
 
 template<class Entity_type>
 class Idle_state : public Base_state<Entity_type>

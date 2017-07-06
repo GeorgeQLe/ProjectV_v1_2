@@ -17,8 +17,6 @@
 #include <vector>
 #include "attacks.h"
 
-enum Action_type { NO_ACTION, ATTACK, ITEM};
-
 class Movement_action
 {
     public:
@@ -53,7 +51,7 @@ class Actions : public Movement_action, public Flee_action
     // Used in conjuction with above function to recieve user input on which 
     // action they want to perform then evaluates it if it is move or flee.
     // Returns true if the user wants to attack or use item, false if anything else
-    bool select_actions(int* action_selected);
+    bool select_actions();
     
     private:
     std::vector<std::string> list_of_action_names;

@@ -327,6 +327,30 @@ src/entity_manager.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/entity_manager.cpp.s
 .PHONY : src/entity_manager.cpp.s
 
+src/entity_states.o: src/entity_states.cpp.o
+.PHONY : src/entity_states.o
+
+# target to build an object file
+src/entity_states.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/entity_states.cpp.o
+.PHONY : src/entity_states.cpp.o
+
+src/entity_states.i: src/entity_states.cpp.i
+.PHONY : src/entity_states.i
+
+# target to preprocess a source file
+src/entity_states.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/entity_states.cpp.i
+.PHONY : src/entity_states.cpp.i
+
+src/entity_states.s: src/entity_states.cpp.s
+.PHONY : src/entity_states.s
+
+# target to generate assembly for a file
+src/entity_states.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/entity_states.cpp.s
+.PHONY : src/entity_states.cpp.s
+
 src/game.o: src/game.cpp.o
 .PHONY : src/game.o
 
@@ -555,6 +579,9 @@ help:
 	@echo "... src/entity_manager.o"
 	@echo "... src/entity_manager.i"
 	@echo "... src/entity_manager.s"
+	@echo "... src/entity_states.o"
+	@echo "... src/entity_states.i"
+	@echo "... src/entity_states.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"

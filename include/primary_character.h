@@ -37,15 +37,17 @@ class Primary_character : public Ingame_entity_human
 	unsigned int current_health_total() const;
 	unsigned int speed() const;
 	
+	// prints stats for combat
 	void print_header_stats();
+	// print full list of major stats
 	void print_stats();
 	
 	// function called once per turn of combat
-	bool turn();
+	bool turn(std::vector<Ingame_entity_human*>& turn_order);
 	
 	// calls this function during an attack to recieve
 	// the damage of the selected attack
-	void attack();
+	void attack(std::vector<Ingame_entity_human*>& turn_order);
 
 	private:
 	// declared in primary_stats.h
@@ -58,7 +60,7 @@ class Primary_character : public Ingame_entity_human
 	// declared in actions.h
 	Actions m_possible_actions;
 	// declared in attacks.h
-	List_of_attacks character_possible_attacks;
+	List_of_attacks m_character_possible_attacks;
 	// is this primary_character the player character or a party member?
 	bool m_player_character;
 };

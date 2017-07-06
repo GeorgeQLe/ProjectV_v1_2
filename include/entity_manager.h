@@ -1,4 +1,6 @@
 /*  Copyright 2017 George Le
+    Implementing an entity_manager for use during combat designed using the observer
+    design pattern. The entities passed into the entity_manager 
 
     Declaration:
 */

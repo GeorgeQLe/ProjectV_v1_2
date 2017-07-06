@@ -2,6 +2,7 @@
     Definitions of functions declared in combat.h and defines functions to be
     used specifically with the functions in combat.h ONLY!!!
 */
+#include <iostream>
 #include "combat.h"
 #include "vector_quicksort.h"
 
@@ -10,6 +11,7 @@ std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character
 {
     // initialize the turn order
     std::vector<Ingame_entity_human*> f_turn_order;
+    // push all the combatants into the turn order
     for(unsigned int i = 0; i != list_of_characters.size(); i++)
     {
         f_turn_order.push_back(list_of_characters.at(i));
@@ -38,8 +40,12 @@ Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsign
     // loop to let every object take a turn
     for(auto it = list_of_combatants.begin(); it != list_of_combatants.end(); it++)
     {
+        // iterators are primary_characters or hostiles found in their respective files
+        // print_header_stats should be overloaded for primary_characters and hostiles
+        (*it)->print_header_stats();
         // what ugly syntax double dereference
-        success = (*it)->turn();
+        // turn should be overloaded for primary_characters and hostiles
+        success = (*it)->turn(list_of_combatants);
         if(success == false)
         {
             ++counter;
@@ -75,7 +81,7 @@ Result one_v_one_duel(std::vector<Primary_character*>& list_of_characters, int e
         // if speed change then redo the turn order
         
         // for demo only, way to leave while loop to avoid infinite loop
-        if(turn_counter == 100)
+        if(turn_counter == 10)
         {
             victory_or_loss = PLAYER_DEATH;
         }
@@ -97,14 +103,14 @@ Result party_v_one_duel(std::vector<Primary_character*>& list_of_characters, int
     // sets up the turn order for the game
     f_list_of_combatants = turn_order(list_of_characters, list_of_hostiles);
     // main combat loop
-    while(victory_or_loss == NOT_STARTED)
+    while(victory_or_loss == NOT_STARTED || victory_or_loss == FIGHTING)
     {
         // plays out one turn of the current encounter
         victory_or_loss = single_turn(f_list_of_combatants, f_list_of_combatants.size());
         // if speed change then redo the turn order
         
         // for demo only, way to leave while loop to avoid infinite loop
-        if(turn_counter == 100)
+        if(turn_counter == 10)
         {
             victory_or_loss = PLAYER_DEATH;
         }
