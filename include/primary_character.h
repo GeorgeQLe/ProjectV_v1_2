@@ -2,8 +2,8 @@
 	Declares the derived classes of ingame_entity_human
 	
 	Declaration:
-		-enums Alignment, Change_stat
-		-classes
+		Enums Alignment, Change_stat
+		Classes:
 			-Primary_character->derived from ingame_entity_human
 */
 
@@ -52,9 +52,14 @@ class Primary_character : public Ingame_entity_human
 	// character wants to return to the previous prompt
 	bool action(std::vector<Ingame_entity_human*>& turn_order);
 	
-	// calls this function during an attack to recieve
-	// the damage of the selected attack
+	// calls this function to attack
 	void attack() {}
+	
+	// calls this function to perform an ultimate attack
+	void ultimate_attacks() {}
+	
+	// calls this function to use an item
+	void items() {}
 	
 	private:
 	// declared in primary_stats.h
@@ -63,7 +68,7 @@ class Primary_character : public Ingame_entity_human
 	Secondary_stats m_learned_character_stats;
 	// determines some of the bonuses that player gains by immersing themselves into
 	// their character's selected alignment
-	Alignment m_character_ethics;
+	int m_character_ethics;
 	// declared in actions.h
 	Actions m_possible_actions;
 	// declared in attacks.h

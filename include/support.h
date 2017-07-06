@@ -2,7 +2,7 @@
     Very useful functions for any project really
     
     Declaration:
-        -functions
+        functions:
             -void read_files(const std::string& file_name)
             -void print_line(const std::string& line)
             -void print_list(const std::vector<std::string>& list_of_strings)

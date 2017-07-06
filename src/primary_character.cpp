@@ -7,7 +7,7 @@
 #include "support.h"
 
 Primary_character::Primary_character(bool f_player) 
-                : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
+                : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN, false}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
 {
     // checks if the primary_character to be created is the player
     if(f_player)
@@ -77,6 +77,7 @@ bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
     // variable tracking if the turn resulted in a successful action i.e. 
     // if has status condition like stun and can't attack the f_success is false
     bool f_success = false, f_back = true;
+    
     // check if current character is dead or not
     if(current_health_total() > 0)
     {
@@ -108,10 +109,14 @@ bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
     
     // prompts the user for what offensive action they would like to do
     std::cout << "What action would you like to perform?" << std::endl;
+    
     // m_character_possible_attacks is a struct List_of_attacks described in attacks.h
     m_character_possible_attacks.list_attacks();
     std::cout << "4.Back" << std::endl << "Input:";
+    
+    // gets the user's selection
     int f_select_actions = get_number_from_user(1, 4);
+    
     if(f_select_actions == ATTACK)
     {
         std::cout << "Primary_attack" << std::endl;

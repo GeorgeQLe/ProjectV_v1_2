@@ -27,13 +27,14 @@ class Ingame_entity_human
 	public:
 	// default constructor
 	Ingame_entity_human() : m_entity_name("Default name"), m_entity_gender(UNINIT), m_entity_race(UNSET), m_entity_class(UNEMPLOYED) {}
-	Ingame_entity_human(const std::string& name, Gender gender, Race race, Job job) : m_entity_name(name), m_entity_gender(gender),
-																			m_entity_race(race), m_entity_class(job) {}
+	Ingame_entity_human(const std::string& name, Gender gender, Race race, Job job, bool is_hostile) : m_is_hostile(is_hostile), 
+						m_entity_name(name), m_entity_gender(gender), m_entity_race(race), m_entity_class(job) {}
 	// special version of previous constructor to allow for ints to be passed in for gender, race , class
 	// checks if ints are possible
-	Ingame_entity_human(const std::string& name, int gender, int race, int job);
+	Ingame_entity_human(const std::string& name, int gender, int race, int job, bool is_hostile);
 	
 	// accessor function
+	bool is_hostile() const { return m_is_hostile; }
 	std::string get_name() const { return m_entity_name; }
 	Gender get_gender() const { return m_entity_gender; }
 	Race get_race() const { return m_entity_race; }
@@ -44,6 +45,7 @@ class Ingame_entity_human
 	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
 	// combat turn order
 	virtual unsigned int speed() const = 0;
+	
 	// adds a comparator for comparing ingame_entity's speeds
 	struct speed_compare
 	{
@@ -77,6 +79,15 @@ class Ingame_entity_human
 	void set_gender(int gender) { m_entity_gender = static_cast<Gender>(gender); }
 	void set_race(int race) { m_entity_race = static_cast<Race>(race); }
 	void set_job(int job) { m_entity_class = static_cast<Job>(job); }
+	
+	// identifier to see if hostile or not
+	bool m_is_hostile;
+	
+	// identifying number for the ingame_entity
+	int m_ID;
+	static int m_next_valid_ID;
+	
+	void set_ID(int new_ID);
 	
 	// ingame_entitys have one std::string object and three enums
 	std::string m_entity_name;

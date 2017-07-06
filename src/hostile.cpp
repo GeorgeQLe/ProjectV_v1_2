@@ -23,7 +23,7 @@ void Hostile::flee()
     // TO BE IMPLEMENTED
 }
 
-void add_hostile(std::map<int, Hostile>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)
+void add_hostile(std::vector<Hostile*>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)
 {
     for(int i = 0; i < number_of_hostiles; i++)
     {
