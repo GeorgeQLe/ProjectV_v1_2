@@ -19,8 +19,15 @@
 class Hostile : public Ingame_entity_human
 {
     public:
-    Hostile() : Ingame_entity_human("Dummy", 1, 1, 1, true), m_hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) {}    
+    Hostile() : Ingame_entity_human("Dummy", 1, 1, 1, true), m_hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) { get_AI(); }
+    Hostile(std::string name, int gender, int race, int job, int strength, int leadership, int intelligence, int character,
+            int endurance, unsigned int level, unsigned int total_health, int current_health_total, unsigned int defense,
+            unsigned int speed);
     ~Hostile() { delete mp_AI_system; }
+    
+    // overloading the virtual function left pure in the class Ingame_entity_human 
+    virtual unsigned int speed() const { return m_hostile_stats.speed(); }
+    
     // four functions for inheriting classes to override... please override them
     virtual void update();
     virtual void attack();

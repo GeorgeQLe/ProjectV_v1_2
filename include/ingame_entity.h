@@ -85,9 +85,10 @@ class Ingame_entity_human
 	
 	// identifying number for the ingame_entity
 	int m_ID;
-	static int m_next_valid_ID;
+	static unsigned int s_next_valid_ID;
 	
-	void set_ID(int new_ID);
+	// used only in constructor to 
+	void set_ID();
 	
 	// ingame_entitys have one std::string object and three enums
 	std::string m_entity_name;

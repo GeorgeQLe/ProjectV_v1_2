@@ -4,6 +4,7 @@
 */
 #include <iostream>
 #include "combat.h"
+#include "random.h"
 #include "vector_quicksort.h"
 
 std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
@@ -11,8 +12,8 @@ std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character
 {
     // initialize the turn order
     std::vector<Ingame_entity_human*> f_turn_order;
-    // push all the primary_characters into the turn order
     
+    // push all the primary_characters into the turn order
     for(unsigned int i = 0; i != list_of_characters.size(); i++)
     {
         f_turn_order.push_back(list_of_characters.at(i));
@@ -136,8 +137,9 @@ Result party_v_party_battle(std::vector<Primary_character*>& list_of_characters,
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
     
-    // creates a map to store hostiles at a specific index
+    // creates a vector to store hostiles
     std::vector<Hostile*> list_of_hostiles;
+    add_hostile(list_of_hostiles, roll_d_four(), enum_difficult_converted_to_int);
     
     // initializes a turn counter 
     unsigned int turn_counter = 0;

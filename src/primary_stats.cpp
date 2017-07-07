@@ -255,7 +255,7 @@ void Primary_attributes::modify_stat(Primary_attribute to_be_Modified, int new_v
 }
 
 Primary_stats::Primary_stats(int preset_strength, int preset_leadership, int preset_intelligence, int preset_character,
-					int preset_endurance, int preset_level, unsigned int preset_total_health, int current_health_total,
+					int preset_endurance, unsigned int preset_level, unsigned int preset_total_health, int current_health_total,
 					unsigned int defense, unsigned int speed)
 					: m_level(preset_level), m_total_health(preset_total_health), m_current_health_total(current_health_total),
 					m_defense(defense), m_speed(speed)

@@ -495,6 +495,30 @@ src/projectV_driver.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/projectV_driver.cpp.s
 .PHONY : src/projectV_driver.cpp.s
 
+src/random.o: src/random.cpp.o
+.PHONY : src/random.o
+
+# target to build an object file
+src/random.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/random.cpp.o
+.PHONY : src/random.cpp.o
+
+src/random.i: src/random.cpp.i
+.PHONY : src/random.i
+
+# target to preprocess a source file
+src/random.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/random.cpp.i
+.PHONY : src/random.cpp.i
+
+src/random.s: src/random.cpp.s
+.PHONY : src/random.s
+
+# target to generate assembly for a file
+src/random.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/random.cpp.s
+.PHONY : src/random.cpp.s
+
 src/secondary_stats.o: src/secondary_stats.cpp.o
 .PHONY : src/secondary_stats.o
 
@@ -600,6 +624,9 @@ help:
 	@echo "... src/projectV_driver.o"
 	@echo "... src/projectV_driver.i"
 	@echo "... src/projectV_driver.s"
+	@echo "... src/random.o"
+	@echo "... src/random.i"
+	@echo "... src/random.s"
 	@echo "... src/secondary_stats.o"
 	@echo "... src/secondary_stats.i"
 	@echo "... src/secondary_stats.s"

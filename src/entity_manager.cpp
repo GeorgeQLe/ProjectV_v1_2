@@ -2,3 +2,4 @@
     Definitions for functions declared in entity_manager.h
 */
 
+#include "entity_manager.h"

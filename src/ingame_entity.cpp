@@ -5,10 +5,9 @@
 #include "ingame_entity.h"
 #include "support.h"
 
-int Ingame_entity_human::m_next_valid_ID = 0;
+unsigned int Ingame_entity_human::s_next_valid_ID = 0;
 
 // special constructor for passing ints in the creation of an object
-// not recommended for use, USE THE ENUMS
 Ingame_entity_human::Ingame_entity_human(const std::string& name, int gender, int race, int job, bool is_hostile) 
                                         : m_is_hostile(is_hostile), m_entity_name(name)
 {
@@ -18,19 +17,22 @@ Ingame_entity_human::Ingame_entity_human(const std::string& name, int gender, in
         // private member function of ingame_entity_human
 	    set_gender(gender); 
     }
+    
     // MAX_RACE value found in ingame_entity.h
 	if(race > 0 && race <= MAX_RACE)
 	{
 	    // private member function of ingame_entity_human
 	    set_race(race); 
 	}
+	
 	// MAX_CLASSES value found in ingame_entity.h
 	if(job > 0 && job<= MAX_CLASSES)
 	{
 	    // private member function of ingame_entity_human
 	    set_job(job);
 	}
-	set_ID(m_next_valid_ID);
+	
+	set_ID();
 }
 
 std::string Ingame_entity_human::get_gender_as_string() const
@@ -131,11 +133,8 @@ void Ingame_entity_human::set_information()
     m_entity_class = static_cast<Job>(get_number_from_user(1, 3));
 }
 
-void Ingame_entity_human::set_ID(int new_ID)
+void Ingame_entity_human::set_ID()
 {
-    if(new_ID >= m_next_valid_ID)
-    {
-        m_ID = new_ID;
-    }
-    ++m_next_valid_ID;
+    m_ID = s_next_valid_ID;
+    ++s_next_valid_ID;
 }

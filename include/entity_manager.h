@@ -15,7 +15,6 @@ class Entity_manager
     public:
     
     private:
-    
 };
 
 #endif
