@@ -7,33 +7,32 @@
 #include "random.h"
 #include "vector_quicksort.h"
 
-std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
+void Combat_manager::turn_order(const std::vector<Primary_character*>& list_of_characters, 
                                             const std::vector<Hostile*>& list_of_hostiles)
 {
-    // initialize the turn order
-    std::vector<Ingame_entity_human*> f_turn_order;
+    if(!m_turn_order.empty())
+    {
+        m_turn_order.clear();
+    }
     
     // push all the primary_characters into the turn order
     for(unsigned int i = 0; i != list_of_characters.size(); i++)
     {
-        f_turn_order.push_back(list_of_characters.at(i));
+        m_turn_order.push_back(list_of_characters.at(i));
     }
     
     // push all the hostiles into the turn order
     for(unsigned int i = 0; i != list_of_hostiles.size(); i++)
     {
-        f_turn_order.push_back(list_of_hostiles.at(i));
+        m_turn_order.push_back(list_of_hostiles.at(i));
     }
     
     // sort the turn order from fastest characters to slowest characters
     // implements quick sort to sort player characters
-    quicksort(f_turn_order, 0, f_turn_order.size(), Ingame_entity_human::speed_compare());
-    
-    // returns a proper turn order for combat
-    return f_turn_order;
+    quicksort(m_turn_order, 0, m_turn_order.size(), Ingame_entity_human::speed_compare());
 }
 
-Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsigned int number_of_player_characters, 
+Result Combat_manager::single_turn(unsigned int number_of_player_characters, 
                     unsigned int number_of_hostiles)
 {
     // return value of the function, set initially to fighting
@@ -48,14 +47,14 @@ Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsign
     bool success = false;
     
     // loop to let every object take a turn
-    for(auto it = list_of_combatants.begin(); it != list_of_combatants.end(); it++)
+    for(auto it = m_turn_order.begin(); it != m_turn_order.end(); it++)
     {
         // iterators are primary_characters or hostiles found in their respective files
         // print_header_stats should be overloaded for primary_characters and hostiles
         (*it)->print_header_stats();
         // what ugly syntax double dereference
         // turn should be overloaded for primary_characters and hostiles
-        success = (*it)->turn(list_of_combatants);
+        success = (*it)->turn(m_turn_order);
         // if the entity did not have a successful turn
         if(success == false && (*it)->is_hostile() == false)
         {
@@ -89,7 +88,7 @@ Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsign
     return victory_or_loss;
 }
 
-Result one_v_one_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
+Result Combat_manager::one_v_one_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
@@ -104,24 +103,29 @@ Result one_v_one_battle(std::vector<Primary_character*>& list_of_characters, int
     // creates a vector to store hostiles at a specific index
     std::vector<Hostile*> list_of_hostiles;
     
+    // adds hostiles to the list of hostiles
+    add_hostile(list_of_hostiles, roll_d_four(), enum_difficult_converted_to_int);
+    
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     
-    // turn order holds a reference to the player party and all hostiles
-    std::vector<Ingame_entity_human*> f_list_of_combatants;
-    
     // sets up the turn order for the game
-    f_list_of_combatants = turn_order(list_of_characters, list_of_hostiles);
+    turn_order(list_of_characters, list_of_hostiles);
     
     // main combat loop
-    while(victory_or_loss == NOT_STARTED)
+    while(victory_or_loss == NOT_STARTED || victory_or_loss == FIGHTING)
     {
         // plays out one turn of the current encounter
-        victory_or_loss = single_turn(f_list_of_combatants, list_of_characters.size(), list_of_hostiles.size());
-        // if speed change then redo the turn order
+        victory_or_loss = single_turn(list_of_characters.size(), list_of_hostiles.size());
+        
+        // if POTENTIAL_PLAYER_WIPE or POTENTIAL_HOSTILE_WIPE, check if player lost or won respectively
+        
+        
+        // if speed change then check and potentially redo the turn order
+        
         
         // for demo only, way to leave while loop to avoid infinite loop
-        if(turn_counter == 10)
+        if(turn_counter == 3 && victory_or_loss == NOT_STARTED)
         {
             victory_or_loss = PLAYER_DEATH;
         }
@@ -132,33 +136,36 @@ Result one_v_one_battle(std::vector<Primary_character*>& list_of_characters, int
     return victory_or_loss;
 }
 
-Result party_v_party_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
+Result Combat_manager::party_v_party_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)
     Result victory_or_loss = NOT_STARTED;
     
     // creates a vector to store hostiles
     std::vector<Hostile*> list_of_hostiles;
+    
+    // adds hostiles to the list of hostiles
     add_hostile(list_of_hostiles, roll_d_four(), enum_difficult_converted_to_int);
     
     // initializes a turn counter 
     unsigned int turn_counter = 0;
     
-    // turn order holds a reference to the player party and all hostiles
-    std::vector<Ingame_entity_human*> f_list_of_combatants;
-    
-    // sets up the turn order for the game
-    f_list_of_combatants = turn_order(list_of_characters, list_of_hostiles);
+    // sets up the turn order for combat
+    turn_order(list_of_characters, list_of_hostiles);
     
     // main combat loop
     while(victory_or_loss == NOT_STARTED || victory_or_loss == FIGHTING)
     {
         // plays out one turn of the current encounter
-        victory_or_loss = single_turn(f_list_of_combatants, list_of_characters.size(), list_of_hostiles.size());
+        victory_or_loss = single_turn(list_of_characters.size(), list_of_hostiles.size());
+        
+        // if POTENTIAL_PLAYER_WIPE or POTENTIAL_HOSTILE_WIPE, check if player lost or won respectively
+        
+        
         // if speed change then redo the turn order
         
         // for demo only, way to leave while loop to avoid infinite loop
-        if(turn_counter == 10)
+        if(turn_counter == 3 && victory_or_loss == NOT_STARTED)
         {
             victory_or_loss = PLAYER_DEATH;
         }
