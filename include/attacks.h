@@ -28,6 +28,9 @@ class Attacks
     Attacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool usable)
     : m_name(name), m_stats(damage, ammo_usage, base_attack_speed, usable) {}
     
+    int damage() const { return m_stats.m_damage; }
+    bool usable() const { return m_stats.m_usable; }
+    
     void update(Stat to_be_changed, int new_stat_amount);
     int get_stat(Stat to_be_returned);
     std::string get_name() const { return m_name; };
@@ -52,7 +55,7 @@ class Ultimate_attacks: public Attacks
     
     // Ultimate attacks can have special effects that are triggered and 
     // controlled by this function
-    void special_effect() {}
+    virtual void special_effect() {}
 };
 
 // class Default_ult_attack: public Ultimate_attacks

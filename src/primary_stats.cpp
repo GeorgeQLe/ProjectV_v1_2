@@ -343,6 +343,24 @@ void Secondary_attributes::increase_reputation(int amount)
 	increase_reputation(amount);
 }
 
+bool Primary_stats::take_damage(int damage) 
+{ 
+	if((m_current_health_total-damage) >= 0 && damage > 0) 
+	{ 
+		m_current_health_total-=damage; 
+		return true;
+	}
+	return false;
+}
+
+void Primary_stats::heal(int heal_amount)
+{
+	if(static_cast<unsigned int>(m_current_health_total+heal_amount) <= m_total_health)
+	{
+		m_current_health_total+=heal_amount;
+	}
+}
+
 void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
 {
 	std::cout << "Congratulations, you have leveled up to level " << current_level << "!\n";

@@ -8,8 +8,8 @@
             -Base_state
             -State_machine
 */
-#ifndef BASIC_STATE_AT_H
-#define BASIC_STATE_AT_H
+#ifndef BASIC_STATE_AI_H
+#define BASIC_STATE_AI_H
 
 // base state class to be used with base hostile class
 // templated to make it generic
@@ -42,7 +42,7 @@ class State_machine
     Base_state<Entity_type>* global_state() const { return mp_global_state; }
     
     // evaluates the global and current state
-    void update() const;
+    void update();
     // change to a new state
     void change_state(Base_state<Entity_type>* p_new_state);
     // change to previous state

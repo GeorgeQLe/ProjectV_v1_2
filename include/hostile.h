@@ -34,6 +34,9 @@ class Hostile : public Ingame_entity_human
     virtual void move();
     virtual void flee();
     
+    // calls this function when the hostile takes damage
+	bool damage_entity(int amount_of_damage);
+    
     private:
     // function to recieve an AI system
     void get_AI() { mp_AI_system = new State_machine<Hostile>(this); }

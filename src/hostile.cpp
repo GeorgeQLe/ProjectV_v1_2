@@ -15,7 +15,7 @@ Hostile::Hostile(std::string name, int gender, int race, int job, int strength, 
 
 void Hostile::update()
 {
-    // TO BE IMPLEMENTED
+    mp_AI_system->update();
 }
 
 void Hostile::attack()
@@ -41,4 +41,14 @@ void add_hostile(std::vector<Hostile*>& list_of_hostiles, int number_of_hostiles
         Hostile* fp_hostile = new Hostile();
         list_of_hostiles.push_back(fp_hostile);
     }
+}
+
+bool Hostile::damage_entity(int amount_of_damage)
+{
+    bool f_success = true;
+    
+    // function in primary_stats that controls taking damage for the hostile
+    m_hostile_stats.take_damage(amount_of_damage);
+    
+    return f_success;
 }

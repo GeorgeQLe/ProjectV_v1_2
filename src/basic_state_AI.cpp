@@ -6,7 +6,7 @@
 #include "basic_state_AI.h"
 
 template<class Entity_type>
-void State_machine<Entity_type>::update() const
+void State_machine<Entity_type>::update()
 {
     // if a global state is set then evaluate it
     if(mp_global_state)

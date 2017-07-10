@@ -35,12 +35,15 @@ class Ingame_entity_human
 	
 	// accessor function
 	bool is_hostile() const { return m_is_hostile; }
-	std::string get_name() const { return m_entity_name; }
-	Gender get_gender() const { return m_entity_gender; }
-	Race get_race() const { return m_entity_race; }
-	Job get_job() const { return m_entity_class; }
+	std::string name() const { return m_entity_name; }
+	Gender gender() const { return m_entity_gender; }
+	Race race() const { return m_entity_race; }
+	Job job() const { return m_entity_class; }
 	
+	// combat functions
 	virtual void print_header_stats() {}
+	// given a vector of 
+	int select_target(const std::vector<Ingame_entity_human*>& possible_targets);
 	
 	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
 	// combat turn order
@@ -67,6 +70,9 @@ class Ingame_entity_human
 	// the entity is dead or unable to take an action
 	// returns false by default if not overloaded
 	virtual bool turn(std::vector<Ingame_entity_human*>& turn_order) { return false; }
+	
+	// function to damage the character, needs to be overloaded
+	virtual bool damage_entity(int amount_of_damage) = 0;
 	
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character

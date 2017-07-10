@@ -20,7 +20,6 @@ set(DIADAL_SOURCES
     src/combat.cpp
     src/Diadal.cpp
     src/Diadal_story.cpp
-    src/entity_manager.cpp
     src/entity_states.cpp
     src/game.cpp
     src/hostile.cpp
@@ -42,7 +41,6 @@ set(DIADAL_HEADERS
     include/combat.h
     include/Diadal.h
     include/Diadal_story.h
-    include/entity_manager.h
     include/entity_states
     include/game.h
     include/hostile.h

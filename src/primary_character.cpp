@@ -6,11 +6,11 @@
 #include "character_setup.h"
 #include "support.h"
 
-Primary_character::Primary_character(bool f_player) 
+Primary_character::Primary_character(bool player) 
                 : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN, false}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
 {
     // checks if the primary_character to be created is the player
-    if(f_player)
+    if(player)
     {
         // if so call the special player character creation
         character_creator();
@@ -30,8 +30,8 @@ void Primary_character::character_creator()
     // sets primary stats- primary attributes and secondary attributes
     // character_setup.h
     Factory_player_characters f_creator;
-	f_creator.primary_stats_setup(get_job(), m_innate_character_stats);
-	f_creator.secondary_stats_setup(get_job(), m_learned_character_stats);
+	f_creator.primary_stats_setup(job(), m_innate_character_stats);
+	f_creator.secondary_stats_setup(job(), m_learned_character_stats);
 }
 
 void Primary_character::party_character_creator()
@@ -39,21 +39,21 @@ void Primary_character::party_character_creator()
     // TO BE DESIGNED
 }
 
-void Primary_character::reduce_or_increase_reputation(Change_stat f_reduce_or_increase, int f_amount)
+void Primary_character::reduce_or_increase_reputation(bool increase, int amount)
 {
-    if(f_reduce_or_increase == REDUCE)
+    if(increase == false)
     {
-        m_innate_character_stats.reduce_reputation(f_amount);
+        m_innate_character_stats.reduce_reputation(amount);
     }
-    else if(f_reduce_or_increase == INCREASE)
+    else if(increase)
     {
-        m_innate_character_stats.increase_reputation(f_amount);
+        m_innate_character_stats.increase_reputation(amount);
     }
 }
 
 void Primary_character::print_header_stats()
 {
-    std::cout << "Name:" << get_name() << " Level: " << level() << std::endl;
+    std::cout << "Name:" << name() << " Level: " << level() << std::endl;
     std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
     std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" 
             << m_innate_character_stats.experience_points_needed() << std::endl;
@@ -84,6 +84,7 @@ bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
         while(f_back)
         {
             // TO BE IMPLEMENTED-Check for status condition
+            
             // Assume if got this far, this turn is "successful"
             f_success = true;
             // checks if player selects an action that directly affects the current player
@@ -105,7 +106,7 @@ bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
 bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
 {
     // return value
-    bool back = false;
+    bool f_back = false;
     
     // prompts the user for what offensive action they would like to do
     std::cout << "What action would you like to perform?" << std::endl;
@@ -117,25 +118,76 @@ bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
     // gets the user's selection
     int f_select_actions = get_number_from_user(1, 4);
     
+    // selects a target
+    int f_target_index = select_target(turn_order);
+    
+    // evaluates the user's selection of an action
     if(f_select_actions == ATTACK)
     {
         std::cout << "Primary_attack" << std::endl;
-        // attack();
+        attack(turn_order.at(f_target_index));
     }
     else if(f_select_actions == ULTIMATE)
     {
         std::cout << "Ultimate_attack" << std::endl;
+        ultimate_attacks(turn_order.at(f_target_index));
     }
     else if(f_select_actions == ITEM)
     {
         std::cout << "Items" << std::endl;
+        items(turn_order.at(f_target_index));
     }
     else if(f_select_actions == 4)
     {
-        back = true;
+        f_back = true;
     }
     
     // returns true if the character selects an action, returns false if the
 	// character wants to return to the previous prompt
-    return back;
+    return f_back;
+}
+
+bool Primary_character::attack(Ingame_entity_human* target)
+{
+    return target->damage_entity(m_character_possible_attacks.m_primary_attack.damage());
+}
+
+bool Primary_character::ultimate_attacks(Ingame_entity_human* target)
+{
+    bool f_success;
+    
+    if(m_character_possible_attacks.pm_ult->usable())
+    {
+        f_success = target->damage_entity(m_character_possible_attacks.pm_ult->damage());
+    }
+    else
+    {
+        f_success = false;
+        std::cout << "Your ultimate attack is not available!\n";
+    }
+    
+    return f_success;
+}
+
+bool Primary_character::items(Ingame_entity_human* target)
+{
+    bool f_success;
+    
+    if(m_character_possible_attacks.pm_use_offensive_item->usable())
+    {
+        f_success = target->damage_entity(m_character_possible_attacks.pm_use_offensive_item->damage());
+    }
+    else
+    {
+        f_success = false;
+        std::cout << "You have no items to use!\n";
+    }
+    
+    return f_success;
+}
+
+bool Primary_character::damage_entity(int amount_of_damage)
+{
+    // function in primary_stats that controls taking damage for the character
+    return m_innate_character_stats.take_damage(amount_of_damage);
 }

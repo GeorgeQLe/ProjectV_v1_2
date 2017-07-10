@@ -17,19 +17,19 @@
 
 enum Alignment { NOTSET, CHAOTIC_EVIL, CHAOTIC_NEUTRAL, CHAOTIC_GOOD, NEUTRAL_EVIL, 
 				TRUE_NEUTRAL, NEUTRAL_GOOD, LAWFUL_EVIL, LAWFUL_NEUTRAL, LAWFUL_GOOD };
-enum Change_stat { REDUCE, INCREASE };
 
 class Primary_character : public Ingame_entity_human
 {
 	public:
-	Primary_character(bool f_player);
+	Primary_character(bool player);
 	
-	// functions used to undergo character creation for the player
+	// function used to undergo character creation for the player
 	void character_creator();
+	// function used for creating player-allied characters
 	void party_character_creator();
 	
 	// controlled mutator function
-	void reduce_or_increase_reputation(Change_stat f_reduce_or_increase, int f_amount);
+	void reduce_or_increase_reputation(bool increase, int amount);
 	
 	// accessor functions
 	unsigned int level() const { return m_innate_character_stats.level(); }
@@ -53,13 +53,16 @@ class Primary_character : public Ingame_entity_human
 	bool action(std::vector<Ingame_entity_human*>& turn_order);
 	
 	// calls this function to attack
-	void attack() {}
+	bool attack(Ingame_entity_human* target);
 	
 	// calls this function to perform an ultimate attack
-	void ultimate_attacks() {}
+	bool ultimate_attacks(Ingame_entity_human* target);
 	
 	// calls this function to use an item
-	void items() {}
+	bool items(Ingame_entity_human* target);
+	
+	// calls this function when the character takes damage
+	bool damage_entity(int amount_of_damage);
 	
 	private:
 	// declared in primary_stats.h

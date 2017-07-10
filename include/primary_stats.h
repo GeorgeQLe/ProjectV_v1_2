@@ -246,9 +246,21 @@ class Primary_stats
 	int character() const { return m_stat_modifiers.character(); }
 	int endurance() const { return m_stat_modifiers.endurance(); }
 	
+	// mutator functions
 	void reduce_reputation(int amount);
 	void increase_reputation(int amount);
 
+	// function controlling taking damage
+	// returns true if the character took damage, false if error or attack
+	// did no damage
+	bool take_damage(int damage);
+	
+	// heals the character
+	void heal(int heal_amount);
+	
+	// fully heals the character
+	void full_heal() { m_current_health_total = m_total_health; }
+	
 	private:
 	Primary_attributes m_stat_modifiers;
 	Secondary_attributes m_supporting_stat_modifiers;
