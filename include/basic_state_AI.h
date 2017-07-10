@@ -60,4 +60,6 @@ class State_machine
     Base_state<Entity_type>* mp_global_state;
 };
 
+#include "basic_state_AI.imp"
+
 #endif

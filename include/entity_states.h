@@ -51,4 +51,6 @@ class Desparate_state : public Base_state<Entity_type>
     void exit(Entity_type* p_character);
 };
 
+#include "entity_states.imp"
+
 #endif

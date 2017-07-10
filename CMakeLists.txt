@@ -14,13 +14,11 @@ endif()
 set(DIADAL_SOURCES
     src/actions.cpp
     src/attacks.cpp
-    src/basic_state_AI.cpp
     src/character_class_information.cpp
     src/character_setup.cpp
     src/combat.cpp
     src/Diadal.cpp
     src/Diadal_story.cpp
-    src/entity_states.cpp
     src/game.cpp
     src/hostile.cpp
     src/ingame_entity.cpp
@@ -36,12 +34,14 @@ set(DIADAL_HEADERS
     include/actions.h
     include/attacks.h
     include/basic_state_AI.h
+    include/basic_state_AI.imp
     include/character_class_information.h
     include/character_setup.h
     include/combat.h
     include/Diadal.h
     include/Diadal_story.h
-    include/entity_states
+    include/entity_states.h
+    include/entity_states.imp
     include/game.h
     include/hostile.h
     include/ingame_entity.h
