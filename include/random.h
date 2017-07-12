@@ -7,21 +7,24 @@
 #ifndef RANDOM_H
 #define RANDOM_H
 
-//precondition: Function parameter takes in two valid ints and passes them as const reference
-//postcondition: Returns a random number within the bounds given in the function parameters
+// precondition: Function parameter takes in two valid ints and passes them as const reference
+// postcondition: Returns a random number within the bounds given in the function parameters
 int random_int(int smallest_number, int largest_number);
 
-//precondition: None
-//postcondition: Returns true on a roll of 1 and false on a roll of 2
+// precondition: None
+// postcondition: Returns true on a roll of 1 and false on a roll of 2
 bool random_fifty_fifty();
 
-//precondition: None
-//postcondition: Return a random number within 1 and 4
+// precondition: None
+// postcondition: Return a random number within 1 and 4
 int roll_d_four();
 
-//precondition: None
-//postcondition: Returns a random number within 1 and 20
-//used for gambler class in Diadal
+// precondition: None
+// postcondition: Returns a random number within 1 and 20
 int roll_d_twenty();
+
+// precondition: None
+// postcondition: Return a random number within 1 and n
+int roll_d_whatever(int n);
 
 #endif //RANDOM_H

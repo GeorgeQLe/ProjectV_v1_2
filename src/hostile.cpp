@@ -1,7 +1,9 @@
 /*	Copyright 2016 George Le
     Definition of functions declared in hostile.h
 */
+#include <iostream>
 #include "hostile.h"
+#include "entity_states.h"
 
 Hostile::Hostile(std::string name, int gender, int race, int job, int strength, int leadership, int intelligence, int character,
             int endurance, unsigned int level, unsigned int total_health, int current_health_total, unsigned int defense,
@@ -13,9 +15,24 @@ Hostile::Hostile(std::string name, int gender, int race, int job, int strength, 
     get_AI();
 }
 
-void Hostile::update()
+void Hostile::print_header_stats()
 {
+    std::cout << "Name:" << name() << " Level: " << level() << std::endl;
+    std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
+}
+
+bool Hostile::turn(std::vector<Ingame_entity_human*>& turn_order)
+{
+    return update();
+}
+
+bool Hostile::update()
+{
+    bool f_success = true;
+    
     mp_AI_system->update();
+    
+    return f_success;
 }
 
 void Hostile::attack()
@@ -30,7 +47,8 @@ void Hostile::move()
 
 void Hostile::flee()
 {
-    // TO BE IMPLEMENTED
+    std::cout << name() << " tries to flee";
+    
 }
 
 void add_hostile(std::vector<Hostile*>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)
@@ -48,7 +66,8 @@ bool Hostile::damage_entity(int amount_of_damage)
     bool f_success = true;
     
     // function in primary_stats that controls taking damage for the hostile
-    m_hostile_stats.take_damage(amount_of_damage);
+    f_success = m_hostile_stats.take_damage(amount_of_damage);
+    std::cout << name() << " takes " << amount_of_damage << " hp of damage!" << std::endl;
     
     return f_success;
 }

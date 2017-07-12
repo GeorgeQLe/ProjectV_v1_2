@@ -25,11 +25,24 @@ class Hostile : public Ingame_entity_human
             unsigned int speed);
     ~Hostile() { delete mp_AI_system; }
     
+    // accessor functions
+    unsigned int level() const { return m_hostile_stats.level(); }
+    int current_health_total() const { return m_hostile_stats.current_health_total(); }
+    unsigned int total_health() const { return m_hostile_stats.total_health(); }
+    
+    // combat functions
+    
+    // overloading function in ingame_entity to print out hostile stats
+    virtual void print_header_stats();
+    
+    // overloading function in ingame_entity to take a turn for the hostile
+    virtual bool turn(std::vector<Ingame_entity_human*>& turn_order);
+    
     // overloading the virtual function left pure in the class Ingame_entity_human 
     virtual unsigned int speed() const { return m_hostile_stats.speed(); }
     
     // four functions for inheriting classes to override... please override them
-    virtual void update();
+    virtual bool update();
     virtual void attack();
     virtual void move();
     virtual void flee();

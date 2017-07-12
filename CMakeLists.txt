@@ -41,13 +41,15 @@ set(DIADAL_HEADERS
     include/Diadal.h
     include/Diadal_story.h
     include/entity_states.h
-    include/entity_states.imp
     include/game.h
+    include/grid.h
+    include/grid.imp
     include/hostile.h
     include/ingame_entity.h
     include/primary_character.h
     include/primary_stats.h
     include/random.h
+    include/random_messages.h
     include/secondary_stats.h
     include/support.h
     include/vector_quicksort.h

@@ -43,7 +43,7 @@ class Run_state : public Base_state<Entity_type>
 };
 
 template<class Entity_type>
-class Desparate_state : public Base_state<Entity_type>
+class Desperate_state : public Base_state<Entity_type>
 {
     public:
     void enter(Entity_type* p_character);

@@ -32,6 +32,8 @@ void Primary_character::character_creator()
     Factory_player_characters f_creator;
 	f_creator.primary_stats_setup(job(), m_innate_character_stats);
 	f_creator.secondary_stats_setup(job(), m_learned_character_stats);
+	
+	m_character_possible_attacks.update_damage(m_innate_character_stats.strength(), 5);
 }
 
 void Primary_character::party_character_creator()
@@ -119,13 +121,14 @@ bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
     int f_select_actions = get_number_from_user(1, 4);
     
     // selects a target
-    int f_target_index = select_target(turn_order);
+    int f_target_index = select_target(turn_order) - 1;
+    
+    std::cout << "You selected " << turn_order.at(f_target_index)->name() << std::endl;
     
     // evaluates the user's selection of an action
     if(f_select_actions == ATTACK)
     {
-        std::cout << "Primary_attack" << std::endl;
-        attack(turn_order.at(f_target_index));
+        attack(turn_order.at(f_target_index ));
     }
     else if(f_select_actions == ULTIMATE)
     {

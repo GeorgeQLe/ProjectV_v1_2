@@ -22,6 +22,7 @@ class Primary_character : public Ingame_entity_human
 {
 	public:
 	Primary_character(bool player);
+	~Primary_character() {}
 	
 	// function used to undergo character creation for the player
 	void character_creator();
@@ -39,6 +40,7 @@ class Primary_character : public Ingame_entity_human
 	
 	// prints stats for combat
 	void print_header_stats();
+	
 	// print full list of major stats
 	void print_stats();
 	

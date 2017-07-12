@@ -36,20 +36,24 @@
                 int* pm_this_is_a_pointer_to_a_member_variable;
             }
 */
-#include "Diadal.h"
+//#include <iostream>
+//#include "grid.h"
+//#include "Diadal.h"
 
 int main()
 {
     // initializing an instance of the game
-    Diadal game_instance;
+    //Diadal game_instance;
     
     // game loop in main
     // game_menu returns true if the player wants to play the game
     // or continue playing the game and returns false if the player
     // wants to quit
-    while(game_instance.game_menu())
-    {
-        // actual game loop
-        game_instance.game_loop();
-    }
+    // while(game_instance.game_menu())
+    // {
+    //     // actual game loop
+    //     game_instance.game_loop();
+    // }
+    
+    //game_instance.new_game();
 }

@@ -11,6 +11,7 @@ class Diadal
 {
 	public:
 	Diadal();
+	~Diadal();
 	
 	void game_loop();
 	bool game_menu();

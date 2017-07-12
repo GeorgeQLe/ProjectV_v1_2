@@ -39,12 +39,14 @@ int Ingame_entity_human::select_target(const std::vector<Ingame_entity_human*>& 
 {
     int selection = 0, i = 1;
     
-    std::cout << "What is your target?";
+    std::cout << "What is your target?\n";
     for(auto it = possible_targets.begin(); it != possible_targets.end(); it++)
     {
         if(this->is_hostile() == false && (*it)->is_hostile())
         {
-                std::cout << i << "." << (*it)->name() << std::endl;
+                std::cout << i << ". ";
+                (*it)->print_header_stats();
+                std::cout << std::endl;
                 ++i;
         }
     }

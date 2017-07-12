@@ -32,6 +32,7 @@ class Ingame_entity_human
 	// special version of previous constructor to allow for ints to be passed in for gender, race , class
 	// checks if ints are possible
 	Ingame_entity_human(const std::string& name, int gender, int race, int job, bool is_hostile);
+	virtual ~Ingame_entity_human() {}
 	
 	// accessor function
 	bool is_hostile() const { return m_is_hostile; }
@@ -41,8 +42,9 @@ class Ingame_entity_human
 	Job job() const { return m_entity_class; }
 	
 	// combat functions
-	virtual void print_header_stats() {}
-	// given a vector of 
+	virtual void print_header_stats() = 0;
+	
+	// given a vector of potential targets prompts the user for their desired target
 	int select_target(const std::vector<Ingame_entity_human*>& possible_targets);
 	
 	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
@@ -69,7 +71,7 @@ class Ingame_entity_human
 	// can be in combat. function will return true if entity took a successful action and false if
 	// the entity is dead or unable to take an action
 	// returns false by default if not overloaded
-	virtual bool turn(std::vector<Ingame_entity_human*>& turn_order) { return false; }
+	virtual bool turn(std::vector<Ingame_entity_human*>& turn_order) { return true; }
 	
 	// function to damage the character, needs to be overloaded
 	virtual bool damage_entity(int amount_of_damage) = 0;

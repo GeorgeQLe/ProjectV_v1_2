@@ -24,7 +24,6 @@ class Combat_manager
 {
     public:
     Combat_manager() {}
-    ~Combat_manager() {}
     
     // merge the two vectors of list of player characters and hostiles into a third vector turn order and
     // combat will affect this vector which contains pointers to the original party characters
@@ -42,6 +41,10 @@ class Combat_manager
     Result party_v_party_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int);
     
     private:
+    // standard turn order used for combat
     std::vector<Ingame_entity_human*> m_turn_order;
+    // temporary turn order used for any modifications to the main turn order
+    std::vector<Ingame_entity_human*> m_temp_turn_order;
 };
+
 #endif

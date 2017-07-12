@@ -14,7 +14,7 @@ void read_files(const std::string& file_name)
     using std::ifstream;
     using std::cout;
     using std::endl;
-    // 
+    
     string line = " ";
     ifstream file(file_name);
     

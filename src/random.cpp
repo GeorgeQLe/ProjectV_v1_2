@@ -40,3 +40,8 @@ int roll_d_twenty()
 {
 	return random_int(1, 20);
 }
+
+int roll_d_whatever(int n)
+{
+	return random_int(1, n);
+}

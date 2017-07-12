@@ -2,15 +2,21 @@
     Definitions of functions declared in Diadal.h
 */
 #include <iostream>
-#include <fstream>
-#include <cstdlib>
 #include "Diadal.h"
 #include "combat.h"
 #include "support.h"
 
 Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), m_number_of_party_members(0) 
 {
-    read_files("Diadal_script_intro.txt");   
+    //read_files("Diadal_script_intro.txt");   
+}
+
+Diadal::~Diadal()
+{
+    for(auto it = m_list_of_characters.begin(); it != m_list_of_characters.end(); ++it)
+    {
+        delete *it;
+    }
 }
 
 void Diadal::game_loop()
@@ -60,7 +66,7 @@ void Diadal::new_game()
 {
     Combat_manager f_combat_system;
     // TO BE DESIGNED
-    //put here just to test
+    // put here just to test
     if(m_new_game)
     {
         // creates the player character and puts it into the list of player
