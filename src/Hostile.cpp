@@ -2,8 +2,8 @@
     Definition of functions declared in hostile.h
 */
 #include <iostream>
-#include "hostile.h"
-#include "entity_states.h"
+#include "Hostile.h"
+#include "Entity_states.h"
 
 Hostile::Hostile() : Combat_entity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 10, 10, 0, 1), 
             mp_AI_system(new State_machine<Hostile>(this)), m_can_flee(false), m_experience_points_granted(100)

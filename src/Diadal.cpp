@@ -3,7 +3,7 @@
 */
 #include <iostream>
 #include "Diadal.h"
-#include "combat.h"
+#include "Combat_manager.h"
 #include "support.h"
 
 Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), m_number_of_party_members(0) 

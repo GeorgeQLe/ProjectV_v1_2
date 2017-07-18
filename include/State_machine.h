@@ -5,28 +5,12 @@
     
     Declaration:
         Class:
-            -Base_state
             -State_machine
 */
 #ifndef BASIC_STATE_AI_H
 #define BASIC_STATE_AI_H
 
 #include <memory>
-
-// base state class to be used with base hostile class
-// templated to make it generic
-template<class Entity_type>
-class Base_state
-{
-    public:
-    // displays a little message to let player know the observable state of hostiles
-    virtual void enter(Entity_type*) = 0;
-    // actually executes the control of the hostile's actions
-    virtual bool evaluate(Entity_type*) = 0;
-    // displays a little message to let player know the change in state of hostiles
-    virtual void exit(Entity_type*) = 0;
-    virtual ~Base_state() {}
-};
 
 template<class Entity_type>
 class State_machine
@@ -63,6 +47,6 @@ class State_machine
     std::shared_ptr<Base_state<Entity_type>> mp_global_state;
 };
 
-#include "basic_state_AI.imp"
+#include "State_machine.imp"
 
 #endif

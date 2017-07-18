@@ -3,9 +3,9 @@
 
 #include <string>
 #include <memory>
-#include "ingame_entity.h"
-#include "primary_stats.h"
-#include "grid.h"
+#include "Grid.h"
+#include "Ingame_entity.h"
+#include "Primary_stats.h"
 
 class Combat_entity: public Ingame_entity_human
 {

@@ -1,8 +1,8 @@
 /*  Copyright 2017 George Le
     Stores all of my primary_character stats for use in character creation
 */
-#include "ingame_entity.h"
-#include "primary_stats.h"
+#include "Ingame_entity.h"
+#include "Primary_stats.h"
 
 class Player_information
 {

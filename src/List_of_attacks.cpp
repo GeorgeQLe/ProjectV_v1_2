@@ -2,7 +2,7 @@
     Definitions of functions declared in attacks.h
 */
 #include <iostream>
-#include "attacks.h"
+#include "List_of_attacks.h"
 
 List_of_attacks::List_of_attacks() : m_primary_attack("Shoot", 0, 0, 0, true), pm_ult(new Ultimate_attacks("Spray and pay", 0, 0, 0, false)),
                                     pm_use_offensive_item(new Item_attack("Potion", 0, 0, 0, false))

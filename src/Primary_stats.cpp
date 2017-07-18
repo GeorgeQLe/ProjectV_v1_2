@@ -3,7 +3,7 @@
 */
 #include <iostream>
 #include <cmath>
-#include "primary_stats.h"
+#include "Primary_stats.h"
 
 // function only to be used in leveling up
 void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, 

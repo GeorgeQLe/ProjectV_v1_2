@@ -1,5 +1,5 @@
 #include <iostream>
-#include "secondary_stats.h"
+#include "Secondary_stats.h"
 #include "support.h"
 
 bool Secondary_stats::check_stat(unsigned int& your_stat, unsigned int difficulty_check)

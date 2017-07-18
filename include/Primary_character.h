@@ -11,9 +11,10 @@
 
 #include <memory>
 
-#include "actions.h"
-#include "combat_entity.h"
-#include "secondary_stats.h"
+#include "Actions.h"
+#include "Combat_entity.h"
+#include "List_of_attacks.h"
+#include "Secondary_stats.h"
 
 class Primary_character : public Combat_entity
 {

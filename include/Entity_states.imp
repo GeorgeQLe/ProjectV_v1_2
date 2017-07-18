@@ -2,7 +2,7 @@
     Definitions of functions declared in entity_stats.h
 */
 #include <iostream>
-#include "entity_states.h"
+#include "Entity_states.h"
 #include "random_messages.h"
 
 template<class Entity_type>

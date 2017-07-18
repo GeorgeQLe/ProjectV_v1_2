@@ -10,9 +10,11 @@
 
 #include <vector>
 #include <memory>
-#include "combat_entity.h"
-#include "actions.h"
-#include "basic_state_AI.h"
+#include "Actions.h"
+#include "Base_state.h"
+#include "Combat_entity.h"
+#include "List_of_attacks.h"
+#include "State_machine.h"
 
 // test enemy
 class Hostile : public Combat_entity

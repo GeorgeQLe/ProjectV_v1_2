@@ -111,6 +111,102 @@ projectV/fast:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/build
 .PHONY : projectV/fast
 
+src/Actions.o: src/Actions.cpp.o
+.PHONY : src/Actions.o
+
+# target to build an object file
+src/Actions.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Actions.cpp.o
+.PHONY : src/Actions.cpp.o
+
+src/Actions.i: src/Actions.cpp.i
+.PHONY : src/Actions.i
+
+# target to preprocess a source file
+src/Actions.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Actions.cpp.i
+.PHONY : src/Actions.cpp.i
+
+src/Actions.s: src/Actions.cpp.s
+.PHONY : src/Actions.s
+
+# target to generate assembly for a file
+src/Actions.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Actions.cpp.s
+.PHONY : src/Actions.cpp.s
+
+src/Character_class_information.o: src/Character_class_information.cpp.o
+.PHONY : src/Character_class_information.o
+
+# target to build an object file
+src/Character_class_information.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Character_class_information.cpp.o
+.PHONY : src/Character_class_information.cpp.o
+
+src/Character_class_information.i: src/Character_class_information.cpp.i
+.PHONY : src/Character_class_information.i
+
+# target to preprocess a source file
+src/Character_class_information.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Character_class_information.cpp.i
+.PHONY : src/Character_class_information.cpp.i
+
+src/Character_class_information.s: src/Character_class_information.cpp.s
+.PHONY : src/Character_class_information.s
+
+# target to generate assembly for a file
+src/Character_class_information.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Character_class_information.cpp.s
+.PHONY : src/Character_class_information.cpp.s
+
+src/Combat_entity.o: src/Combat_entity.cpp.o
+.PHONY : src/Combat_entity.o
+
+# target to build an object file
+src/Combat_entity.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_entity.cpp.o
+.PHONY : src/Combat_entity.cpp.o
+
+src/Combat_entity.i: src/Combat_entity.cpp.i
+.PHONY : src/Combat_entity.i
+
+# target to preprocess a source file
+src/Combat_entity.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_entity.cpp.i
+.PHONY : src/Combat_entity.cpp.i
+
+src/Combat_entity.s: src/Combat_entity.cpp.s
+.PHONY : src/Combat_entity.s
+
+# target to generate assembly for a file
+src/Combat_entity.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_entity.cpp.s
+.PHONY : src/Combat_entity.cpp.s
+
+src/Combat_manager.o: src/Combat_manager.cpp.o
+.PHONY : src/Combat_manager.o
+
+# target to build an object file
+src/Combat_manager.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_manager.cpp.o
+.PHONY : src/Combat_manager.cpp.o
+
+src/Combat_manager.i: src/Combat_manager.cpp.i
+.PHONY : src/Combat_manager.i
+
+# target to preprocess a source file
+src/Combat_manager.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_manager.cpp.i
+.PHONY : src/Combat_manager.cpp.i
+
+src/Combat_manager.s: src/Combat_manager.cpp.s
+.PHONY : src/Combat_manager.s
+
+# target to generate assembly for a file
+src/Combat_manager.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Combat_manager.cpp.s
+.PHONY : src/Combat_manager.cpp.s
+
 src/Diadal.o: src/Diadal.cpp.o
 .PHONY : src/Diadal.o
 
@@ -159,77 +255,245 @@ src/Diadal_story.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Diadal_story.cpp.s
 .PHONY : src/Diadal_story.cpp.s
 
-src/actions.o: src/actions.cpp.o
-.PHONY : src/actions.o
+src/Flee_action.o: src/Flee_action.cpp.o
+.PHONY : src/Flee_action.o
 
 # target to build an object file
-src/actions.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/actions.cpp.o
-.PHONY : src/actions.cpp.o
+src/Flee_action.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Flee_action.cpp.o
+.PHONY : src/Flee_action.cpp.o
 
-src/actions.i: src/actions.cpp.i
-.PHONY : src/actions.i
+src/Flee_action.i: src/Flee_action.cpp.i
+.PHONY : src/Flee_action.i
 
 # target to preprocess a source file
-src/actions.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/actions.cpp.i
-.PHONY : src/actions.cpp.i
+src/Flee_action.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Flee_action.cpp.i
+.PHONY : src/Flee_action.cpp.i
 
-src/actions.s: src/actions.cpp.s
-.PHONY : src/actions.s
+src/Flee_action.s: src/Flee_action.cpp.s
+.PHONY : src/Flee_action.s
 
 # target to generate assembly for a file
-src/actions.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/actions.cpp.s
-.PHONY : src/actions.cpp.s
+src/Flee_action.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Flee_action.cpp.s
+.PHONY : src/Flee_action.cpp.s
 
-src/attacks.o: src/attacks.cpp.o
-.PHONY : src/attacks.o
+src/Game.o: src/Game.cpp.o
+.PHONY : src/Game.o
 
 # target to build an object file
-src/attacks.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/attacks.cpp.o
-.PHONY : src/attacks.cpp.o
+src/Game.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game.cpp.o
+.PHONY : src/Game.cpp.o
 
-src/attacks.i: src/attacks.cpp.i
-.PHONY : src/attacks.i
+src/Game.i: src/Game.cpp.i
+.PHONY : src/Game.i
 
 # target to preprocess a source file
-src/attacks.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/attacks.cpp.i
-.PHONY : src/attacks.cpp.i
+src/Game.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
 
-src/attacks.s: src/attacks.cpp.s
-.PHONY : src/attacks.s
+src/Game.s: src/Game.cpp.s
+.PHONY : src/Game.s
 
 # target to generate assembly for a file
-src/attacks.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/attacks.cpp.s
-.PHONY : src/attacks.cpp.s
+src/Game.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
 
-src/character_class_information.o: src/character_class_information.cpp.o
-.PHONY : src/character_class_information.o
+src/Hostile.o: src/Hostile.cpp.o
+.PHONY : src/Hostile.o
 
 # target to build an object file
-src/character_class_information.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/character_class_information.cpp.o
-.PHONY : src/character_class_information.cpp.o
+src/Hostile.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Hostile.cpp.o
+.PHONY : src/Hostile.cpp.o
 
-src/character_class_information.i: src/character_class_information.cpp.i
-.PHONY : src/character_class_information.i
+src/Hostile.i: src/Hostile.cpp.i
+.PHONY : src/Hostile.i
 
 # target to preprocess a source file
-src/character_class_information.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/character_class_information.cpp.i
-.PHONY : src/character_class_information.cpp.i
+src/Hostile.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Hostile.cpp.i
+.PHONY : src/Hostile.cpp.i
 
-src/character_class_information.s: src/character_class_information.cpp.s
-.PHONY : src/character_class_information.s
+src/Hostile.s: src/Hostile.cpp.s
+.PHONY : src/Hostile.s
 
 # target to generate assembly for a file
-src/character_class_information.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/character_class_information.cpp.s
-.PHONY : src/character_class_information.cpp.s
+src/Hostile.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Hostile.cpp.s
+.PHONY : src/Hostile.cpp.s
+
+src/Ingame_entity.o: src/Ingame_entity.cpp.o
+.PHONY : src/Ingame_entity.o
+
+# target to build an object file
+src/Ingame_entity.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Ingame_entity.cpp.o
+.PHONY : src/Ingame_entity.cpp.o
+
+src/Ingame_entity.i: src/Ingame_entity.cpp.i
+.PHONY : src/Ingame_entity.i
+
+# target to preprocess a source file
+src/Ingame_entity.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Ingame_entity.cpp.i
+.PHONY : src/Ingame_entity.cpp.i
+
+src/Ingame_entity.s: src/Ingame_entity.cpp.s
+.PHONY : src/Ingame_entity.s
+
+# target to generate assembly for a file
+src/Ingame_entity.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Ingame_entity.cpp.s
+.PHONY : src/Ingame_entity.cpp.s
+
+src/List_of_attacks.o: src/List_of_attacks.cpp.o
+.PHONY : src/List_of_attacks.o
+
+# target to build an object file
+src/List_of_attacks.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.o
+.PHONY : src/List_of_attacks.cpp.o
+
+src/List_of_attacks.i: src/List_of_attacks.cpp.i
+.PHONY : src/List_of_attacks.i
+
+# target to preprocess a source file
+src/List_of_attacks.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.i
+.PHONY : src/List_of_attacks.cpp.i
+
+src/List_of_attacks.s: src/List_of_attacks.cpp.s
+.PHONY : src/List_of_attacks.s
+
+# target to generate assembly for a file
+src/List_of_attacks.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.s
+.PHONY : src/List_of_attacks.cpp.s
+
+src/Movement_action.o: src/Movement_action.cpp.o
+.PHONY : src/Movement_action.o
+
+# target to build an object file
+src/Movement_action.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Movement_action.cpp.o
+.PHONY : src/Movement_action.cpp.o
+
+src/Movement_action.i: src/Movement_action.cpp.i
+.PHONY : src/Movement_action.i
+
+# target to preprocess a source file
+src/Movement_action.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Movement_action.cpp.i
+.PHONY : src/Movement_action.cpp.i
+
+src/Movement_action.s: src/Movement_action.cpp.s
+.PHONY : src/Movement_action.s
+
+# target to generate assembly for a file
+src/Movement_action.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Movement_action.cpp.s
+.PHONY : src/Movement_action.cpp.s
+
+src/Primary_character.o: src/Primary_character.cpp.o
+.PHONY : src/Primary_character.o
+
+# target to build an object file
+src/Primary_character.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_character.cpp.o
+.PHONY : src/Primary_character.cpp.o
+
+src/Primary_character.i: src/Primary_character.cpp.i
+.PHONY : src/Primary_character.i
+
+# target to preprocess a source file
+src/Primary_character.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_character.cpp.i
+.PHONY : src/Primary_character.cpp.i
+
+src/Primary_character.s: src/Primary_character.cpp.s
+.PHONY : src/Primary_character.s
+
+# target to generate assembly for a file
+src/Primary_character.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_character.cpp.s
+.PHONY : src/Primary_character.cpp.s
+
+src/Primary_stats.o: src/Primary_stats.cpp.o
+.PHONY : src/Primary_stats.o
+
+# target to build an object file
+src/Primary_stats.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats.cpp.o
+.PHONY : src/Primary_stats.cpp.o
+
+src/Primary_stats.i: src/Primary_stats.cpp.i
+.PHONY : src/Primary_stats.i
+
+# target to preprocess a source file
+src/Primary_stats.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats.cpp.i
+.PHONY : src/Primary_stats.cpp.i
+
+src/Primary_stats.s: src/Primary_stats.cpp.s
+.PHONY : src/Primary_stats.s
+
+# target to generate assembly for a file
+src/Primary_stats.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats.cpp.s
+.PHONY : src/Primary_stats.cpp.s
+
+src/ProjectV_driver.o: src/ProjectV_driver.cpp.o
+.PHONY : src/ProjectV_driver.o
+
+# target to build an object file
+src/ProjectV_driver.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ProjectV_driver.cpp.o
+.PHONY : src/ProjectV_driver.cpp.o
+
+src/ProjectV_driver.i: src/ProjectV_driver.cpp.i
+.PHONY : src/ProjectV_driver.i
+
+# target to preprocess a source file
+src/ProjectV_driver.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ProjectV_driver.cpp.i
+.PHONY : src/ProjectV_driver.cpp.i
+
+src/ProjectV_driver.s: src/ProjectV_driver.cpp.s
+.PHONY : src/ProjectV_driver.s
+
+# target to generate assembly for a file
+src/ProjectV_driver.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ProjectV_driver.cpp.s
+.PHONY : src/ProjectV_driver.cpp.s
+
+src/Secondary_stats.o: src/Secondary_stats.cpp.o
+.PHONY : src/Secondary_stats.o
+
+# target to build an object file
+src/Secondary_stats.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.o
+.PHONY : src/Secondary_stats.cpp.o
+
+src/Secondary_stats.i: src/Secondary_stats.cpp.i
+.PHONY : src/Secondary_stats.i
+
+# target to preprocess a source file
+src/Secondary_stats.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.i
+.PHONY : src/Secondary_stats.cpp.i
+
+src/Secondary_stats.s: src/Secondary_stats.cpp.s
+.PHONY : src/Secondary_stats.s
+
+# target to generate assembly for a file
+src/Secondary_stats.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.s
+.PHONY : src/Secondary_stats.cpp.s
 
 src/character_setup.o: src/character_setup.cpp.o
 .PHONY : src/character_setup.o
@@ -255,198 +519,6 @@ src/character_setup.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/character_setup.cpp.s
 .PHONY : src/character_setup.cpp.s
 
-src/combat.o: src/combat.cpp.o
-.PHONY : src/combat.o
-
-# target to build an object file
-src/combat.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat.cpp.o
-.PHONY : src/combat.cpp.o
-
-src/combat.i: src/combat.cpp.i
-.PHONY : src/combat.i
-
-# target to preprocess a source file
-src/combat.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat.cpp.i
-.PHONY : src/combat.cpp.i
-
-src/combat.s: src/combat.cpp.s
-.PHONY : src/combat.s
-
-# target to generate assembly for a file
-src/combat.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat.cpp.s
-.PHONY : src/combat.cpp.s
-
-src/combat_entity.o: src/combat_entity.cpp.o
-.PHONY : src/combat_entity.o
-
-# target to build an object file
-src/combat_entity.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.o
-.PHONY : src/combat_entity.cpp.o
-
-src/combat_entity.i: src/combat_entity.cpp.i
-.PHONY : src/combat_entity.i
-
-# target to preprocess a source file
-src/combat_entity.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.i
-.PHONY : src/combat_entity.cpp.i
-
-src/combat_entity.s: src/combat_entity.cpp.s
-.PHONY : src/combat_entity.s
-
-# target to generate assembly for a file
-src/combat_entity.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.s
-.PHONY : src/combat_entity.cpp.s
-
-src/game.o: src/game.cpp.o
-.PHONY : src/game.o
-
-# target to build an object file
-src/game.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/game.cpp.o
-.PHONY : src/game.cpp.o
-
-src/game.i: src/game.cpp.i
-.PHONY : src/game.i
-
-# target to preprocess a source file
-src/game.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/game.cpp.i
-.PHONY : src/game.cpp.i
-
-src/game.s: src/game.cpp.s
-.PHONY : src/game.s
-
-# target to generate assembly for a file
-src/game.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/game.cpp.s
-.PHONY : src/game.cpp.s
-
-src/hostile.o: src/hostile.cpp.o
-.PHONY : src/hostile.o
-
-# target to build an object file
-src/hostile.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/hostile.cpp.o
-.PHONY : src/hostile.cpp.o
-
-src/hostile.i: src/hostile.cpp.i
-.PHONY : src/hostile.i
-
-# target to preprocess a source file
-src/hostile.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/hostile.cpp.i
-.PHONY : src/hostile.cpp.i
-
-src/hostile.s: src/hostile.cpp.s
-.PHONY : src/hostile.s
-
-# target to generate assembly for a file
-src/hostile.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/hostile.cpp.s
-.PHONY : src/hostile.cpp.s
-
-src/ingame_entity.o: src/ingame_entity.cpp.o
-.PHONY : src/ingame_entity.o
-
-# target to build an object file
-src/ingame_entity.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ingame_entity.cpp.o
-.PHONY : src/ingame_entity.cpp.o
-
-src/ingame_entity.i: src/ingame_entity.cpp.i
-.PHONY : src/ingame_entity.i
-
-# target to preprocess a source file
-src/ingame_entity.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ingame_entity.cpp.i
-.PHONY : src/ingame_entity.cpp.i
-
-src/ingame_entity.s: src/ingame_entity.cpp.s
-.PHONY : src/ingame_entity.s
-
-# target to generate assembly for a file
-src/ingame_entity.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ingame_entity.cpp.s
-.PHONY : src/ingame_entity.cpp.s
-
-src/primary_character.o: src/primary_character.cpp.o
-.PHONY : src/primary_character.o
-
-# target to build an object file
-src/primary_character.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_character.cpp.o
-.PHONY : src/primary_character.cpp.o
-
-src/primary_character.i: src/primary_character.cpp.i
-.PHONY : src/primary_character.i
-
-# target to preprocess a source file
-src/primary_character.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_character.cpp.i
-.PHONY : src/primary_character.cpp.i
-
-src/primary_character.s: src/primary_character.cpp.s
-.PHONY : src/primary_character.s
-
-# target to generate assembly for a file
-src/primary_character.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_character.cpp.s
-.PHONY : src/primary_character.cpp.s
-
-src/primary_stats.o: src/primary_stats.cpp.o
-.PHONY : src/primary_stats.o
-
-# target to build an object file
-src/primary_stats.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_stats.cpp.o
-.PHONY : src/primary_stats.cpp.o
-
-src/primary_stats.i: src/primary_stats.cpp.i
-.PHONY : src/primary_stats.i
-
-# target to preprocess a source file
-src/primary_stats.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_stats.cpp.i
-.PHONY : src/primary_stats.cpp.i
-
-src/primary_stats.s: src/primary_stats.cpp.s
-.PHONY : src/primary_stats.s
-
-# target to generate assembly for a file
-src/primary_stats.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/primary_stats.cpp.s
-.PHONY : src/primary_stats.cpp.s
-
-src/projectV_driver.o: src/projectV_driver.cpp.o
-.PHONY : src/projectV_driver.o
-
-# target to build an object file
-src/projectV_driver.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/projectV_driver.cpp.o
-.PHONY : src/projectV_driver.cpp.o
-
-src/projectV_driver.i: src/projectV_driver.cpp.i
-.PHONY : src/projectV_driver.i
-
-# target to preprocess a source file
-src/projectV_driver.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/projectV_driver.cpp.i
-.PHONY : src/projectV_driver.cpp.i
-
-src/projectV_driver.s: src/projectV_driver.cpp.s
-.PHONY : src/projectV_driver.s
-
-# target to generate assembly for a file
-src/projectV_driver.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/projectV_driver.cpp.s
-.PHONY : src/projectV_driver.cpp.s
-
 src/random.o: src/random.cpp.o
 .PHONY : src/random.o
 
@@ -470,30 +542,6 @@ src/random.s: src/random.cpp.s
 src/random.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/random.cpp.s
 .PHONY : src/random.cpp.s
-
-src/secondary_stats.o: src/secondary_stats.cpp.o
-.PHONY : src/secondary_stats.o
-
-# target to build an object file
-src/secondary_stats.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/secondary_stats.cpp.o
-.PHONY : src/secondary_stats.cpp.o
-
-src/secondary_stats.i: src/secondary_stats.cpp.i
-.PHONY : src/secondary_stats.i
-
-# target to preprocess a source file
-src/secondary_stats.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/secondary_stats.cpp.i
-.PHONY : src/secondary_stats.cpp.i
-
-src/secondary_stats.s: src/secondary_stats.cpp.s
-.PHONY : src/secondary_stats.s
-
-# target to generate assembly for a file
-src/secondary_stats.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/secondary_stats.cpp.s
-.PHONY : src/secondary_stats.cpp.s
 
 src/support.o: src/support.cpp.o
 .PHONY : src/support.o
@@ -528,54 +576,60 @@ help:
 	@echo "... edit_cache"
 	@echo "... projectV"
 	@echo "... rebuild_cache"
+	@echo "... src/Actions.o"
+	@echo "... src/Actions.i"
+	@echo "... src/Actions.s"
+	@echo "... src/Character_class_information.o"
+	@echo "... src/Character_class_information.i"
+	@echo "... src/Character_class_information.s"
+	@echo "... src/Combat_entity.o"
+	@echo "... src/Combat_entity.i"
+	@echo "... src/Combat_entity.s"
+	@echo "... src/Combat_manager.o"
+	@echo "... src/Combat_manager.i"
+	@echo "... src/Combat_manager.s"
 	@echo "... src/Diadal.o"
 	@echo "... src/Diadal.i"
 	@echo "... src/Diadal.s"
 	@echo "... src/Diadal_story.o"
 	@echo "... src/Diadal_story.i"
 	@echo "... src/Diadal_story.s"
-	@echo "... src/actions.o"
-	@echo "... src/actions.i"
-	@echo "... src/actions.s"
-	@echo "... src/attacks.o"
-	@echo "... src/attacks.i"
-	@echo "... src/attacks.s"
-	@echo "... src/character_class_information.o"
-	@echo "... src/character_class_information.i"
-	@echo "... src/character_class_information.s"
+	@echo "... src/Flee_action.o"
+	@echo "... src/Flee_action.i"
+	@echo "... src/Flee_action.s"
+	@echo "... src/Game.o"
+	@echo "... src/Game.i"
+	@echo "... src/Game.s"
+	@echo "... src/Hostile.o"
+	@echo "... src/Hostile.i"
+	@echo "... src/Hostile.s"
+	@echo "... src/Ingame_entity.o"
+	@echo "... src/Ingame_entity.i"
+	@echo "... src/Ingame_entity.s"
+	@echo "... src/List_of_attacks.o"
+	@echo "... src/List_of_attacks.i"
+	@echo "... src/List_of_attacks.s"
+	@echo "... src/Movement_action.o"
+	@echo "... src/Movement_action.i"
+	@echo "... src/Movement_action.s"
+	@echo "... src/Primary_character.o"
+	@echo "... src/Primary_character.i"
+	@echo "... src/Primary_character.s"
+	@echo "... src/Primary_stats.o"
+	@echo "... src/Primary_stats.i"
+	@echo "... src/Primary_stats.s"
+	@echo "... src/ProjectV_driver.o"
+	@echo "... src/ProjectV_driver.i"
+	@echo "... src/ProjectV_driver.s"
+	@echo "... src/Secondary_stats.o"
+	@echo "... src/Secondary_stats.i"
+	@echo "... src/Secondary_stats.s"
 	@echo "... src/character_setup.o"
 	@echo "... src/character_setup.i"
 	@echo "... src/character_setup.s"
-	@echo "... src/combat.o"
-	@echo "... src/combat.i"
-	@echo "... src/combat.s"
-	@echo "... src/combat_entity.o"
-	@echo "... src/combat_entity.i"
-	@echo "... src/combat_entity.s"
-	@echo "... src/game.o"
-	@echo "... src/game.i"
-	@echo "... src/game.s"
-	@echo "... src/hostile.o"
-	@echo "... src/hostile.i"
-	@echo "... src/hostile.s"
-	@echo "... src/ingame_entity.o"
-	@echo "... src/ingame_entity.i"
-	@echo "... src/ingame_entity.s"
-	@echo "... src/primary_character.o"
-	@echo "... src/primary_character.i"
-	@echo "... src/primary_character.s"
-	@echo "... src/primary_stats.o"
-	@echo "... src/primary_stats.i"
-	@echo "... src/primary_stats.s"
-	@echo "... src/projectV_driver.o"
-	@echo "... src/projectV_driver.i"
-	@echo "... src/projectV_driver.s"
 	@echo "... src/random.o"
 	@echo "... src/random.i"
 	@echo "... src/random.s"
-	@echo "... src/secondary_stats.o"
-	@echo "... src/secondary_stats.i"
-	@echo "... src/secondary_stats.s"
 	@echo "... src/support.o"
 	@echo "... src/support.i"
 	@echo "... src/support.s"

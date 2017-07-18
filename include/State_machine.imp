@@ -3,7 +3,8 @@
     Defines functions declared in basic_hostile_AI.h
 */
 #include <assert.h>
-#include "basic_state_AI.h"
+#include "Base_state.h"
+#include "State_machine.h"
 
 template<class Entity_type>
 bool State_machine<Entity_type>::update()

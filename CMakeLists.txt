@@ -12,46 +12,52 @@ elseif(WIN32)
 endif()
 
 set(DIADAL_SOURCES
-    src/actions.cpp
-    src/attacks.cpp
-    src/character_class_information.cpp
+    src/Actions.cpp
+    src/Character_class_information.cpp
     src/character_setup.cpp
-    src/combat.cpp
-    src/combat_entity.cpp
+    src/Combat_entity.cpp
+    src/Combat_manager.cpp
     src/Diadal.cpp
     src/Diadal_story.cpp
-    src/game.cpp
-    src/hostile.cpp
-    src/ingame_entity.cpp
-    src/primary_character.cpp
-    src/primary_stats.cpp
-    src/projectV_driver.cpp
+    src/Flee_action.cpp
+    src/Game.cpp
+    src/Hostile.cpp
+    src/Ingame_entity.cpp
+    src/List_of_attacks.cpp
+    src/Movement_action.cpp
+    src/Primary_character.cpp
+    src/Primary_stats.cpp
+    src/ProjectV_driver.cpp
     src/random.cpp
-    src/secondary_stats.cpp
+    src/Secondary_stats.cpp
     src/support.cpp
 )
 
 set(DIADAL_HEADERS
-    include/actions.h
-    include/attacks.h
-    include/basic_state_AI.h
-    include/basic_state_AI.imp
-    include/character_class_information.h
+    include/Actions.h
+    include/Base_state.h
+    include/Character_class_information.h
     include/character_setup.h
-    include/combat.h
-    include/combat_entity.h
+    include/Combat_entity.h
+    include/Combat_manager.h
     include/Diadal.h
     include/Diadal_story.h
-    include/entity_states.h
-    include/game.h
-    include/grid.h
-    include/hostile.h
-    include/ingame_entity.h
-    include/primary_character.h
-    include/primary_stats.h
+    include/Entity_states.h
+    include/Entity_states.imp
+    include/Flee_action.h
+    include/Game.h
+    include/Grid.h
+    include/Hostile.h
+    include/Ingame_entity.h
+    include/List_of_attacks.h
+    include/Movement_action.h
+    include/Primary_character.h
+    include/Primary_stats.h
     include/random.h
     include/random_messages.h
-    include/secondary_stats.h
+    include/Secondary_stats.h
+    include/State_machine.h
+    include/State_machine.imp
     include/support.h
     include/vector_quicksort.h
     include/vector_quicksort.imp

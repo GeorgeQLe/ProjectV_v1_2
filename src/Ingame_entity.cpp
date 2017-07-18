@@ -2,7 +2,7 @@
     Definition of functions declared in ingame_entity.h
 */
 #include <iostream>
-#include "ingame_entity.h"
+#include "Ingame_entity.h"
 #include "support.h"
 
 unsigned int Ingame_entity_human::s_next_valid_ID = 0;

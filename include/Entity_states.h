@@ -6,7 +6,7 @@
 #define ENTITY_STATES_H
 
 #include <memory>
-#include "basic_state_AI.h"
+#include "Base_state.h"
 
 template<class Entity_type>
 class Global_state : public Base_state<Entity_type>
@@ -118,6 +118,6 @@ class Desperate_state : public Base_state<Entity_type>
     void exit(Entity_type* p_character);
 };
 
-#include "entity_states.imp"
+#include "Entity_states.imp"
 
 #endif

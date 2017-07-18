@@ -8,9 +8,9 @@
 
 //including primary and secondary stat for function parameter in class 
 //character set up's member function character creation
-#include "ingame_entity.h"
-#include "primary_stats.h"
-#include "secondary_stats.h"
+#include "Ingame_entity.h"
+#include "Primary_stats.h"
+#include "Secondary_stats.h"
 
 enum Custom_or_premade { NOTCREATED, CUSTOM, PREMADE };
 

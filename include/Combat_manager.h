@@ -17,8 +17,8 @@
 #include <memory>
 #include <vector>
 #include <map>
-#include "primary_character.h"
-#include "hostile.h"
+#include "Primary_character.h"
+#include "Hostile.h"
 
 enum Result { NOT_STARTED = -1, FIGHTING, PLAYER_DEATH, PLAYER_VICTORY, TIE, POTENTIAL_PLAYER_WIPE, POTENTIAL_HOSTILE_WIPE};
 

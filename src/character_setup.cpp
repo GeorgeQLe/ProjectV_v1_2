@@ -2,7 +2,7 @@
     Defines the functions declared in character_setup.h  
 */
 #include <iostream>
-#include "character_class_information.h"
+#include "Character_class_information.h"
 #include "character_setup.h"
 #include "support.h"
 

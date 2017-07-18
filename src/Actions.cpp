@@ -2,33 +2,19 @@
     Definitions of functions declared in actions.h
 */
 #include <iostream>
-#include "actions.h"
+#include "Actions.h"
 #include "support.h"
-
-void Movement_action::move()
-{
-    if(can_move == true)
-    {
-        std::cout << "Move\n";
-    }
-}
-
-bool Flee_action::flee()
-{
-    if(can_flee == true)
-    {
-        // TO BE IMPLEMENTED
-        std::cout << "Flee\n";
-        return true;
-    }
-    return false;
-}
 
 Actions::Actions()
 {
     list_of_action_names.push_back("1. Action");
     list_of_action_names.push_back("2. Move");
     list_of_action_names.push_back("3. Flee");
+}
+
+Actions::~Actions()
+{
+    
 }
 
 void Actions::list_possible_actions()

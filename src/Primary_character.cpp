@@ -1,9 +1,9 @@
 /*  Copyright 2017 George Le
-    Definitions of functions declared in primary_character.h
+    Definitions of member functions declared in primary_character.h
 */
 #include <iostream>
-#include "primary_character.h"
 #include "character_setup.h"
+#include "Primary_character.h"
 #include "support.h"
 
 Primary_character::Primary_character(bool player) 

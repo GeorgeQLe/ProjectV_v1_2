@@ -1,5 +1,5 @@
 #include <iostream>
-#include "game.h"
+#include "Game.h"
 #include "support.h"
 
 void Game_settings::game_settings_menu()

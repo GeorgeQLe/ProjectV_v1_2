@@ -1,6 +1,6 @@
 #include <iostream>
 #include "character_setup.h"
-#include "combat_entity.h"
+#include "Combat_entity.h"
 #include "support.h"
 
 Combat_entity::Combat_entity(const std::string& name, Gender gender, Race race, Job job) 

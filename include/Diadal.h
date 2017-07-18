@@ -5,8 +5,8 @@
 #define DIADAL_H
 #include <vector>
 #include <memory>
-#include "game.h"
-#include "primary_character.h"
+#include "Game.h"
+#include "Primary_character.h"
 
 class Diadal
 {

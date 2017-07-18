@@ -1,4 +1,5 @@
 /*  Copyright 2017 George Le
+    Declaration of Grid class and its member functions
     
     Declarations:
         -preprocessor directives: DEFAULT_ROW_AMOUNT, DEFAULT_MIN_ROW_AMOUNT

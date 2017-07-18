@@ -3,7 +3,7 @@
     used specifically with the functions in combat.h ONLY!!!
 */
 #include <iostream>
-#include "combat.h"
+#include "Combat_manager.h"
 #include "random.h"
 #include "vector_quicksort.h"
 

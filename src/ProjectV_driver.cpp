@@ -36,8 +36,6 @@
                 int* pm_this_is_a_pointer_to_a_member_variable;
             }
 */
-#include <iostream>
-#include "grid.h"
 #include "Diadal.h"
 
 int main()
