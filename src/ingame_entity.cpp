@@ -35,26 +35,6 @@ Ingame_entity_human::Ingame_entity_human(const std::string& name, int gender, in
 	set_ID();
 }
 
-int Ingame_entity_human::select_target(const std::vector<Ingame_entity_human*>& possible_targets)
-{
-    int selection = 0, i = 1;
-    
-    std::cout << "What is your target?\n";
-    for(auto it = possible_targets.begin(); it != possible_targets.end(); it++)
-    {
-        if(this->is_hostile() == false && (*it)->is_hostile())
-        {
-                std::cout << i << ". ";
-                (*it)->print_header_stats();
-                std::cout << std::endl;
-                ++i;
-        }
-    }
-    std::cout << "Input:";
-    selection = get_number_from_user(1, i);
-    return selection;
-}
-
 std::string Ingame_entity_human::get_gender_as_string() const
 {
     // m_entity_gender is a member variable of the Ingame_entity_human class found in ingame_entity.h

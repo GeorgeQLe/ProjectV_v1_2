@@ -2,7 +2,7 @@
     Declaration of ingame entities' actions
     
     Declarations:
-        Enum:
+        Enumerated type:
             -Action_type
         
         Classes:
@@ -59,8 +59,6 @@ class Actions : public Movement_action, public Flee_action
     
     private:
     std::vector<std::string> list_of_action_names;
-    // TO BE DESIGNED
-    // class to interact with Inventory in Inventory.h
 };
 
 #endif

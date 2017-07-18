@@ -35,8 +35,9 @@ int partition(std::vector<Object>& list, unsigned int left, unsigned int right, 
     for(unsigned int i = left+1; i < right; i++)
     {
         // generic function in condition for what you want to compare in the vectors
-        // if the element in the vector at the left+1 position is less than or 
-        // equal to the element at the left position then execute within this
+        // if the element in the vector at the left+1 position is (comp definition)
+        // to the element at the left position then execute within this
+        // (assume less than for smallest to largest, greater than for largest to smallest)
         if(comp(list.at(i), f_temp))
         {
             // increment the partition

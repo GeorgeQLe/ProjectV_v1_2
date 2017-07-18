@@ -11,14 +11,6 @@ Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new
     //read_files("Diadal_script_intro.txt");   
 }
 
-Diadal::~Diadal()
-{
-    for(auto it = m_list_of_characters.begin(); it != m_list_of_characters.end(); ++it)
-    {
-        delete *it;
-    }
-}
-
 void Diadal::game_loop()
 {
     //game loop
@@ -65,16 +57,16 @@ bool Diadal::game_menu()
 void Diadal::new_game()
 {
     Combat_manager f_combat_system;
-    // TO BE DESIGNED
-    // put here just to test
+    
     if(m_new_game)
     {
         // creates the player character and puts it into the list of player
         // controlled party members
-        Primary_character* player = new Primary_character(true);
+        std::shared_ptr<Primary_character> player(new Primary_character(true));
         m_list_of_characters.push_back(player);
         m_new_game = false;
     }
+    
     Result status;
     // test loop for combat
     do

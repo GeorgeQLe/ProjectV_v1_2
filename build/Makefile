@@ -279,6 +279,30 @@ src/combat.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat.cpp.s
 .PHONY : src/combat.cpp.s
 
+src/combat_entity.o: src/combat_entity.cpp.o
+.PHONY : src/combat_entity.o
+
+# target to build an object file
+src/combat_entity.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.o
+.PHONY : src/combat_entity.cpp.o
+
+src/combat_entity.i: src/combat_entity.cpp.i
+.PHONY : src/combat_entity.i
+
+# target to preprocess a source file
+src/combat_entity.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.i
+.PHONY : src/combat_entity.cpp.i
+
+src/combat_entity.s: src/combat_entity.cpp.s
+.PHONY : src/combat_entity.s
+
+# target to generate assembly for a file
+src/combat_entity.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/combat_entity.cpp.s
+.PHONY : src/combat_entity.cpp.s
+
 src/game.o: src/game.cpp.o
 .PHONY : src/game.o
 
@@ -525,6 +549,9 @@ help:
 	@echo "... src/combat.o"
 	@echo "... src/combat.i"
 	@echo "... src/combat.s"
+	@echo "... src/combat_entity.o"
+	@echo "... src/combat_entity.i"
+	@echo "... src/combat_entity.s"
 	@echo "... src/game.o"
 	@echo "... src/game.i"
 	@echo "... src/game.s"

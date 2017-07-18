@@ -17,6 +17,7 @@ set(DIADAL_SOURCES
     src/character_class_information.cpp
     src/character_setup.cpp
     src/combat.cpp
+    src/combat_entity.cpp
     src/Diadal.cpp
     src/Diadal_story.cpp
     src/game.cpp
@@ -38,12 +39,12 @@ set(DIADAL_HEADERS
     include/character_class_information.h
     include/character_setup.h
     include/combat.h
+    include/combat_entity.h
     include/Diadal.h
     include/Diadal_story.h
     include/entity_states.h
     include/game.h
     include/grid.h
-    include/grid.imp
     include/hostile.h
     include/ingame_entity.h
     include/primary_character.h

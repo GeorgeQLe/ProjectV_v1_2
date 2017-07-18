@@ -4,6 +4,7 @@
 #ifndef DIADAL_H
 #define DIADAL_H
 #include <vector>
+#include <memory>
 #include "game.h"
 #include "primary_character.h"
 
@@ -11,7 +12,7 @@ class Diadal
 {
 	public:
 	Diadal();
-	~Diadal();
+	~Diadal() {}
 	
 	void game_loop();
 	bool game_menu();
@@ -25,7 +26,7 @@ class Diadal
 	bool m_new_game;
 	int m_number_of_party_members;
 	
-	std::vector<Primary_character*> m_list_of_characters;
+	std::vector<std::shared_ptr<Primary_character>> m_list_of_characters;
 };
 
 #endif

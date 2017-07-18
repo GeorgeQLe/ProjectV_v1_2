@@ -9,7 +9,6 @@ void Movement_action::move()
 {
     if(can_move == true)
     {
-        // TO BE IMPLEMENTED
         std::cout << "Move\n";
     }
 }

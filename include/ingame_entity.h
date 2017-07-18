@@ -3,7 +3,7 @@
 	
 	Declarations:
 		-preprocessor directives: MAX_GENDER, MAX_RACE, MAX_CLASSES
-		-emumerated types: Gender, Race, Job 
+		-emumerated types: Gender, Race, Job, Alignment
 		Classes:
 			-Ingame_entity_human
 			-Ingame_entity_vehicle
@@ -16,10 +16,14 @@
 #define MAX_CLASSES 8
 #include <string>
 #include <vector>
+#include <memory>
 
 enum Gender {UNINIT , MALE, FEMALE, OTHER_ORIENTATION};
 enum Race {UNSET, WHITE, BLACK, ASIAN, HISPANIC, INDIGENOUS, OTHER};
 enum Job {UNEMPLOYED, MARINE, CAPTAIN, LAWYER, ARMORER, ECONOMIST, GAMBLER, REPORTER, NOMAD};
+
+enum Alignment { NOTSET, CHAOTIC_EVIL, CHAOTIC_NEUTRAL, CHAOTIC_GOOD, NEUTRAL_EVIL, 
+				TRUE_NEUTRAL, NEUTRAL_GOOD, LAWFUL_EVIL, LAWFUL_NEUTRAL, LAWFUL_GOOD };
 
 //valid for all ingame entities: Playable/controllable, NPCs	
 class Ingame_entity_human
@@ -36,45 +40,16 @@ class Ingame_entity_human
 	
 	// accessor function
 	bool is_hostile() const { return m_is_hostile; }
+	int ID() const { return m_ID; }
 	std::string name() const { return m_entity_name; }
 	Gender gender() const { return m_entity_gender; }
 	Race race() const { return m_entity_race; }
 	Job job() const { return m_entity_class; }
 	
-	// combat functions
-	virtual void print_header_stats() = 0;
-	
-	// given a vector of potential targets prompts the user for their desired target
-	int select_target(const std::vector<Ingame_entity_human*>& possible_targets);
-	
-	// polymorphic accessor function used to group and compare primary_characters and hostiles together in the 
-	// combat turn order
-	virtual unsigned int speed() const = 0;
-	
-	// adds a comparator for comparing ingame_entity's speeds
-	struct speed_compare
-	{
-		public:
-		// overloads () operator for use as functor to facilitate comparing of speeds
-		bool operator()(const Ingame_entity_human* first, const Ingame_entity_human* second) const
-		{
-			return first->speed()<=second->speed();
-		}
-	};
-	
 	// special accessor functions that return strings instead of an enumerated type
 	std::string get_gender_as_string() const;
 	std::string get_race_as_string() const;
 	std::string get_job_as_string() const;
-	
-	// function to take a turn during combat, can be overloaded for deriving classes that actually
-	// can be in combat. function will return true if entity took a successful action and false if
-	// the entity is dead or unable to take an action
-	// returns false by default if not overloaded
-	virtual bool turn(std::vector<Ingame_entity_human*>& turn_order) { return true; }
-	
-	// function to damage the character, needs to be overloaded
-	virtual bool damage_entity(int amount_of_damage) = 0;
 	
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character
@@ -90,6 +65,10 @@ class Ingame_entity_human
 	
 	// identifier to see if hostile or not
 	bool m_is_hostile;
+	
+	// determines some of the bonuses that player gains by immersing themselves into
+	// their character's selected alignment
+	int m_character_ethics;
 	
 	// identifying number for the ingame_entity
 	int m_ID;

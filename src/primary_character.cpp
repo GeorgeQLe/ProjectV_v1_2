@@ -7,74 +7,47 @@
 #include "support.h"
 
 Primary_character::Primary_character(bool player) 
-                : Ingame_entity_human{"Adam", MALE, WHITE, CAPTAIN, false}, m_character_ethics(LAWFUL_NEUTRAL), m_player_character(false)
+                : Combat_entity{"Adam", MALE, WHITE, CAPTAIN}, m_player_character(player)
 {
-    // checks if the primary_character to be created is the player
-    if(player)
-    {
-        // if so call the special player character creation
-        character_creator();
-    }
-    else
-    {
-        // called to create the player's party characters
-        party_character_creator();
-    }
+    character_creator();
 }
 
 void Primary_character::character_creator()
 {
-    // sets name, gender, race, and character class
-    // ingame_entity.h
-    //set_information(); 
-    // sets primary stats- primary attributes and secondary attributes
-    // character_setup.h
     Factory_player_characters f_creator;
-	f_creator.primary_stats_setup(job(), m_innate_character_stats);
 	f_creator.secondary_stats_setup(job(), m_learned_character_stats);
-	
-	m_character_possible_attacks.update_damage(m_innate_character_stats.strength(), 5);
+	equip_weapons();
 }
 
-void Primary_character::party_character_creator()
+bool Primary_character::equip_weapons()
 {
-    // TO BE DESIGNED
+    // if player can use the weapon
+    if(true)
+    {
+        // equip the weapon
+        
+        // demo only
+        m_character_possible_attacks.update_damage(strength(), 5);
+        
+        // return true for success
+        return true;
+    }
+    return false;
 }
 
 void Primary_character::reduce_or_increase_reputation(bool increase, int amount)
 {
     if(increase == false)
     {
-        m_innate_character_stats.reduce_reputation(amount);
+        reduce_or_increase_reputation(increase, amount);
     }
     else if(increase)
     {
-        m_innate_character_stats.increase_reputation(amount);
+        reduce_or_increase_reputation(increase, amount);
     }
 }
 
-void Primary_character::print_header_stats()
-{
-    std::cout << "Name:" << name() << " Level: " << level() << std::endl;
-    std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
-    std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" 
-            << m_innate_character_stats.experience_points_needed() << std::endl;
-}
-
-void Primary_character::print_stats()
-{
-    std::cout << "Level: " << level() << std::endl;
-    std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
-    std::cout << "Exp: " << m_innate_character_stats.experience_points() << "/" << 
-        m_innate_character_stats.experience_points_needed() << std::endl;
-    std::cout << "Strength: " << m_innate_character_stats.strength() << std::endl;
-    std::cout << "Leadership: " << m_innate_character_stats.leadership() << std::endl;
-    std::cout << "Intelligence: " << m_innate_character_stats.intelligence() << std::endl;
-    std::cout << "Character: " << m_innate_character_stats.character() << std::endl;
-    std::cout << "Endurance: " << m_innate_character_stats.endurance() << std::endl;
-}
-
-bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
+bool Primary_character::turn(std::vector<std::shared_ptr<Combat_entity>>& turn_order)
 {
     // variable tracking if the turn resulted in a successful action i.e. 
     // if has status condition like stun and can't attack the f_success is false
@@ -105,7 +78,7 @@ bool Primary_character::turn(std::vector<Ingame_entity_human*>& turn_order)
     return f_success;
 }
 
-bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
+bool Primary_character::action(std::vector<std::shared_ptr<Combat_entity>>& turn_order)
 {
     // return value
     bool f_back = false;
@@ -120,15 +93,14 @@ bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
     // gets the user's selection
     int f_select_actions = get_number_from_user(1, 4);
     
-    // selects a target
-    int f_target_index = select_target(turn_order) - 1;
-    
-    std::cout << "You selected " << turn_order.at(f_target_index)->name() << std::endl;
+    // selects a target, select_target declared in combat_entity.h
+    int f_target_index = select_target(turn_order);
     
     // evaluates the user's selection of an action
     if(f_select_actions == ATTACK)
     {
-        attack(turn_order.at(f_target_index ));
+        std::cout << "Gets here" << std::endl;
+        attack(turn_order.at(f_target_index));
     }
     else if(f_select_actions == ULTIMATE)
     {
@@ -150,12 +122,12 @@ bool Primary_character::action(std::vector<Ingame_entity_human*>& turn_order)
     return f_back;
 }
 
-bool Primary_character::attack(Ingame_entity_human* target)
+bool Primary_character::attack(std::shared_ptr<Combat_entity> target)
 {
     return target->damage_entity(m_character_possible_attacks.m_primary_attack.damage());
 }
 
-bool Primary_character::ultimate_attacks(Ingame_entity_human* target)
+bool Primary_character::ultimate_attacks(std::shared_ptr<Combat_entity> target)
 {
     bool f_success;
     
@@ -172,7 +144,7 @@ bool Primary_character::ultimate_attacks(Ingame_entity_human* target)
     return f_success;
 }
 
-bool Primary_character::items(Ingame_entity_human* target)
+bool Primary_character::items(std::shared_ptr<Combat_entity> target)
 {
     bool f_success;
     
@@ -187,10 +159,4 @@ bool Primary_character::items(Ingame_entity_human* target)
     }
     
     return f_success;
-}
-
-bool Primary_character::damage_entity(int amount_of_damage)
-{
-    // function in primary_stats that controls taking damage for the character
-    return m_innate_character_stats.take_damage(amount_of_damage);
 }

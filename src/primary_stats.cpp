@@ -10,23 +10,23 @@ void print_to_screen_level_up(unsigned int current_level, unsigned int experienc
 							  unsigned int experience_points_needed);
 
 // function calling the "init" function for the derivative secondary_attribute classes
-void Secondary_attributes::set_secondary_attributes(const Primary_attributes& primary_stat_modifiers)
+void Secondary_attributes::set_secondary_attributes(int strength, int leadership, int intelligence, int character, int endurance)
 {
-	calculate_strength_based_attributes(primary_stat_modifiers.strength());
-	calculate_leadership_based_attributes(primary_stat_modifiers.leadership());
-	calculate_intelligence_based_attributes(primary_stat_modifiers.intelligence());
-	calculate_character_based_attributes(primary_stat_modifiers.character());
-	calculate_endurance_based_attributes(primary_stat_modifiers.endurance());
+	calculate_strength_based_attributes(strength);
+	calculate_leadership_based_attributes(leadership);
+	calculate_intelligence_based_attributes(intelligence);
+	calculate_character_based_attributes(character);
+	calculate_endurance_based_attributes(endurance);	
 }
 
 // function to update the derivative secondary_attribute classes 
-void Secondary_attributes::update_stats(const Primary_attributes& changed_stats)
+void Secondary_attributes::update_stats(int strength, int leadership, int intelligence, int character, int endurance)
 {
-	calculate_strength_based_attributes(changed_stats.strength());
-	calculate_leadership_based_attributes(changed_stats.leadership());
-	calculate_intelligence_based_attributes(changed_stats.intelligence());
-	calculate_character_based_attributes(changed_stats.character());
-	calculate_endurance_based_attributes(changed_stats.endurance());
+	calculate_strength_based_attributes(strength);
+	calculate_leadership_based_attributes(leadership);
+	calculate_intelligence_based_attributes(intelligence);
+	calculate_character_based_attributes(character);
+	calculate_endurance_based_attributes(endurance);
 }
 
 // function for setting up and updating stength based secondary attributes
@@ -254,12 +254,26 @@ void Primary_attributes::modify_stat(Primary_attribute to_be_Modified, int new_v
 	}
 }
 
-Primary_stats::Primary_stats(int preset_strength, int preset_leadership, int preset_intelligence, int preset_character,
-					int preset_endurance, unsigned int preset_level, unsigned int preset_total_health, int current_health_total,
-					unsigned int defense, unsigned int speed)
-					: m_level(preset_level), m_total_health(preset_total_health), m_current_health_total(current_health_total),
-					m_defense(defense), m_speed(speed)
+Primary_stats::Primary_stats(int difficulty, unsigned int level, unsigned int total_health, int current_health_total, 
+							unsigned int defense, unsigned int speed)
+							: Primary_attributes(difficulty, difficulty, difficulty, difficulty, difficulty),
+							m_level(level), m_total_health(total_health), m_current_health_total(current_health_total),
+							m_defense(defense), m_speed(speed)
 {
+	// modify_stat is a member function of Primary_attributes
+	modify_stat(STRENGTH, m_level);
+	modify_stat(LEADERSHIP, m_level);
+	modify_stat(INTELLIGENCE, m_level);
+	modify_stat(LEADERSHIP, m_level);
+	modify_stat(ENDURANCE, m_level);
+}							
+
+Primary_stats::Primary_stats(int strength, int leadership, int intelligence, int character, int endurance, unsigned int level,
+					unsigned int total_health, int current_health_total, unsigned int defense, unsigned int speed) 
+					: Primary_attributes(strength, leadership, intelligence, character, endurance), m_level(level), 
+					m_total_health(total_health), m_current_health_total(current_health_total), m_defense(defense), m_speed(speed)
+{
+	// member function of Primary_attributes
 	modify_stat(STRENGTH, m_level);
 	modify_stat(LEADERSHIP, m_level);
 	modify_stat(INTELLIGENCE, m_level);
@@ -270,42 +284,22 @@ Primary_stats::Primary_stats(int preset_strength, int preset_leadership, int pre
 void Primary_stats::init_primary_stats(int strength, int leadership, int intelligence, 
 												int character, int endurance)
 {
-	m_stat_modifiers.modify_stat(STRENGTH, strength);
-	m_stat_modifiers.modify_stat(LEADERSHIP, leadership);
-	m_stat_modifiers.modify_stat(INTELLIGENCE, intelligence);
-	m_stat_modifiers.modify_stat(CHARACTER, character);
-	m_stat_modifiers.modify_stat(ENDURANCE, endurance);
+	// member function of Primary_attributes
+	modify_stat(STRENGTH, strength);
+	modify_stat(LEADERSHIP, leadership);
+	modify_stat(INTELLIGENCE, intelligence);
+	modify_stat(CHARACTER, character);
+	modify_stat(ENDURANCE, endurance);
 	
-	m_supporting_stat_modifiers.set_secondary_attributes(m_stat_modifiers);
+	// // member function of Secondary_attributes
+	set_secondary_attributes(this->strength(), this->leadership(), this->intelligence(), this->character(), this->endurance());
 	
+	m_experience_points = 0;
+	m_experience_points_needed = 100;
 	m_total_health+=(static_cast<unsigned int>(floor(strength * 0.35)));
 	m_current_health_total = m_total_health;
 	m_defense+=(static_cast<unsigned int>(floor(endurance * 0.5)));
 	m_speed+=(static_cast<unsigned int>(floor(endurance * 0.5)));
-}
-
-void Primary_stats::modify_stat(Primary_attribute to_be_modified, int level)
-{
-	switch(to_be_modified)
-	{
-		case 1:
-		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.strength() + level);
-		break;
-		case 2:
-		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.leadership() + level);
-		break;
-		case 3:
-		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.intelligence() + level);
-		break;
-		case 4:
-		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.character() + level);
-		break;
-		case 5:
-		m_stat_modifiers.modify_stat(to_be_modified, m_stat_modifiers.endurance() + level);
-		break;
-		default:
-		break;
-	}
 }
 
 void Primary_stats::level_up(unsigned int experience_points_granted)
@@ -335,7 +329,7 @@ void Secondary_attributes::reduce_reputation(int amount)
 
 void Primary_stats::increase_reputation(int amount)
 {
-	m_supporting_stat_modifiers.increase_reputation(amount);
+	increase_reputation(amount);
 }
 
 void Secondary_attributes::increase_reputation(int amount)
@@ -344,12 +338,18 @@ void Secondary_attributes::increase_reputation(int amount)
 }
 
 bool Primary_stats::take_damage(int damage) 
-{ 
+{
 	if((m_current_health_total-damage) >= 0 && damage > 0) 
 	{ 
 		m_current_health_total-=damage; 
 		return true;
 	}
+	else if(damage > 0)
+	{
+		m_current_health_total = 0;
+		return true;
+	}
+	
 	return false;
 }
 

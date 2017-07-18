@@ -36,14 +36,14 @@
                 int* pm_this_is_a_pointer_to_a_member_variable;
             }
 */
-//#include <iostream>
-//#include "grid.h"
-//#include "Diadal.h"
+#include <iostream>
+#include "grid.h"
+#include "Diadal.h"
 
 int main()
 {
     // initializing an instance of the game
-    //Diadal game_instance;
+    Diadal game_instance;
     
     // game loop in main
     // game_menu returns true if the player wants to play the game
@@ -55,5 +55,5 @@ int main()
     //     game_instance.game_loop();
     // }
     
-    //game_instance.new_game();
+    game_instance.new_game();
 }

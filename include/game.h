@@ -3,7 +3,7 @@
 
 #include <string>
 
-enum Difficulty { EASY = 1, MEDIUM = 2, HARD = 3};
+enum Difficulty { EASY = 0, MEDIUM = 3, HARD = 5};
 
 class Game_settings
 {

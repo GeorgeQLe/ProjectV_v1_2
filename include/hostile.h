@@ -8,60 +8,54 @@
 #ifndef HOSTILE_H
 #define HOSTILE_H
 
-#include <string>
 #include <vector>
-#include "ingame_entity.h"
-#include "primary_stats.h"
+#include <memory>
+#include "combat_entity.h"
 #include "actions.h"
 #include "basic_state_AI.h"
 
 // test enemy
-class Hostile : public Ingame_entity_human
+class Hostile : public Combat_entity
 {
     public:
-    Hostile() : Ingame_entity_human("Dummy", 1, 1, 1, true), m_hostile_stats(0, 0, 0, 0, 0, 1, 10, 10, 0, 1) { get_AI(); }
-    Hostile(std::string name, int gender, int race, int job, int strength, int leadership, int intelligence, int character,
-            int endurance, unsigned int level, unsigned int total_health, int current_health_total, unsigned int defense,
-            unsigned int speed);
-    ~Hostile() { delete mp_AI_system; }
-    
-    // accessor functions
-    unsigned int level() const { return m_hostile_stats.level(); }
-    int current_health_total() const { return m_hostile_stats.current_health_total(); }
-    unsigned int total_health() const { return m_hostile_stats.total_health(); }
+    Hostile();
+    Hostile(int difficulty);
+    ~Hostile() {}
     
     // combat functions
     
-    // overloading function in ingame_entity to print out hostile stats
+    // overloading function in combat_entity to print out the hostile's header stats
     virtual void print_header_stats();
     
-    // overloading function in ingame_entity to take a turn for the hostile
-    virtual bool turn(std::vector<Ingame_entity_human*>& turn_order);
-    
-    // overloading the virtual function left pure in the class Ingame_entity_human 
-    virtual unsigned int speed() const { return m_hostile_stats.speed(); }
+    // overloading function in combat_entity to take a turn for the hostile
+    virtual bool turn(std::vector<std::shared_ptr<Combat_entity>>& turn_order);
     
     // four functions for inheriting classes to override... please override them
     virtual bool update();
-    virtual void attack();
-    virtual void move();
-    virtual void flee();
+    virtual bool attack();
+    virtual bool move();
+    virtual bool flee();
     
-    // calls this function when the hostile takes damage
-	bool damage_entity(int amount_of_damage);
-    
+    // function to 
+
     private:
-    // function to recieve an AI system
-    void get_AI() { mp_AI_system = new State_machine<Hostile>(this); }
-    
-    Primary_stats m_hostile_stats;
+    // declared in actions.h
     Actions m_potiential_actions;
     
+    // declared in attacks.h
+    List_of_attacks m_hostile_attacks;
+    
     // the hostile's AI (brain)
-    State_machine<Hostile>* mp_AI_system;
+    std::shared_ptr<State_machine<Hostile>> mp_AI_system;
+    
+    // reference to the hostile's target
+    Combat_entity* m_target;
+    
+    // set initially to false, call flee() to set to true, then second call to flee successfully flee
+    bool m_can_flee;
 };
 
 //adds hostiles to a list of hostile characters to be used in combat
-void add_hostile(std::vector<Hostile*>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int);
+void add_hostile(std::vector<std::shared_ptr<Hostile>>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int);
 
 #endif

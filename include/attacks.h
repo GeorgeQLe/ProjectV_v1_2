@@ -1,14 +1,17 @@
 /*  Copyright 2017 George Le
     
+    Declaration:
+        
 */
 #ifndef ATTACKS_H
 #define ATTACKS_H
 
 #include <string>
 #include <vector>
+#include <memory>
 
 enum Stat { DAMAGE = 1, AMMO, SPEED};
-enum Type_of_attack { NO_ATTACK, ATTACK, ULTIMATE, ITEM};
+enum Type_of_attack { NO_ATTACK = 0, ATTACK = 1, ULTIMATE = 2, ITEM = 3};
 
 struct Attack_stats
 {
@@ -99,11 +102,7 @@ struct List_of_attacks
     // attack names, index 0 for primary attacks, 1 for ult, and 2 for item.
     // Also assigns those names to the attacks themselves.
     List_of_attacks(std::vector<std::string> list_of_attack_names);
-    ~List_of_attacks()
-    {
-        delete pm_ult;
-        delete pm_use_offensive_item;
-    }
+    ~List_of_attacks() {}
     
     // lists out the name of the three possible attack options
     void list_attacks();
@@ -121,8 +120,8 @@ struct List_of_attacks
     // pointer to Ultimate attacks and Item attacks to 
     // allow for polymorphism 
     // TO BE IMPLEMENTED WHEN ULTIMATE ATTACKS AND ITEMS ARE DESIGNED
-    Ultimate_attacks* pm_ult;
-    Item_attack* pm_use_offensive_item;
+    std::shared_ptr<Ultimate_attacks> pm_ult;
+    std::shared_ptr<Item_attack> pm_use_offensive_item;
     // convienent collection of attack names
     // Primary Attack is index 0 by default
     // Ultimate Attack is index 1

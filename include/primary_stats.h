@@ -24,7 +24,7 @@ class Primary_attributes
 	int character() const { return m_character; }
 	int endurance() const { return m_endurance; }
 	
-	//private:
+	private:
 	int m_strength;
 	int m_leadership;
 	int m_intelligence;
@@ -211,27 +211,31 @@ class Secondary_attributes : protected Secondary_attributes_strength_based, prot
 	public:
 	Secondary_attributes() {}
 	
-	void set_secondary_attributes(const Primary_attributes& primary_stat_modifiers); //character creation
-	void update_stats(const Primary_attributes& changed_stats); //level up
+	void set_secondary_attributes(int strength, int leadership, int intelligence, int character, int endurance); //character creation
+	void update_stats(int strength, int leadership, int intelligence, int character, int endurance); //level up
 	
 	void reduce_reputation(int amount);
 	void increase_reputation(int amount);
 };
 
-class Primary_stats
+class Primary_stats : public Primary_attributes, public Secondary_attributes
 {
 	public:
-	Primary_stats() : m_stat_modifiers(), m_supporting_stat_modifiers(), m_level(1), 
-					m_experience_points(0), m_experience_points_needed(100), m_total_health(10), 
+	// default constructor
+	Primary_stats() : m_level(1), m_experience_points(0), m_experience_points_needed(100), m_total_health(10), 
 					m_current_health_total(10), m_defense(0), m_speed(1) {}
-	Primary_stats(int preset_strength, int preset_leadership, int preset_intelligence, int preset_character,
-					int preset_endurance, unsigned int preset_level, unsigned int preset_total_health, 
-					int current_health_total, unsigned int defense, unsigned int speed);
+	// simple constructor for hostiles
+	Primary_stats(int difficulty, unsigned int level, unsigned int total_health, int current_carry_amount, unsigned int defense,
+					unsigned int speed);
+	// constructor for combat_entities
+	Primary_stats(int strength, int leadership, int intelligence, int character, int endurance, unsigned int level, 
+				unsigned int total_health, int current_health_total, unsigned int defense, unsigned int speed);
+	// called in character_setup.h to initialize primary stats for players
 	void init_primary_stats(int strength, int leadership, int intelligence, int character, int endurance);
-	void modify_stat(Primary_attribute to_be_modified, int level);
+	// function to level up the player
 	void level_up(unsigned int experience_points_granted);
 	
-	//accessor functions
+	// accessor functions
 	unsigned int level() const { return m_level; }
 	unsigned int experience_points() const { return m_experience_points; }
 	unsigned int experience_points_needed() const { return m_experience_points_needed; }
@@ -239,12 +243,6 @@ class Primary_stats
 	unsigned int current_health_total() const { return m_current_health_total; }
 	unsigned int defense() const { return m_defense; }
 	unsigned int speed() const { return m_speed; }
-	
-	int strength() const { return m_stat_modifiers.strength(); }
-	int leadership() const { return m_stat_modifiers.leadership(); }
-	int intelligence() const { return m_stat_modifiers.intelligence(); }
-	int character() const { return m_stat_modifiers.character(); }
-	int endurance() const { return m_stat_modifiers.endurance(); }
 	
 	// mutator functions
 	void reduce_reputation(int amount);
@@ -262,9 +260,6 @@ class Primary_stats
 	void full_heal() { m_current_health_total = m_total_health; }
 	
 	private:
-	Primary_attributes m_stat_modifiers;
-	Secondary_attributes m_supporting_stat_modifiers;
-	
 	//general stats
 	unsigned int m_level;
 	unsigned int m_experience_points;
@@ -273,6 +268,8 @@ class Primary_stats
 	//health related variables
 	unsigned int m_total_health;
 	int m_current_health_total; // not unsigned bc it can be negative much to the player's chagrin
+	
+	// combat stats modified by weapons and armor
 	unsigned int m_defense;
 	unsigned int m_speed;
 };

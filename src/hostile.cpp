@@ -5,69 +5,130 @@
 #include "hostile.h"
 #include "entity_states.h"
 
-Hostile::Hostile(std::string name, int gender, int race, int job, int strength, int leadership, int intelligence, int character,
-            int endurance, unsigned int level, unsigned int total_health, int current_health_total, unsigned int defense,
-            unsigned int speed)
-            : Ingame_entity_human(name, gender, race, job, true), m_hostile_stats(strength, leadership, intelligence, character,
-                                                                                endurance, level, total_health, current_health_total,
-                                                                                defense, speed)
+Hostile::Hostile() : Combat_entity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 10, 10, 0, 1), 
+                    mp_AI_system(new State_machine<Hostile>(this)), m_target(nullptr) 
 {
-    get_AI();
+    mp_AI_system->set_current_state(Idle_state<Hostile>::get_instance());
+    
+    mp_AI_system->set_global_state(Global_state<Hostile>::get_instance());
+}
+
+Hostile::Hostile(int difficulty) : 
+        Combat_entity("Dummy", 1, 1, 1, true, difficulty, difficulty, difficulty, difficulty, difficulty, 1, 10, 10, 0, 1), 
+        mp_AI_system(new State_machine<Hostile>(this)), m_target(nullptr)
+{
+    mp_AI_system->set_current_state(Idle_state<Hostile>::get_instance());
+    
+    mp_AI_system->set_global_state(Global_state<Hostile>::get_instance());
 }
 
 void Hostile::print_header_stats()
 {
-    std::cout << "Name:" << name() << " Level: " << level() << std::endl;
+    std::cout << "Hostile name: " << name() << " Level: " << level() << std::endl;
     std::cout << "Health: " << current_health_total() << "/" << total_health() << std::endl;
 }
 
-bool Hostile::turn(std::vector<Ingame_entity_human*>& turn_order)
+bool Hostile::turn(std::vector<std::shared_ptr<Combat_entity>>& turn_order)
 {
-    return update();
+    bool f_success = true;
+    // if hostile is still alive then call the update function
+    if(this->current_health_total() > 0)
+    {
+        f_success = update();
+    }
+    // else the hostile is dead and fails to take its turn
+    else if (this->current_health_total() == 0)
+    {
+        std::cout << "Hostile is dead!" << std::endl;
+        f_success = false;
+    }
+    
+    // return the result of the hostile's turn
+    return f_success;
 }
 
 bool Hostile::update()
 {
-    bool f_success = true;
+    // if the current health total lower or equal to half of the health of
+    // the hostile then switch the hostile to a defensive state where the 
+    // hostile retreats and takes unaimed shots
+    if(this->current_health_total() <= (this->total_health() / 2))
+    {
+        std::cout << "Enter defensive_state" << std::endl;
+        mp_AI_system->change_state(Defensive_state<Hostile>::get_instance());
+    }
+    // if the current health total lower or equal to a quarter of the health
+    // of the hostile then switch the hostile to a run state where the hostile
+    // attempts to flee
+    else if(this->current_health_total() <= (this->total_health() / 4))
+    {
+        mp_AI_system->change_state(Run_state<Hostile>::get_instance());
+    }
+    // if the current health total lower to equal to a tenth of the health
+    // of the hostile then switch the hostile to a desparate state where the
+    // hostile charges at its target and attack it
+    else if(this->current_health_total() <= (this->total_health() / 10))
+    {
+        mp_AI_system->change_state(Desperate_state<Hostile>::get_instance());
+    }
+    // if the hostile doesn't have a target to shoot at then go to an idle state
+    else if(m_target == nullptr)
+    {
+        std::cout << "Change to idle state" << std::endl;
+        mp_AI_system->change_state(Idle_state<Hostile>::get_instance());
+    }
+    // if none of those conditions exist then the hostile will try his best to
+    // kill his target
+    else if(m_target)
+    {
+        mp_AI_system->change_state(Aggressive_state<Hostile>::get_instance());
+    }
     
-    mp_AI_system->update();
+    if(this->current_health_total() > 0)
+    {
+        // uses a finite-state machine to serve as the hostile's AI, calls this 
+        // function to update the current state if needed then execute the current 
+        // state
+        std::cout << "Update" << std::endl;
+        return mp_AI_system->update();
+    }
+    
+    return false;
+}
+
+bool Hostile::attack()
+{
+    return m_target->damage_entity(m_hostile_attacks.m_primary_attack.damage());
+}
+
+bool Hostile::move()
+{
+    bool f_success = false;
+    
+    // move
+    
     
     return f_success;
 }
 
-void Hostile::attack()
-{
-    // TO BE IMPLEMENTED
-}
-
-void Hostile::move()
-{
-    // TO BE IMPLEMENTED
-}
-
-void Hostile::flee()
+bool Hostile::flee()
 {
     std::cout << name() << " tries to flee";
     
+    if(m_can_flee == false)
+    {
+        m_can_flee = true;
+    }
+    
+    return m_can_flee;
 }
 
-void add_hostile(std::vector<Hostile*>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)
+void add_hostile(std::vector<std::shared_ptr<Hostile>>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)
 {
     for(int i = 0; i < number_of_hostiles; i++)
     {
         // generates random hostile and inserts it into the list of hostiles
-        Hostile* fp_hostile = new Hostile();
+        std::shared_ptr<Hostile> fp_hostile(new Hostile(enum_difficult_converted_to_int));
         list_of_hostiles.push_back(fp_hostile);
     }
-}
-
-bool Hostile::damage_entity(int amount_of_damage)
-{
-    bool f_success = true;
-    
-    // function in primary_stats that controls taking damage for the hostile
-    f_success = m_hostile_stats.take_damage(amount_of_damage);
-    std::cout << name() << " takes " << amount_of_damage << " hp of damage!" << std::endl;
-    
-    return f_success;
 }
