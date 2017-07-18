@@ -36,7 +36,8 @@ class Hostile : public Combat_entity
     virtual bool move();
     virtual bool flee();
     
-    // function to 
+    // function to select something to attack
+    virtual void get_target(std::vector<std::shared_ptr<Combat_entity>> list_of_targets);
 
     private:
     // declared in actions.h
@@ -49,10 +50,13 @@ class Hostile : public Combat_entity
     std::shared_ptr<State_machine<Hostile>> mp_AI_system;
     
     // reference to the hostile's target
-    Combat_entity* m_target;
+    std::weak_ptr<Combat_entity> m_target;
     
     // set initially to false, call flee() to set to true, then second call to flee successfully flee
     bool m_can_flee;
+    
+    // amount of experience points the player can earn by defeating this hostile
+    unsigned int m_experience_points_granted;
 };
 
 //adds hostiles to a list of hostile characters to be used in combat

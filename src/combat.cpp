@@ -94,6 +94,7 @@ Result Combat_manager::single_turn(unsigned int number_of_player_characters, uns
     // should either return fighting, potential_player_wipe, or potential_hostile_wipe
     return victory_or_loss;
 }
+
 Result Combat_manager::party_v_party_battle(std::vector<std::shared_ptr<Primary_character>>& list_of_characters, int enum_difficult_converted_to_int)
 {
     // initializes Result, an enum, to default value NOT_STARTED(-1)

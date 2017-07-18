@@ -40,7 +40,6 @@ class Combat_manager
     
     // two following functions check to see if the potential player or hostile wipes are a reality or not
     bool check_player_healths(std::vector<std::shared_ptr<Primary_character>> list_of_characters);
-    
     bool check_hostile_healths(std::vector<std::shared_ptr<Hostile>> list_of_hostiles);
     
     private:

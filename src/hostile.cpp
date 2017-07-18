@@ -6,8 +6,10 @@
 #include "entity_states.h"
 
 Hostile::Hostile() : Combat_entity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 10, 10, 0, 1), 
-                    mp_AI_system(new State_machine<Hostile>(this)), m_target(nullptr) 
+            mp_AI_system(new State_machine<Hostile>(this)), m_can_flee(false), m_experience_points_granted(100)
 {
+    m_target.lock() = nullptr;
+    
     mp_AI_system->set_current_state(Idle_state<Hostile>::get_instance());
     
     mp_AI_system->set_global_state(Global_state<Hostile>::get_instance());
@@ -15,8 +17,10 @@ Hostile::Hostile() : Combat_entity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 10,
 
 Hostile::Hostile(int difficulty) : 
         Combat_entity("Dummy", 1, 1, 1, true, difficulty, difficulty, difficulty, difficulty, difficulty, 1, 10, 10, 0, 1), 
-        mp_AI_system(new State_machine<Hostile>(this)), m_target(nullptr)
+        mp_AI_system(new State_machine<Hostile>(this)), m_can_flee(false), m_experience_points_granted(100)
 {
+    m_target.lock() = nullptr;
+    
     mp_AI_system->set_current_state(Idle_state<Hostile>::get_instance());
     
     mp_AI_system->set_global_state(Global_state<Hostile>::get_instance());
@@ -72,14 +76,14 @@ bool Hostile::update()
         mp_AI_system->change_state(Desperate_state<Hostile>::get_instance());
     }
     // if the hostile doesn't have a target to shoot at then go to an idle state
-    else if(m_target == nullptr)
+    else if(m_target.lock() == nullptr)
     {
         std::cout << "Change to idle state" << std::endl;
         mp_AI_system->change_state(Idle_state<Hostile>::get_instance());
     }
     // if none of those conditions exist then the hostile will try his best to
     // kill his target
-    else if(m_target)
+    else if(m_target.lock() != nullptr)
     {
         mp_AI_system->change_state(Aggressive_state<Hostile>::get_instance());
     }
@@ -98,7 +102,7 @@ bool Hostile::update()
 
 bool Hostile::attack()
 {
-    return m_target->damage_entity(m_hostile_attacks.m_primary_attack.damage());
+    return m_target.lock()->damage_entity(m_hostile_attacks.m_primary_attack.damage());
 }
 
 bool Hostile::move()
@@ -119,8 +123,17 @@ bool Hostile::flee()
     {
         m_can_flee = true;
     }
+    else if(m_can_flee)
+    {
+        
+    }
     
     return m_can_flee;
+}
+
+void Hostile::get_target(std::vector<std::shared_ptr<Combat_entity>> list_of_targets)
+{
+    
 }
 
 void add_hostile(std::vector<std::shared_ptr<Hostile>>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int)

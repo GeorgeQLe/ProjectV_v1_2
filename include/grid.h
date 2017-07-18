@@ -110,8 +110,14 @@ class Grid
     }
     
     private:
+    // Grid uses a std::map that stores the entities on it in rows of vectors
+    // This feature allows for the Grid to be easily dynamically expanded and
+    // contracted as needed depending on the movement of the entites and the
+    // requirements of the game
     std::map<int, std::vector<Grid_square<Entity_type>>> grid;
     
+    // variable contains the max amount of rows the map should have
+    // a "border" for the Grid if it is needed
     int m_max_rows;
 };
 
