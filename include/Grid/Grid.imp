@@ -1,0 +1,41 @@
+/*  Copyright 2017 George Le
+
+*/
+#include "Grid/Grid.h"
+
+template<class Entity_type>
+Grid<Entity_type>::Grid() : m_max_rows(DEFAULT_ROW_AMOUNT)
+{
+    // filling up the grid to have at least one square for all the rows
+    int y = 0;
+    // set up at least 2 grid squares for two opponents squaring off in close range
+    // and in front of each other
+    for(int x = 0; x < 2; ++x)
+    {
+        // creates a grid square at position (0,1) and then iterates the x value
+        Grid_square<Entity_type> grid_square(x, y, true);
+        grid[x].push_back(grid_square);
+    }
+}
+
+template<class Entity_type>
+Grid<Entity_type>::Grid(int new_number_of_rows) : m_max_rows(max_rows)
+{
+    // filling up the grid to have at least one square for all the rows
+    int y = 0;
+    // set up at least 2 grid squares for two opponents squaring off in close range
+    // and in front of each other
+    for(int x = 0; x < 2; ++x)
+    {
+        // creates a grid square at position (0,1) and then iterates the x value
+        Grid_square<Entity_type> grid_square(x, y, true);
+        grid[x].push_back(grid_square);
+    }
+}
+
+template<class Entity_type>
+double Grid<Entity_type>::get_distance(const Grid_square<Entity_type>& first, const Grid_square<Entity_type>& second)
+{
+    return sqrt(pow((static_cast<double>(second.get_location().m_x) - static_cast<double>(first.get_location().m_x)), 2.0) + 
+                pow((static_cast<double>(second.get_location().m_y) - static_cast<double>(first.get_location().m_y)), 2.0));
+}

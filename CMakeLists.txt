@@ -12,58 +12,59 @@ elseif(WIN32)
 endif()
 
 set(DIADAL_SOURCES
-    src/Actions.cpp
-    src/Character_class_information.cpp
-    src/character_setup.cpp
-    src/Combat_entity.cpp
-    src/Combat_manager.cpp
-    src/Diadal.cpp
-    src/Diadal_story.cpp
-    src/Flee_action.cpp
-    src/Game.cpp
-    src/Hostile.cpp
-    src/Ingame_entity.cpp
+    src/Actions/Actions.cpp
+    src/Actions/Flee_action.cpp
+    src/Actions/Movement_action.cpp
+    src/Character_creation/Character_creation_command.cpp
+    src/Character_creation/Player_class_catalog.cpp
+    src/Combat_manager/Combat_manager.cpp
+    src/Diadal/Diadal.cpp
+    src/Diadal/Diadal_story.cpp
+    src/Diadal/ProjectV_driver.cpp
+    src/Entity/Combat_entity.cpp
+    src/Entity/Hostile.cpp
+    src/Entity/Ingame_entity.cpp
+    src/Entity/Primary_character.cpp
+    src/Game/Game.cpp
     src/List_of_attacks.cpp
-    src/Movement_action.cpp
-    src/Primary_character.cpp
-    src/Primary_stats.cpp
-    src/ProjectV_driver.cpp
-    src/random.cpp
+    src/Primary_stats/Primary_stats.cpp
     src/Secondary_stats/Secondary_stats.cpp
     src/Secondary_stats/Secondary_stats_creator.cpp
-    src/support.cpp
+    src/Support/random.cpp
+    src/Support/support.cpp
 )
 
 set(DIADAL_HEADERS
-    include/Actions.h
-    include/Base_state.h
-    include/Character_class_information.h
-    include/character_setup.h
-    include/Combat_entity.h
-    include/Combat_manager.h
-    include/Diadal.h
-    include/Diadal_story.h
-    include/Entity_states.h
-    include/Entity_states.imp
-    include/Flee_action.h
-    include/Game.h
-    include/Grid.h
-    include/Grid.imp
-    include/Hostile.h
-    include/Ingame_entity.h
+    include/Actions/Actions.h
+    include/Actions/Flee_action.h
+    include/Actions/Movement_action.h
+    include/AI/Base_state.h
+    include/AI/Entity_states.h
+    include/AI/Entity_states.imp
+    include/AI/State_machine.h
+    include/AI/State_machine.imp
+    include/Character_creation/Character_creation_command.h
+    include/Character_creation/Player_class_catalog.h
+    include/Combat_manager/Combat_manager.h
+    include/Diadal/Diadal.h
+    include/Diadal/Diadal_story.h
+    include/Entity/Combat_entity.h
+    include/Entity/Hostile.h
+    include/Entity/Ingame_entity.h
+    include/Entity/Primary_character.h
+    include/Game/Game.h
+    include/Grid/Grid.h
+    include/Grid/Grid.imp
+    include/Grid/Grid_square.h
     include/List_of_attacks.h
-    include/Movement_action.h
-    include/Primary_character.h
-    include/Primary_stats.h
-    include/random.h
-    include/random_messages.h
+    include/Primary_stats/Primary_stats.h
     include/Secondary_stats/Secondary_stats.h
     include/Secondary_stats/Secondary_stats_creator.h
-    include/State_machine.h
-    include/State_machine.imp
-    include/support.h
-    include/vector_quicksort.h
-    include/vector_quicksort.imp
+    include/Support/random.h
+    include/Support/random_messages.h
+    include/Support/support.h
+    include/Support/vector_quicksort.h
+    include/Support/vector_quicksort.imp
 )
 
 include_directories(include)

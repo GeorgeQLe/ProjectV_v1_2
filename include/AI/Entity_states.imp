@@ -1,0 +1,107 @@
+/*  Copyright 2017 George Le
+    Definitions of functions declared in entity_stats.h
+*/
+#include <iostream>
+#include "AI/Entity_states.h"
+#include "Support/random_messages.h"
+
+template<class Entity_type>
+void Idle_state<Entity_type>::enter(Entity_type* p_character)
+{
+    // displays a message that the entity has entered this state
+    std::cout << "Idle_state-enter" << std::endl;
+}
+
+template<class Entity_type>
+bool Idle_state<Entity_type>::evaluate(Entity_type* p_character)
+{
+    std::cout << "Idle_state-move" << std::endl;
+    // entity performs a action that is not an attack depending on his needs
+    return p_character->move();
+}
+
+template<class Entity_type>
+void Idle_state<Entity_type>::exit(Entity_type* p_character)
+{
+    // displays a message that the entity has exited this state
+}
+
+template<class Entity_type>
+void Aggressive_state<Entity_type>::enter(Entity_type* p_character)
+{
+    // displays a message that the entity has entered this state
+}
+
+template<class Entity_type>
+bool Aggressive_state<Entity_type>::evaluate(Entity_type* p_character)
+{
+    std::cout << "Aggressive_state-attack" << std::endl;
+    // entity performs an attack
+    return p_character->attack();
+}
+
+template<class Entity_type>
+void Aggressive_state<Entity_type>::exit(Entity_type* p_character)
+{
+    // displays a message that the entity has exited this state
+}
+
+template<class Entity_type>
+void Defensive_state<Entity_type>::enter(Entity_type* p_character)
+{
+    // displays a message that the entity has entered this state
+}
+
+template<class Entity_type>
+bool Defensive_state<Entity_type>::evaluate(Entity_type* p_character)
+{
+    std::cout << "Defensive_state-move" << std::endl;
+    // will begin to retreat and return fire
+    return p_character->move();
+}
+
+template<class Entity_type>
+void Defensive_state<Entity_type>::exit(Entity_type* p_character)
+{
+    // displays a message that the entity has exited this state
+}
+
+template<class Entity_type>
+void Run_state<Entity_type>::enter(Entity_type* p_character)
+{
+    // displays a message that the entity has entered this state
+}
+
+template<class Entity_type>
+bool Run_state<Entity_type>::evaluate(Entity_type* p_character)
+{
+    std::cout << "Run_state-flee" << std::endl;
+    // entity will only attempt to flee
+    return p_character->flee();
+}
+
+template<class Entity_type>
+void Run_state<Entity_type>::exit(Entity_type* p_character)
+{
+    // displays a message that the entity has exited this state
+}
+
+template<class Entity_type>
+void Desperate_state<Entity_type>::enter(Entity_type* p_character)
+{
+    // displays a message that the entity has entered this state
+}
+
+template<class Entity_type>
+bool Desperate_state<Entity_type>::evaluate(Entity_type* p_character)
+{
+    std::cout << "Desperate_state-move" << std::endl;
+    // will charge(gameplay-wise move closer) at opponent and attack them
+    return p_character->move();
+}
+
+template<class Entity_type>
+void Desperate_state<Entity_type>::exit(Entity_type* p_character)
+{
+    // displays a message that the entity has exited this state
+}

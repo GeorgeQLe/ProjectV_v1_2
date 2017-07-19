@@ -8,22 +8,22 @@ Secondary_stats_creator::Secondary_stats_creator(const std::string& script_name)
     
 }  
 
-void Secondary_stats_creator::init_secondary_stats_non_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum)
+Secondary_stats Secondary_stats_creator::init_secondary_stats_non_custom(int player_class_converted_from_enum)
 {
     // find out which player class the player is
     switch(player_class_converted_from_enum)
     {
         // marine
         case 1:
-        stats_to_be_init.medical_knowledge+=2;
-        stats_to_be_init.athletics+=2;
-        stats_to_be_init.intimidation+=2;
+        // stats_to_be_init.medicine_knowledge+=2;
+        // stats_to_be_init.athletics+=2;
+        // stats_to_be_init.intimidation+=2;
         break;
         // naval captain
         case 2:
-        stats_to_be_init.wisdom+=2;
-        stats_to_be_init.dexterity+=2;
-        stats_to_be_init.persuasion+=2;
+        // stats_to_be_init.wisdom+=2;
+        // stats_to_be_init.dexterity+=2;
+        // stats_to_be_init.persuasion+=2;
         break;
         // lawyer
         case 3:
@@ -37,6 +37,7 @@ void Secondary_stats_creator::init_secondary_stats_non_custom(Secondary_stats& s
         default:
         break;
     }
+    return Secondary_stats();
 }
 
 void Secondary_stats_creator::init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum)
