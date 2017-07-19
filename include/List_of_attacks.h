@@ -3,8 +3,8 @@
     Declaration:
         
 */
-#ifndef ATTACKS_H
-#define ATTACKS_H
+#ifndef LIST_OF_ATTACKS_H
+#define LIST_OF_ATTACKS_H
 
 #include <string>
 #include <vector>

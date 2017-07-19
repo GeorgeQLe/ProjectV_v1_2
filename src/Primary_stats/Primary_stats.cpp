@@ -6,9 +6,11 @@
 #include "Primary_stats/Primary_stats.h"
 
 // function only to be used in leveling up
-void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, 
-							  unsigned int experience_points_needed);
-
+void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
+{
+	std::cout << "Congratulations, you have leveled up to level " << current_level << "!\n";
+	std::cout << experience_points << "/" << experience_points_needed << std::endl;
+}
 // function calling the "init" function for the derivative secondary_attribute classes
 void Secondary_attributes::set_secondary_attributes(int strength, int leadership, int intelligence, int character, int endurance)
 {
@@ -359,10 +361,4 @@ void Primary_stats::heal(int heal_amount)
 	{
 		m_current_health_total+=heal_amount;
 	}
-}
-
-void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
-{
-	std::cout << "Congratulations, you have leveled up to level " << current_level << "!\n";
-	std::cout << experience_points << "/" << experience_points_needed << std::endl;
 }

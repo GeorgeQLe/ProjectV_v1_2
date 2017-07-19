@@ -10,6 +10,7 @@ Secondary_stats_creator::Secondary_stats_creator(const std::string& script_name)
 
 Secondary_stats Secondary_stats_creator::init_secondary_stats_non_custom(int player_class_converted_from_enum)
 {
+    Secondary_stats temp;
     // find out which player class the player is
     switch(player_class_converted_from_enum)
     {
@@ -37,7 +38,7 @@ Secondary_stats Secondary_stats_creator::init_secondary_stats_non_custom(int pla
         default:
         break;
     }
-    return Secondary_stats();
+    return temp;
 }
 
 void Secondary_stats_creator::init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum)

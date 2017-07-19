@@ -29,7 +29,11 @@ set(DIADAL_SOURCES
     src/List_of_attacks.cpp
     src/Primary_stats/Primary_stats.cpp
     src/Secondary_stats/Secondary_stats.cpp
+    src/Secondary_stats/Secondary_stats_action.cpp
     src/Secondary_stats/Secondary_stats_creator.cpp
+    src/Secondary_stats/Secondary_stats_interaction.cpp
+    src/Secondary_stats/Secondary_stats_knowledge.cpp
+    src/Secondary_stats/Secondary_stats_stature.cpp
     src/Support/random.cpp
     src/Support/support.cpp
 )
@@ -59,7 +63,11 @@ set(DIADAL_HEADERS
     include/List_of_attacks.h
     include/Primary_stats/Primary_stats.h
     include/Secondary_stats/Secondary_stats.h
+    include/Secondary_stats/Secondary_stats_action.h
     include/Secondary_stats/Secondary_stats_creator.h
+    include/Secondary_stats/Secondary_stats_interaction.h
+    include/Secondary_stats/Secondary_stats_knowledge.h
+    include/Secondary_stats/Secondary_stats_stature.h
     include/Support/random.h
     include/Support/random_messages.h
     include/Support/support.h
