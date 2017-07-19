@@ -471,29 +471,53 @@ src/ProjectV_driver.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/ProjectV_driver.cpp.s
 .PHONY : src/ProjectV_driver.cpp.s
 
-src/Secondary_stats.o: src/Secondary_stats.cpp.o
-.PHONY : src/Secondary_stats.o
+src/Secondary_stats/Secondary_stats.o: src/Secondary_stats/Secondary_stats.cpp.o
+.PHONY : src/Secondary_stats/Secondary_stats.o
 
 # target to build an object file
-src/Secondary_stats.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.o
-.PHONY : src/Secondary_stats.cpp.o
+src/Secondary_stats/Secondary_stats.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats.cpp.o
+.PHONY : src/Secondary_stats/Secondary_stats.cpp.o
 
-src/Secondary_stats.i: src/Secondary_stats.cpp.i
-.PHONY : src/Secondary_stats.i
+src/Secondary_stats/Secondary_stats.i: src/Secondary_stats/Secondary_stats.cpp.i
+.PHONY : src/Secondary_stats/Secondary_stats.i
 
 # target to preprocess a source file
-src/Secondary_stats.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.i
-.PHONY : src/Secondary_stats.cpp.i
+src/Secondary_stats/Secondary_stats.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats.cpp.i
+.PHONY : src/Secondary_stats/Secondary_stats.cpp.i
 
-src/Secondary_stats.s: src/Secondary_stats.cpp.s
-.PHONY : src/Secondary_stats.s
+src/Secondary_stats/Secondary_stats.s: src/Secondary_stats/Secondary_stats.cpp.s
+.PHONY : src/Secondary_stats/Secondary_stats.s
 
 # target to generate assembly for a file
-src/Secondary_stats.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats.cpp.s
-.PHONY : src/Secondary_stats.cpp.s
+src/Secondary_stats/Secondary_stats.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats.cpp.s
+.PHONY : src/Secondary_stats/Secondary_stats.cpp.s
+
+src/Secondary_stats/Secondary_stats_creator.o: src/Secondary_stats/Secondary_stats_creator.cpp.o
+.PHONY : src/Secondary_stats/Secondary_stats_creator.o
+
+# target to build an object file
+src/Secondary_stats/Secondary_stats_creator.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats_creator.cpp.o
+.PHONY : src/Secondary_stats/Secondary_stats_creator.cpp.o
+
+src/Secondary_stats/Secondary_stats_creator.i: src/Secondary_stats/Secondary_stats_creator.cpp.i
+.PHONY : src/Secondary_stats/Secondary_stats_creator.i
+
+# target to preprocess a source file
+src/Secondary_stats/Secondary_stats_creator.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats_creator.cpp.i
+.PHONY : src/Secondary_stats/Secondary_stats_creator.cpp.i
+
+src/Secondary_stats/Secondary_stats_creator.s: src/Secondary_stats/Secondary_stats_creator.cpp.s
+.PHONY : src/Secondary_stats/Secondary_stats_creator.s
+
+# target to generate assembly for a file
+src/Secondary_stats/Secondary_stats_creator.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Secondary_stats/Secondary_stats_creator.cpp.s
+.PHONY : src/Secondary_stats/Secondary_stats_creator.cpp.s
 
 src/character_setup.o: src/character_setup.cpp.o
 .PHONY : src/character_setup.o
@@ -621,9 +645,12 @@ help:
 	@echo "... src/ProjectV_driver.o"
 	@echo "... src/ProjectV_driver.i"
 	@echo "... src/ProjectV_driver.s"
-	@echo "... src/Secondary_stats.o"
-	@echo "... src/Secondary_stats.i"
-	@echo "... src/Secondary_stats.s"
+	@echo "... src/Secondary_stats/Secondary_stats.o"
+	@echo "... src/Secondary_stats/Secondary_stats.i"
+	@echo "... src/Secondary_stats/Secondary_stats.s"
+	@echo "... src/Secondary_stats/Secondary_stats_creator.o"
+	@echo "... src/Secondary_stats/Secondary_stats_creator.i"
+	@echo "... src/Secondary_stats/Secondary_stats_creator.s"
 	@echo "... src/character_setup.o"
 	@echo "... src/character_setup.i"
 	@echo "... src/character_setup.s"

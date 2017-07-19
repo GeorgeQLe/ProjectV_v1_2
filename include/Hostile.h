@@ -22,7 +22,7 @@ class Hostile : public Combat_entity
     public:
     Hostile();
     Hostile(int difficulty);
-    ~Hostile() {}
+    ~Hostile();
     
     // combat functions
     

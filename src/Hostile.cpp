@@ -26,6 +26,11 @@ Hostile::Hostile(int difficulty) :
     mp_AI_system->set_global_state(Global_state<Hostile>::get_instance());
 }
 
+Hostile::~Hostile()
+{
+    
+}
+
 void Hostile::print_header_stats()
 {
     std::cout << "Hostile name: " << name() << " Level: " << level() << std::endl;

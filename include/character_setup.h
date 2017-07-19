@@ -10,7 +10,7 @@
 //character set up's member function character creation
 #include "Ingame_entity.h"
 #include "Primary_stats.h"
-#include "Secondary_stats.h"
+#include "Secondary_stats/Secondary_stats_creator.h"
 
 enum Custom_or_premade { NOTCREATED, CUSTOM, PREMADE };
 
@@ -43,7 +43,7 @@ class Factory_player_characters : public Character_set_up_command
     
     private:
     const std::string script_name;
-    Secondary_stats_initializer factory_secondary_stats;
+    Secondary_stats_creator factory_secondary_stats;
     
     Custom_or_premade m_user_choice;
 };

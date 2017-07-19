@@ -29,7 +29,8 @@ set(DIADAL_SOURCES
     src/Primary_stats.cpp
     src/ProjectV_driver.cpp
     src/random.cpp
-    src/Secondary_stats.cpp
+    src/Secondary_stats/Secondary_stats.cpp
+    src/Secondary_stats/Secondary_stats_creator.cpp
     src/support.cpp
 )
 
@@ -47,6 +48,7 @@ set(DIADAL_HEADERS
     include/Flee_action.h
     include/Game.h
     include/Grid.h
+    include/Grid.imp
     include/Hostile.h
     include/Ingame_entity.h
     include/List_of_attacks.h
@@ -55,7 +57,8 @@ set(DIADAL_HEADERS
     include/Primary_stats.h
     include/random.h
     include/random_messages.h
-    include/Secondary_stats.h
+    include/Secondary_stats/Secondary_stats.h
+    include/Secondary_stats/Secondary_stats_creator.h
     include/State_machine.h
     include/State_machine.imp
     include/support.h

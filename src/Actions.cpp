@@ -14,7 +14,7 @@ Actions::Actions()
 
 Actions::~Actions()
 {
-    
+    // Empty destructor
 }
 
 void Actions::list_possible_actions()
