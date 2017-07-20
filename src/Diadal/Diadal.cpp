@@ -74,6 +74,6 @@ void Diadal::new_game()
         // returns a result from the battle, passing in the class method m_list_of_characters 
         // and the class method, another nested class Game's method get_difficulty which
         // returns the game difficulty returned as an int
-        status = f_combat_system.party_v_party_battle(m_list_of_characters, standard_game.get_difficulty());
+        status = f_combat_system.party_v_party_battle(m_list_of_characters, standard_game.difficulty());
     }while(status != PLAYER_DEATH);
 }

@@ -1,9 +1,5 @@
 /*	Copyright 2017 George Le
-	Declares the derived classes of ingame_entity_human
-	
-	Declaration:
-		Classes:
-			-Primary_character->derived from ingame_entity_human
+	Declaration of the Primary_character class and its member function
 */
 
 #ifndef PRIMARY_CHARACTER_H
@@ -12,8 +8,8 @@
 #include <memory>
 
 #include "Actions/Actions.h"
+#include "Attacks/List_of_attacks.h"
 #include "Entity/Combat_entity.h"
-#include "List_of_attacks.h"
 #include "Secondary_stats/Secondary_stats.h"
 
 class Primary_character : public Combat_entity

@@ -1,9 +1,5 @@
 /*  Copyright 2017 George Le
-    Declaration of Hostile base class
-    
-    Declaration:
-        Classes:
-            -Hostile
+    Declaration of Hostile base class and its member functions
 */
 #ifndef HOSTILE_H
 #define HOSTILE_H
@@ -13,8 +9,8 @@
 #include "Actions/Actions.h"
 #include "AI/Base_state.h"
 #include "AI/State_machine.h"
+#include "Attacks/List_of_attacks.h"
 #include "Entity/Combat_entity.h"
-#include "List_of_attacks.h"
 
 // test enemy
 class Hostile : public Combat_entity

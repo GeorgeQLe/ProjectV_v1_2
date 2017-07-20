@@ -1,14 +1,5 @@
 /*  Copyright 2017 George Le
-    Definition of turn-based combat system between Primary characters and created hostiles
-    
-    Declaration:
-        -enumerated types Result
-        Functions:
-            -std::vector<Ingame_entity_human*> turn_order(const std::vector<Primary_character*>& list_of_characters, 
-                                            const std::vector<Hostile*>& list_of_hostiles)
-            -Result single_turn(std::vector<Ingame_entity_human*>& list_of_combatants, unsigned int number_of_player_characters)
-            -Result one_v_one_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
-            -Result party_v_party_battle(std::vector<Primary_character*>& list_of_characters, int enum_difficult_converted_to_int)
+    Declaraion of the Combat_manager class which implements a turn-based combat system between Primary characters and created hostiles
 */
 
 #ifndef COMBAT_H

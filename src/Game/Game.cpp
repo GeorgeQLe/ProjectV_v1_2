@@ -1,56 +1,24 @@
+/*	Copyright 2017 George Le
+	Definition of the member functions of the Game class
+*/
 #include <iostream>
 #include "Game/Game.h"
 #include "Support/support.h"
 
-void Game_settings::game_settings_menu()
+Game::Game() : m_options(1, EASY), m_game_name("Default game name"), m_first_time(true)
 {
-    bool yes = true;
-	int choice = 0;
-
-	while (yes)
-	{
-		std::cout << "Menu screen\n";
-		std::cout << "1. Change number of players\n";
-		std::cout << "2. Change difficulty level\n";
-		std::cout << "3. Quit menu\n";
-		std::cout << "Please input your choice: ";	
-		
-		choice = get_number_from_user(1, 3);
-
-			switch (choice)
-			{
-			case 1:
-			std::cout << "How many players would you like to have?:(1-2) ";
-			set_number_of_players(get_number_from_user(1, 2));
-			std::cout << "You chose " << number_of_players << std::endl;
-			break;
-			
-			case 2:
-			std::cout << "What difficulty would you like to play on? (1 for Easy, 2 for Moderate, 3 for Hard): ";
-			set_difficulty(get_number_from_user(1, 3));
-			std::cout << "You chose " << difficulty_level << std::endl;
-			break;
-            
-            case 3:
-            std::cout << "Would you like to stay in the settings menu? (y/n): ";
-			yes = get_y_or_n_as_bool();
-			break;
-			
-			default:
-			std::cout << "How'd you get here?" << std::endl;
-			break;
-			}
-	}
+	// Empty constructor except for the initializer list
 }
 
-void Game_settings::set_number_of_players(int number_of_players)
+Game::Game(unsigned int num_players, Difficulty difficulty, std::string name_of_game) 
+			: m_options(num_players, difficulty), m_game_name(name_of_game), m_first_time(true)
 {
-    this->number_of_players = number_of_players;
+	// Empty constructor except for the initializer list
 }
 
-void Game_settings::set_difficulty(int difficulty_level)
-{ 
-	this->difficulty_level = static_cast<Difficulty>(difficulty_level);
+Game::~Game()
+{
+	// Empty destructor
 }
 
 bool Game::game_main_menu()
@@ -58,16 +26,16 @@ bool Game::game_main_menu()
     bool yes = false;
 	int choice;
 
-	if (first_time == true)
+	if (m_first_time == true)
 	{
-		std::cout << "Hello, welcome to " << game_name << "!" << std::endl;
-		first_time = false;
+		std::cout << "Hello, welcome to " << m_game_name << "!" << std::endl;
+		m_first_time = false;
 	}
 		
 	while (yes == false)
 	{
 		std::cout << std::endl;
-		std::cout << "1. Play (" << options.get_number_of_players() << " player) game\n";
+		std::cout << "1. Play (" << m_options.number_of_players() << " player) game\n";
 		std::cout << "2. Settings\n";
 		std::cout << "3. Quit\n";
 		std::cout << "Input: ";
@@ -81,7 +49,7 @@ bool Game::game_main_menu()
 			break;
 		case 2:
 			std::cout << "Going to settings!" << std::endl;
-			options.game_settings_menu();
+			m_options.game_settings_menu();
 			break;
 		default:
 			break;

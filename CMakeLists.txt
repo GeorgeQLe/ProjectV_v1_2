@@ -15,6 +15,11 @@ set(DIADAL_SOURCES
     src/Actions/Actions.cpp
     src/Actions/Flee_action.cpp
     src/Actions/Movement_action.cpp
+    src/Attacks/Attack_stats.cpp
+    src/Attacks/Attacks.cpp
+    src/Attacks/List_of_attacks.cpp
+    src/Attacks/Primary_attacks.cpp
+    src/Attacks/Ultimate_attacks.cpp
     src/Character_creation/Character_creation_command.cpp
     src/Character_creation/Player_class_catalog.cpp
     src/Combat_manager/Combat_manager.cpp
@@ -26,8 +31,15 @@ set(DIADAL_SOURCES
     src/Entity/Ingame_entity.cpp
     src/Entity/Primary_character.cpp
     src/Game/Game.cpp
-    src/List_of_attacks.cpp
+    src/Game/Game_settings.cpp
+    src/Primary_stats/Primary_attributes.cpp
     src/Primary_stats/Primary_stats.cpp
+    src/Primary_stats/Secondary_attributes.cpp
+    src/Primary_stats/Secondary_attributes_strength.cpp
+    src/Primary_stats/Secondary_attributes_leadership.cpp
+    src/Primary_stats/Secondary_attributes_intelligence.cpp
+    src/Primary_stats/Secondary_attributes_character.cpp
+    src/Primary_stats/Secondary_attributes_endurance.cpp
     src/Secondary_stats/Secondary_stats.cpp
     src/Secondary_stats/Secondary_stats_action.cpp
     src/Secondary_stats/Secondary_stats_creator.cpp
@@ -47,6 +59,11 @@ set(DIADAL_HEADERS
     include/AI/Entity_states.imp
     include/AI/State_machine.h
     include/AI/State_machine.imp
+    include/Attacks/Attack_stats.h
+    include/Attacks/Attacks.h
+    include/Attacks/List_of_attacks.h
+    include/Attacks/Primary_attacks.h
+    include/Attacks/Ultimate_attacks.h
     include/Character_creation/Character_creation_command.h
     include/Character_creation/Player_class_catalog.h
     include/Combat_manager/Combat_manager.h
@@ -57,11 +74,18 @@ set(DIADAL_HEADERS
     include/Entity/Ingame_entity.h
     include/Entity/Primary_character.h
     include/Game/Game.h
+    include/Game/Game_settings.h
     include/Grid/Grid.h
     include/Grid/Grid.imp
     include/Grid/Grid_square.h
-    include/List_of_attacks.h
+    include/Primary_stats/Primary_attributes.h
     include/Primary_stats/Primary_stats.h
+    include/Primary_stats/Secondary_attributes.h
+    include/Primary_stats/Secondary_attributes_strength.h
+    include/Primary_stats/Secondary_attributes_leadership.h
+    include/Primary_stats/Secondary_attributes_intelligence.h
+    include/Primary_stats/Secondary_attributes_character.h
+    include/Primary_stats/Secondary_attributes_endurance.h
     include/Secondary_stats/Secondary_stats.h
     include/Secondary_stats/Secondary_stats_action.h
     include/Secondary_stats/Secondary_stats_creator.h

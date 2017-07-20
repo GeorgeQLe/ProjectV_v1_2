@@ -183,6 +183,126 @@ src/Actions/Movement_action.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Actions/Movement_action.cpp.s
 .PHONY : src/Actions/Movement_action.cpp.s
 
+src/Attacks/Attack_stats.o: src/Attacks/Attack_stats.cpp.o
+.PHONY : src/Attacks/Attack_stats.o
+
+# target to build an object file
+src/Attacks/Attack_stats.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attack_stats.cpp.o
+.PHONY : src/Attacks/Attack_stats.cpp.o
+
+src/Attacks/Attack_stats.i: src/Attacks/Attack_stats.cpp.i
+.PHONY : src/Attacks/Attack_stats.i
+
+# target to preprocess a source file
+src/Attacks/Attack_stats.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attack_stats.cpp.i
+.PHONY : src/Attacks/Attack_stats.cpp.i
+
+src/Attacks/Attack_stats.s: src/Attacks/Attack_stats.cpp.s
+.PHONY : src/Attacks/Attack_stats.s
+
+# target to generate assembly for a file
+src/Attacks/Attack_stats.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attack_stats.cpp.s
+.PHONY : src/Attacks/Attack_stats.cpp.s
+
+src/Attacks/Attacks.o: src/Attacks/Attacks.cpp.o
+.PHONY : src/Attacks/Attacks.o
+
+# target to build an object file
+src/Attacks/Attacks.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attacks.cpp.o
+.PHONY : src/Attacks/Attacks.cpp.o
+
+src/Attacks/Attacks.i: src/Attacks/Attacks.cpp.i
+.PHONY : src/Attacks/Attacks.i
+
+# target to preprocess a source file
+src/Attacks/Attacks.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attacks.cpp.i
+.PHONY : src/Attacks/Attacks.cpp.i
+
+src/Attacks/Attacks.s: src/Attacks/Attacks.cpp.s
+.PHONY : src/Attacks/Attacks.s
+
+# target to generate assembly for a file
+src/Attacks/Attacks.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Attacks.cpp.s
+.PHONY : src/Attacks/Attacks.cpp.s
+
+src/Attacks/List_of_attacks.o: src/Attacks/List_of_attacks.cpp.o
+.PHONY : src/Attacks/List_of_attacks.o
+
+# target to build an object file
+src/Attacks/List_of_attacks.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/List_of_attacks.cpp.o
+.PHONY : src/Attacks/List_of_attacks.cpp.o
+
+src/Attacks/List_of_attacks.i: src/Attacks/List_of_attacks.cpp.i
+.PHONY : src/Attacks/List_of_attacks.i
+
+# target to preprocess a source file
+src/Attacks/List_of_attacks.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/List_of_attacks.cpp.i
+.PHONY : src/Attacks/List_of_attacks.cpp.i
+
+src/Attacks/List_of_attacks.s: src/Attacks/List_of_attacks.cpp.s
+.PHONY : src/Attacks/List_of_attacks.s
+
+# target to generate assembly for a file
+src/Attacks/List_of_attacks.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/List_of_attacks.cpp.s
+.PHONY : src/Attacks/List_of_attacks.cpp.s
+
+src/Attacks/Primary_attacks.o: src/Attacks/Primary_attacks.cpp.o
+.PHONY : src/Attacks/Primary_attacks.o
+
+# target to build an object file
+src/Attacks/Primary_attacks.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Primary_attacks.cpp.o
+.PHONY : src/Attacks/Primary_attacks.cpp.o
+
+src/Attacks/Primary_attacks.i: src/Attacks/Primary_attacks.cpp.i
+.PHONY : src/Attacks/Primary_attacks.i
+
+# target to preprocess a source file
+src/Attacks/Primary_attacks.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Primary_attacks.cpp.i
+.PHONY : src/Attacks/Primary_attacks.cpp.i
+
+src/Attacks/Primary_attacks.s: src/Attacks/Primary_attacks.cpp.s
+.PHONY : src/Attacks/Primary_attacks.s
+
+# target to generate assembly for a file
+src/Attacks/Primary_attacks.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Primary_attacks.cpp.s
+.PHONY : src/Attacks/Primary_attacks.cpp.s
+
+src/Attacks/Ultimate_attacks.o: src/Attacks/Ultimate_attacks.cpp.o
+.PHONY : src/Attacks/Ultimate_attacks.o
+
+# target to build an object file
+src/Attacks/Ultimate_attacks.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Ultimate_attacks.cpp.o
+.PHONY : src/Attacks/Ultimate_attacks.cpp.o
+
+src/Attacks/Ultimate_attacks.i: src/Attacks/Ultimate_attacks.cpp.i
+.PHONY : src/Attacks/Ultimate_attacks.i
+
+# target to preprocess a source file
+src/Attacks/Ultimate_attacks.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Ultimate_attacks.cpp.i
+.PHONY : src/Attacks/Ultimate_attacks.cpp.i
+
+src/Attacks/Ultimate_attacks.s: src/Attacks/Ultimate_attacks.cpp.s
+.PHONY : src/Attacks/Ultimate_attacks.s
+
+# target to generate assembly for a file
+src/Attacks/Ultimate_attacks.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Attacks/Ultimate_attacks.cpp.s
+.PHONY : src/Attacks/Ultimate_attacks.cpp.s
+
 src/Character_creation/Character_creation_command.o: src/Character_creation/Character_creation_command.cpp.o
 .PHONY : src/Character_creation/Character_creation_command.o
 
@@ -447,29 +567,53 @@ src/Game/Game.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game/Game.cpp.s
 .PHONY : src/Game/Game.cpp.s
 
-src/List_of_attacks.o: src/List_of_attacks.cpp.o
-.PHONY : src/List_of_attacks.o
+src/Game/Game_settings.o: src/Game/Game_settings.cpp.o
+.PHONY : src/Game/Game_settings.o
 
 # target to build an object file
-src/List_of_attacks.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.o
-.PHONY : src/List_of_attacks.cpp.o
+src/Game/Game_settings.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game/Game_settings.cpp.o
+.PHONY : src/Game/Game_settings.cpp.o
 
-src/List_of_attacks.i: src/List_of_attacks.cpp.i
-.PHONY : src/List_of_attacks.i
+src/Game/Game_settings.i: src/Game/Game_settings.cpp.i
+.PHONY : src/Game/Game_settings.i
 
 # target to preprocess a source file
-src/List_of_attacks.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.i
-.PHONY : src/List_of_attacks.cpp.i
+src/Game/Game_settings.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game/Game_settings.cpp.i
+.PHONY : src/Game/Game_settings.cpp.i
 
-src/List_of_attacks.s: src/List_of_attacks.cpp.s
-.PHONY : src/List_of_attacks.s
+src/Game/Game_settings.s: src/Game/Game_settings.cpp.s
+.PHONY : src/Game/Game_settings.s
 
 # target to generate assembly for a file
-src/List_of_attacks.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/List_of_attacks.cpp.s
-.PHONY : src/List_of_attacks.cpp.s
+src/Game/Game_settings.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Game/Game_settings.cpp.s
+.PHONY : src/Game/Game_settings.cpp.s
+
+src/Primary_stats/Primary_attributes.o: src/Primary_stats/Primary_attributes.cpp.o
+.PHONY : src/Primary_stats/Primary_attributes.o
+
+# target to build an object file
+src/Primary_stats/Primary_attributes.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Primary_attributes.cpp.o
+.PHONY : src/Primary_stats/Primary_attributes.cpp.o
+
+src/Primary_stats/Primary_attributes.i: src/Primary_stats/Primary_attributes.cpp.i
+.PHONY : src/Primary_stats/Primary_attributes.i
+
+# target to preprocess a source file
+src/Primary_stats/Primary_attributes.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Primary_attributes.cpp.i
+.PHONY : src/Primary_stats/Primary_attributes.cpp.i
+
+src/Primary_stats/Primary_attributes.s: src/Primary_stats/Primary_attributes.cpp.s
+.PHONY : src/Primary_stats/Primary_attributes.s
+
+# target to generate assembly for a file
+src/Primary_stats/Primary_attributes.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Primary_attributes.cpp.s
+.PHONY : src/Primary_stats/Primary_attributes.cpp.s
 
 src/Primary_stats/Primary_stats.o: src/Primary_stats/Primary_stats.cpp.o
 .PHONY : src/Primary_stats/Primary_stats.o
@@ -494,6 +638,150 @@ src/Primary_stats/Primary_stats.s: src/Primary_stats/Primary_stats.cpp.s
 src/Primary_stats/Primary_stats.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Primary_stats.cpp.s
 .PHONY : src/Primary_stats/Primary_stats.cpp.s
+
+src/Primary_stats/Secondary_attributes.o: src/Primary_stats/Secondary_attributes.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes.cpp.o
+
+src/Primary_stats/Secondary_attributes.i: src/Primary_stats/Secondary_attributes.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes.cpp.i
+
+src/Primary_stats/Secondary_attributes.s: src/Primary_stats/Secondary_attributes.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes.cpp.s
+
+src/Primary_stats/Secondary_attributes_character.o: src/Primary_stats/Secondary_attributes_character.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_character.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes_character.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_character.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_character.cpp.o
+
+src/Primary_stats/Secondary_attributes_character.i: src/Primary_stats/Secondary_attributes_character.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_character.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes_character.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_character.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_character.cpp.i
+
+src/Primary_stats/Secondary_attributes_character.s: src/Primary_stats/Secondary_attributes_character.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_character.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes_character.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_character.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_character.cpp.s
+
+src/Primary_stats/Secondary_attributes_endurance.o: src/Primary_stats/Secondary_attributes_endurance.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes_endurance.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_endurance.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.cpp.o
+
+src/Primary_stats/Secondary_attributes_endurance.i: src/Primary_stats/Secondary_attributes_endurance.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes_endurance.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_endurance.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.cpp.i
+
+src/Primary_stats/Secondary_attributes_endurance.s: src/Primary_stats/Secondary_attributes_endurance.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes_endurance.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_endurance.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_endurance.cpp.s
+
+src/Primary_stats/Secondary_attributes_intelligence.o: src/Primary_stats/Secondary_attributes_intelligence.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes_intelligence.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_intelligence.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.cpp.o
+
+src/Primary_stats/Secondary_attributes_intelligence.i: src/Primary_stats/Secondary_attributes_intelligence.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes_intelligence.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_intelligence.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.cpp.i
+
+src/Primary_stats/Secondary_attributes_intelligence.s: src/Primary_stats/Secondary_attributes_intelligence.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes_intelligence.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_intelligence.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_intelligence.cpp.s
+
+src/Primary_stats/Secondary_attributes_leadership.o: src/Primary_stats/Secondary_attributes_leadership.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes_leadership.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_leadership.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.cpp.o
+
+src/Primary_stats/Secondary_attributes_leadership.i: src/Primary_stats/Secondary_attributes_leadership.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes_leadership.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_leadership.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.cpp.i
+
+src/Primary_stats/Secondary_attributes_leadership.s: src/Primary_stats/Secondary_attributes_leadership.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes_leadership.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_leadership.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_leadership.cpp.s
+
+src/Primary_stats/Secondary_attributes_strength.o: src/Primary_stats/Secondary_attributes_strength.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_strength.o
+
+# target to build an object file
+src/Primary_stats/Secondary_attributes_strength.cpp.o:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_strength.cpp.o
+.PHONY : src/Primary_stats/Secondary_attributes_strength.cpp.o
+
+src/Primary_stats/Secondary_attributes_strength.i: src/Primary_stats/Secondary_attributes_strength.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_strength.i
+
+# target to preprocess a source file
+src/Primary_stats/Secondary_attributes_strength.cpp.i:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_strength.cpp.i
+.PHONY : src/Primary_stats/Secondary_attributes_strength.cpp.i
+
+src/Primary_stats/Secondary_attributes_strength.s: src/Primary_stats/Secondary_attributes_strength.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_strength.s
+
+# target to generate assembly for a file
+src/Primary_stats/Secondary_attributes_strength.cpp.s:
+	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Primary_stats/Secondary_attributes_strength.cpp.s
+.PHONY : src/Primary_stats/Secondary_attributes_strength.cpp.s
 
 src/Secondary_stats/Secondary_stats.o: src/Secondary_stats/Secondary_stats.cpp.o
 .PHONY : src/Secondary_stats/Secondary_stats.o
@@ -705,6 +993,21 @@ help:
 	@echo "... src/Actions/Movement_action.o"
 	@echo "... src/Actions/Movement_action.i"
 	@echo "... src/Actions/Movement_action.s"
+	@echo "... src/Attacks/Attack_stats.o"
+	@echo "... src/Attacks/Attack_stats.i"
+	@echo "... src/Attacks/Attack_stats.s"
+	@echo "... src/Attacks/Attacks.o"
+	@echo "... src/Attacks/Attacks.i"
+	@echo "... src/Attacks/Attacks.s"
+	@echo "... src/Attacks/List_of_attacks.o"
+	@echo "... src/Attacks/List_of_attacks.i"
+	@echo "... src/Attacks/List_of_attacks.s"
+	@echo "... src/Attacks/Primary_attacks.o"
+	@echo "... src/Attacks/Primary_attacks.i"
+	@echo "... src/Attacks/Primary_attacks.s"
+	@echo "... src/Attacks/Ultimate_attacks.o"
+	@echo "... src/Attacks/Ultimate_attacks.i"
+	@echo "... src/Attacks/Ultimate_attacks.s"
 	@echo "... src/Character_creation/Character_creation_command.o"
 	@echo "... src/Character_creation/Character_creation_command.i"
 	@echo "... src/Character_creation/Character_creation_command.s"
@@ -738,12 +1041,33 @@ help:
 	@echo "... src/Game/Game.o"
 	@echo "... src/Game/Game.i"
 	@echo "... src/Game/Game.s"
-	@echo "... src/List_of_attacks.o"
-	@echo "... src/List_of_attacks.i"
-	@echo "... src/List_of_attacks.s"
+	@echo "... src/Game/Game_settings.o"
+	@echo "... src/Game/Game_settings.i"
+	@echo "... src/Game/Game_settings.s"
+	@echo "... src/Primary_stats/Primary_attributes.o"
+	@echo "... src/Primary_stats/Primary_attributes.i"
+	@echo "... src/Primary_stats/Primary_attributes.s"
 	@echo "... src/Primary_stats/Primary_stats.o"
 	@echo "... src/Primary_stats/Primary_stats.i"
 	@echo "... src/Primary_stats/Primary_stats.s"
+	@echo "... src/Primary_stats/Secondary_attributes.o"
+	@echo "... src/Primary_stats/Secondary_attributes.i"
+	@echo "... src/Primary_stats/Secondary_attributes.s"
+	@echo "... src/Primary_stats/Secondary_attributes_character.o"
+	@echo "... src/Primary_stats/Secondary_attributes_character.i"
+	@echo "... src/Primary_stats/Secondary_attributes_character.s"
+	@echo "... src/Primary_stats/Secondary_attributes_endurance.o"
+	@echo "... src/Primary_stats/Secondary_attributes_endurance.i"
+	@echo "... src/Primary_stats/Secondary_attributes_endurance.s"
+	@echo "... src/Primary_stats/Secondary_attributes_intelligence.o"
+	@echo "... src/Primary_stats/Secondary_attributes_intelligence.i"
+	@echo "... src/Primary_stats/Secondary_attributes_intelligence.s"
+	@echo "... src/Primary_stats/Secondary_attributes_leadership.o"
+	@echo "... src/Primary_stats/Secondary_attributes_leadership.i"
+	@echo "... src/Primary_stats/Secondary_attributes_leadership.s"
+	@echo "... src/Primary_stats/Secondary_attributes_strength.o"
+	@echo "... src/Primary_stats/Secondary_attributes_strength.i"
+	@echo "... src/Primary_stats/Secondary_attributes_strength.s"
 	@echo "... src/Secondary_stats/Secondary_stats.o"
 	@echo "... src/Secondary_stats/Secondary_stats.i"
 	@echo "... src/Secondary_stats/Secondary_stats.s"
