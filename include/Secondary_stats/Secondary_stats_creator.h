@@ -1,25 +1,25 @@
 /*  Copyright 2017 George Le
-    Declaration of Secondary_stats_creator class and its member function
+    Declaration of CSecondaryStatsCreator class and its member function
 */
 #ifndef SECONDARY_STATS_CREATOR_H
 #define SECONDARY_STATS_CREATOR_H
 
 #include "Secondary_stats.h"
 
-class Secondary_stats_creator
+class CSecondaryStatsCreator
 {
     public:
-    Secondary_stats_creator(const std::string& script_name);
+    CSecondaryStatsCreator(const std::string& script_name);
     
-    Secondary_stats init_secondary_stats_non_custom(int player_class_converted_from_enum);
-    void init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum);
-    void on_Read(const std::string& Event_name);
+    CSecondaryStats InitSecondaryStatsNonCustom(int player_class_converted_from_enum);
+    void InitSecondaryStatsCustom(CSecondaryStats& stats_to_be_init, int player_class_converted_from_enum);
+    void OnRead(const std::string& Event_name);
     
-    void scenes_Marine_custom(Secondary_stats& stats_to_be_init);
-    void scenes_Naval_captain_custom(Secondary_stats& stats_to_be_init);
-    void scenes_Lawyer_custom(Secondary_stats& stats_to_be_init);
-    void scenes_Armorer_custom(Secondary_stats& stats_to_be_init);
-    void scenes_Economist_custom(Secondary_stats& stats_to_be_init);
+    void ScenesMarineCustom(CSecondaryStats& stats_to_be_init);
+    void ScenesNavalCaptainCustom(CSecondaryStats& stats_to_be_init);
+    void ScenesLawyerCustom(CSecondaryStats& stats_to_be_init);
+    void ScenesArmorerCustom(CSecondaryStats& stats_to_be_init);
+    void ScenesEconomistCustom(CSecondaryStats& stats_to_be_init);
     
     private:
     std::string custom_creation_script;

@@ -15,18 +15,18 @@
 #include "Movement_action.h"
 #include "Flee_action.h"
 
-class Actions : public Movement_action, public Flee_action
+class CActions : public CMovementAction, public CFleeAction
 {
     public:
-    Actions();
-    ~Actions();
+    CActions();
+    ~CActions();
     
     // Prints to the screen all of the possible actions available to the entity
-    void list_possible_actions();
+    void ListPossibleActions();
     // Used in conjuction with above function to recieve user input on which 
     // action they want to perform then evaluates it if it is move or flee.
     // Returns true if the user wants to attack or use item, false if anything else
-    bool select_actions();
+    bool SelectActions();
     
     private:
     std::vector<std::string> list_of_action_names;

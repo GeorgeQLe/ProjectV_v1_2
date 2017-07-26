@@ -18,17 +18,33 @@
                             f.Hostiles heal/use items <- delayed to version 1.4
                             g.Random number generator->attack accuracy hit/miss (IN PROGRESS)
                             
-    Notation notes: Code is written in snake_case and utilizes hungarian notation
+    Notation notes: Code is written in a mixture of snake_case and PascalCase and utilizes hungarian notation
+                    Notation is strongly based on Google's C++ style guide with some variations
     
         Ex. 
+        (variables)- snake_case
             int this_is_an_int;
             int* p_this_is_an_int_pointer;
             int f_this_is_a_function_variable;
             Enumerated types(enums) are written in ALL CAPS
-            enum Example { ZERO, ONE, TWO = 3};
+            enum Example { eExample_ZERO, eExample_ONE, eExample_TWO = 3};
             
-            class Example
+        (struct)- PascalCase
+            struct SExampleStruct
             {
+                  
+            };
+            
+        (class)- PascalCase
+            class CExampleClass
+            {
+                public:
+                const CExampleClass c_example_class;
+            (function)- PascalCase
+                public:
+                void ThisIsAFunction();
+            
+            (member_variable)
                 private:
                 int m_this_is_a_member_variable;
                 static int sm_this_is_a_static_member_variable;
@@ -41,17 +57,17 @@
 int main()
 {
     // initializing an instance of the game
-    Diadal game_instance;
+    CDiadal f_game_instance;
     
     // game loop in main
-    // game_menu returns true if the player wants to play the game
+    // TitleMenu returns true if the player wants to play the game
     // or continue playing the game and returns false if the player
     // wants to quit
-    // while(game_instance.game_menu())
+    // while(game_instance.TitleMenu())
     // {
     //     // actual game loop
-    //     game_instance.game_loop();
+    //     game_instance.GameLoop();
     // }
     
-    game_instance.new_game();
+    f_game_instance.NewGame();
 }

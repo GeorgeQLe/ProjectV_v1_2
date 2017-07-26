@@ -5,7 +5,7 @@
 		-preprocessor directives: MAX_GENDER, MAX_RACE, MAX_CLASSES
 		-emumerated types: Gender, Race, Job, Alignment
 		Classes:
-			-Ingame_entity_human
+			-CIngameEntityHuman
 			-Ingame_entity_vehicle
 */
 #ifndef INGAME_ENTITY_H
@@ -26,42 +26,43 @@ enum Alignment { NOTSET, CHAOTIC_EVIL, CHAOTIC_NEUTRAL, CHAOTIC_GOOD, NEUTRAL_EV
 				TRUE_NEUTRAL, NEUTRAL_GOOD, LAWFUL_EVIL, LAWFUL_NEUTRAL, LAWFUL_GOOD };
 
 //valid for all ingame entities: Playable/controllable, NPCs	
-class Ingame_entity_human
+class CIngameEntityHuman
 {
 	public:
 	// default constructor
-	Ingame_entity_human() : m_entity_name("Default name"), m_entity_gender(UNINIT), m_entity_race(UNSET), m_entity_class(UNEMPLOYED) {}
-	Ingame_entity_human(const std::string& name, Gender gender, Race race, Job job, bool is_hostile) : m_is_hostile(is_hostile), 
+	CIngameEntityHuman() : m_entity_name("Default name"), m_entity_gender(UNINIT), m_entity_race(UNSET), m_entity_class(UNEMPLOYED) {}
+	CIngameEntityHuman(const std::string& name, Gender gender, Race race, Job job, bool is_hostile) : m_is_hostile(is_hostile), 
 						m_entity_name(name), m_entity_gender(gender), m_entity_race(race), m_entity_class(job) {}
 	// special version of previous constructor to allow for ints to be passed in for gender, race , class
 	// checks if ints are possible
-	Ingame_entity_human(const std::string& name, int gender, int race, int job, bool is_hostile);
-	virtual ~Ingame_entity_human() {}
+	CIngameEntityHuman(const std::string& name, int gender, int race, int job, bool is_hostile);
+	virtual ~CIngameEntityHuman() {}
 	
 	// accessor function
-	bool is_hostile() const { return m_is_hostile; }
+	bool IsHostile() const { return m_is_hostile; }
 	int ID() const { return m_ID; }
-	std::string name() const { return m_entity_name; }
-	Gender gender() const { return m_entity_gender; }
-	Race race() const { return m_entity_race; }
-	Job job() const { return m_entity_class; }
+	std::string Name() const { return m_entity_name; }
+	Gender GetGender() const { return m_entity_gender; }
+	Race GetRace() const { return m_entity_race; }
+	Job GetJob() const { return m_entity_class; }
 	
 	// special accessor functions that return strings instead of an enumerated type
-	std::string get_gender_as_string() const;
-	std::string get_race_as_string() const;
-	std::string get_job_as_string() const;
+	std::string GetGenderAsString() const;
+	std::string GetRaceAsString() const;
+	std::string GetJobAsString() const;
 	
 	protected:
 	// to be used in inheriting class's constructor to set up basic information of the character
-	void set_information();
+	void SetInformation();
 	
 	private:
 	// private mutator functions for the special constructor
 	// should not be used outside of the constructor
-	void set_name(const std::string& name) { m_entity_name = name; }
-	void set_gender(int gender) { m_entity_gender = static_cast<Gender>(gender); }
-	void set_race(int race) { m_entity_race = static_cast<Race>(race); }
-	void set_job(int job) { m_entity_class = static_cast<Job>(job); }
+	void SetName(const std::string& name) { m_entity_name = name; }
+	void SetGender(int gender) { m_entity_gender = static_cast<Gender>(gender); }
+	void SetRace(int race) { m_entity_race = static_cast<Race>(race); }
+	void SetJob(int job) { m_entity_class = static_cast<Job>(job); }
+	void SetID();
 	
 	// identifier to see if hostile or not
 	bool m_is_hostile;
@@ -77,7 +78,7 @@ class Ingame_entity_human
 	// used only in constructor to 
 	void set_ID();
 	
-	// ingame_entitys have one std::string object and three enums
+	// ingame_entities have one std::string object and three enums
 	std::string m_entity_name;
 	Gender m_entity_gender;
 	Race m_entity_race;

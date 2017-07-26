@@ -6,25 +6,25 @@
 
 #include "Attacks/Attacks.h"
 
-class Ultimate_attacks: public Attacks
+class CUltimateAttacks: public CAttacks
 {
     public:
-    Ultimate_attacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool ready);
-    virtual ~Ultimate_attacks();
+    CUltimateAttacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool ready);
+    virtual ~CUltimateAttacks();
     
     // Ultimate attacks can have special effects that are triggered and 
     // controlled by this function
-    virtual void special_effect() = 0;
+    virtual void SpecialEffect() = 0;
 };
 
-class Default_ult_attack: public Ultimate_attacks
+class CDefaultUltAttack: public CUltimateAttacks
 {
     public:
-    Default_ult_attack();
-    Default_ult_attack(std::string name, int damage, int ammo_usage, int base_attack_speed, bool ready);
-    ~Default_ult_attack();
+    CDefaultUltAttack();
+    CDefaultUltAttack(std::string name, int damage, int ammo_usage, int base_attack_speed, bool ready);
+    ~CDefaultUltAttack();
 
-    virtual void special_effect();
+    virtual void SpecialEffect();
 };
 
 #endif

@@ -1,15 +1,15 @@
 /*  Copyright 2017 George Le
-    Definition of member functions of the Secondary_stats_knowledge class
+    Definition of member functions of the CSecondaryStatsKnowledge class
 */
 #include "Secondary_stats/Secondary_stats_knowledge.h"
 
-Secondary_stats_knowledge::Secondary_stats_knowledge() : m_wisdom(0), m_history_knowledge(0), m_medicine_knowledge(0), 
+CSecondaryStatsKnowledge::CSecondaryStatsKnowledge() : m_wisdom(0), m_history_knowledge(0), m_medicine_knowledge(0), 
                                 m_surgery_knowledge(0), m_fauna_knowledge(0), m_common_sense(0), m_language_skill(0) 
 {
     // Empty constructor other than initializer list
 }
 
-Secondary_stats_knowledge::Secondary_stats_knowledge(unsigned int wisdom, unsigned int history_knowledge, 
+CSecondaryStatsKnowledge::CSecondaryStatsKnowledge(unsigned int wisdom, unsigned int history_knowledge, 
                             unsigned int medicine_knowledge, unsigned surgery_knowledge, unsigned int fauna_knowledge, 
                             unsigned int common_sense, unsigned int language_skill) 
                     : m_wisdom(wisdom), m_history_knowledge(history_knowledge), m_medicine_knowledge(medicine_knowledge), 
@@ -19,7 +19,7 @@ Secondary_stats_knowledge::Secondary_stats_knowledge(unsigned int wisdom, unsign
     // Empty constructor other than initializer list
 }
 
-bool Secondary_stats_knowledge::wisdom_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::WisdomCheck(unsigned int difficulty_check)
 {
     if(m_wisdom >= difficulty_check)
     {
@@ -32,7 +32,7 @@ bool Secondary_stats_knowledge::wisdom_check(unsigned int difficulty_check)
     return false;
 }
 
-bool Secondary_stats_knowledge::history_knowledge_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::HistoryKnowledgeCheck(unsigned int difficulty_check)
 {
     if(m_history_knowledge >= difficulty_check)
     {
@@ -45,7 +45,7 @@ bool Secondary_stats_knowledge::history_knowledge_check(unsigned int difficulty_
     return false;
 }
 
-bool Secondary_stats_knowledge::medicine_knowledge_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::MedicineKnowledgeCheck(unsigned int difficulty_check)
 {
     if(m_medicine_knowledge >= difficulty_check)
     {
@@ -58,7 +58,7 @@ bool Secondary_stats_knowledge::medicine_knowledge_check(unsigned int difficulty
     return false;
 }
 
-bool Secondary_stats_knowledge::surgery_knowledge_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::SurgeryKnowledgeCheck(unsigned int difficulty_check)
 {
     if(m_surgery_knowledge >= difficulty_check)
     {
@@ -71,7 +71,7 @@ bool Secondary_stats_knowledge::surgery_knowledge_check(unsigned int difficulty_
     return false;
 }
 
-bool Secondary_stats_knowledge::fauna_knowledge_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::FaunaKnowledgeCheck(unsigned int difficulty_check)
 {
     if(m_fauna_knowledge >= difficulty_check)
     {
@@ -84,7 +84,7 @@ bool Secondary_stats_knowledge::fauna_knowledge_check(unsigned int difficulty_ch
     return false;
 }
 
-bool Secondary_stats_knowledge::common_sense_check(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::CommonSenseCheck(unsigned int difficulty_check)
 {
     if(m_common_sense >= difficulty_check)
     {
@@ -97,7 +97,7 @@ bool Secondary_stats_knowledge::common_sense_check(unsigned int difficulty_check
     return false;
 }
 
-bool Secondary_stats_knowledge::language_skill(unsigned int difficulty_check)
+bool CSecondaryStatsKnowledge::LanguageSkill(unsigned int difficulty_check)
 {
     if(m_language_skill >= difficulty_check)
     {

@@ -4,17 +4,17 @@
 #include <iostream>
 #include "Actions/Movement_action.h"
 
-Movement_action::Movement_action() : can_move(true) 
+CMovementAction::CMovementAction() : can_move(true) 
 {
     
 }
 
-Movement_action::~Movement_action() 
+CMovementAction::~CMovementAction() 
 {
     
 }
 
-void Movement_action::move()
+void CMovementAction::Move()
 {
     if(can_move == true)
     {

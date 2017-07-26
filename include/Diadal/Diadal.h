@@ -9,25 +9,32 @@
 #include "Game/Game.h"
 #include "Entity/Primary_character.h"
 
-class Diadal
+class CDiadal : public CGame
 {
 	public:
-	Diadal();
-	~Diadal() {}
+	CDiadal();
+	~CDiadal() {}
 	
-	void game_loop();
-	bool game_menu();
-	bool game_running() const { return m_game_running; }
+	// First menu screen that will call the base class CGame's
+	// GameMainMenu
+	bool TitleMenu();
+	// Main game loop that controls the flow of the game's campaign
+	void GameLoop();
+	// Start the game from the beginning
+	void NewGame();
+	// Start the game from a certain point
+	void LoadGame();
 	
-	void new_game();
+	// accessor functions
+	bool GameRunning() const { return m_game_running; }
+	bool NewGame() const { return m_new_game; }
 	
 	private:
-	Game standard_game;
 	bool m_game_running;
 	bool m_new_game;
 	int m_number_of_party_members;
 	
-	std::vector<std::shared_ptr<Primary_character>> m_list_of_characters;
+	std::vector<std::shared_ptr<CPrimaryCharacter>> m_list_of_characters;
 };
 
 #endif

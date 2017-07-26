@@ -7,22 +7,22 @@
 #include "Entity/Ingame_entity.h"
 #include "Primary_stats/Primary_stats.h"
 
-class Player_information
+class CPlayerInformation
 {
     public:
-    Player_information() : primary_stats(1, 1, 1, 1, 1) {}
-    Player_information(int strength, int leadership, int intelligence, int character, int endurance)
-                        : primary_stats(strength, leadership, intelligence, character, endurance) {}
+    CPlayerInformation() : m_primary_stats(1, 1, 1, 1, 1) {}
+    CPlayerInformation(int strength, int leadership, int intelligence, int character, int endurance)
+                        : m_primary_stats(strength, leadership, intelligence, character, endurance) {}
     
-    int get_strength() { return primary_stats.strength(); }
-    int get_leadership() { return primary_stats.leadership(); }
-    int get_intelligence() { return primary_stats.intelligence(); }
-    int get_character() { return primary_stats.character(); }
-    int get_endurance() { return primary_stats.endurance(); }
+    int GetStrength() { return m_primary_stats.Strength(); }
+    int GetLeadership() { return m_primary_stats.Leadership(); }
+    int GetIntelligence() { return m_primary_stats.Intelligence(); }
+    int GetCharacter() { return m_primary_stats.Character(); }
+    int GetEndurance() { return m_primary_stats.Endurance(); }
     
     protected:
-    Primary_attributes primary_stats;
-    Secondary_attributes secondary_stats;
+    CPrimaryAttributes m_primary_stats;
+    CSecondaryAttributes m_secondary_stats;
 };
 
 // Marine - High Strength(5), Moderate Leadership(4), Moderate Intelligence(3)
@@ -31,52 +31,52 @@ class Player_information
 // Combat Perk: Gun Club Member *+ 5 weapon damage*
 // Innate Perk: Sprinter *+ 5 stamina, + 5 speed*
 // Skill Perk: Shot Marksman *+ 5 weapon accuracy*
-class Marine_player_information : public Player_information
+class CMarinePlayerInformation : public CPlayerInformation
 {
     public:
-    Marine_player_information(): Player_information(5, 4, 3, 3, 5) {}
+    CMarinePlayerInformation(): CPlayerInformation(5, 4, 3, 3, 5) {}
 };
 
-class Naval_captain_information : public Player_information
+class CNavalCaptainInformation : public CPlayerInformation
 {
     public:
-    Naval_captain_information(): Player_information(4, 5, 5, 3, 3) {}
+    CNavalCaptainInformation(): CPlayerInformation(4, 5, 5, 3, 3) {}
 };
 
-class Lawyer_information : public Player_information
+class CLawyerInformation : public CPlayerInformation
 {
     public:
-    Lawyer_information(): Player_information(2, 3, 7, 5, 3) {}
+    CLawyerInformation(): CPlayerInformation(2, 3, 7, 5, 3) {}
 };
 
-class Armorer_information : public Player_information
+class CArmorerInformation : public CPlayerInformation
 {
     public:
-    Armorer_information() : Player_information(4, 3, 5, 3, 5) {}
+    CArmorerInformation() : CPlayerInformation(4, 3, 5, 3, 5) {}
 };
 
-class Economist_information : public Player_information
+class CEconomistInformation : public CPlayerInformation
 {
     public:
-    Economist_information() : Player_information() {}
+    CEconomistInformation() : CPlayerInformation() {}
 };
 
-class Player_class_catalog
+class CPlayerClassCatalog
 {
     public:
-    Player_class_catalog() {}
-    Player_class_catalog(const Job& player_class);
-    ~Player_class_catalog() { delete m_class_stats; }
+    CPlayerClassCatalog() {}
+    CPlayerClassCatalog(const Job& player_class);
+    ~CPlayerClassCatalog() { delete m_class_stats; }
     
-    void get_class_information(const Job& player_class);
+    void GetClassInformation(const Job& player_class);
     
-    int get_strength() { return m_class_stats->get_strength(); }
-    int get_leadership() { return m_class_stats->get_leadership(); }
-    int get_intelligence() { return m_class_stats->get_intelligence(); }
-    int get_character() { return m_class_stats->get_character(); }
-    int get_endurance() { return m_class_stats->get_endurance(); }
+    int GetStrength() { return m_class_stats->GetStrength(); }
+    int GetLeadership() { return m_class_stats->GetLeadership(); }
+    int GetIntelligence() { return m_class_stats->GetIntelligence(); }
+    int GetCharacter() { return m_class_stats->GetCharacter(); }
+    int GetEndurance() { return m_class_stats->GetEndurance(); }
     private:
-    Player_information* m_class_stats;
+    CPlayerInformation* m_class_stats;
 };
 
 #endif

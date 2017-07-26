@@ -3,11 +3,13 @@
 
 #include "Attacks/Attacks.h"
 
-class Primary_attacks: public Attacks
+class CPrimaryAttacks: public CAttacks
 {
     public:
-    Primary_attacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool usable);
-    ~Primary_attacks();
+    CPrimaryAttacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool usable);
+    ~CPrimaryAttacks();
+    
+    virtual bool SpecialEffect() { return false; }
 };
 
 #endif

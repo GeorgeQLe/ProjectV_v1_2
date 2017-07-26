@@ -1,29 +1,29 @@
 /*  Copyright 2017 George Le
-    Declaration of the Secondary_attributes_leadership_based class and its member functions
+    Declaration of the CSecondaryAttributesLeadershipBased class and its member functions
 */
 #ifndef SECONDARY_ATTRIBUTE_LEADERSHIP_H
 #define SECONDARY_ATTRIBUTE_LEADERSHIP_H
 
-class Secondary_attributes_leadership_based
+class CSecondaryAttributesLeadershipBased
 {
 	public:
-	Secondary_attributes_leadership_based();
-	Secondary_attributes_leadership_based(int friendly_morale_modifier, int strategy_stat, int tactical_stat, unsigned int nerves);
+	CSecondaryAttributesLeadershipBased();
+	CSecondaryAttributesLeadershipBased(int friendly_morale_modifier, int strategy_stat, int tactical_stat, unsigned int nerves);
 	
 	//accessor functions
-	int friendly_morale() const { return m_friendly_morale_modifier; }
-	int strategy_stat() const { return m_strategy_stat; }
-	int tactical_stat() const { return m_tactical_stat; }
-	unsigned int nerves() const { return m_nerves; }
+	int Friendly_morale() const { return m_friendly_morale_modifier; }
+	int Strategy_stat() const { return m_strategy_stat; }
+	int Tactical_stat() const { return m_tactical_stat; }
+	unsigned int Nerves() const { return m_nerves; }
 	
 	// calls all four of the below functions, used in character creation or level ups
-	void calculate_leadership_based_attributes(int leadership);
+	void CalculateLeadershipBasedAttributes(int leadership);
 	
 	//leadership based attribute mutators
-	void calculate_friendly_morale_modifier(int leadership);
-	void calculate_strategy_stat(int leadership);
-	void calculate_tactical_stat(int leadership);
-	void calculate_nerves_stat(int leadership);
+	void CalculateFriendlyMoraleModifier(int leadership);
+	void CalculateStrategyStat(int leadership);
+	void CalculateTacticalStat(int leadership);
+	void CalculateNervesStat(int leadership);
 	
 	private:
 	//leadership stat with two general paths though both can be utilized

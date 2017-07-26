@@ -6,55 +6,58 @@
 #include "Entity/Primary_character.h"
 #include "Support/support.h"
 
-Primary_character::Primary_character(bool player) 
-                : Combat_entity{"Adam", MALE, WHITE, CAPTAIN}, m_player_character(player)
+CPrimaryCharacter::CPrimaryCharacter(bool player) 
+                : CCombatEntity{"Adam", MALE, WHITE, CAPTAIN}, m_player_character(player)
 {
-    character_creator();
+    CharacterCreator();
 }
 
-void Primary_character::character_creator()
+void CPrimaryCharacter::CharacterCreator()
 {
-    Factory_player_characters f_creator;
-	f_creator.secondary_stats_setup(job(), m_learned_character_stats);
-	equip_weapons();
+    CFactoryPlayerCharacters f_creator;
+	f_creator.SecondaryStatsSetup(Job(), m_learned_character_stats);
+	EquipWeapons();
 }
 
-bool Primary_character::equip_weapons()
+bool CPrimaryCharacter::EquipWeapons()
 {
+    bool f_compatible = true;
+    
+    // check if the player can use the weapon, weapon in inventory class
+    // f_compatible = 
     // if player can use the weapon
-    if(true)
+    if(f_compatible)
     {
-        // equip the weapon
+        // equip the weapon TO BE DESIGNED
         
         // demo only
-        m_character_possible_attacks.update_damage(strength(), 5);
-        
-        // return true for success
+        m_character_possible_attacks.UpdateDamage(Strength(), 5);
         return true;
     }
     return false;
 }
 
-void Primary_character::reduce_or_increase_reputation(bool increase, int amount)
+void CPrimaryCharacter::ReduceOrIncreaseReputation(bool increase, int amount)
 {
     if(increase == false)
     {
-        reduce_or_increase_reputation(increase, amount);
+        ReduceOrIncreaseReputation(increase, amount);
     }
     else if(increase)
     {
-        reduce_or_increase_reputation(increase, amount);
+        ReduceOrIncreaseReputation(increase, amount);
     }
 }
 
-bool Primary_character::turn(std::vector<std::shared_ptr<Combat_entity>>& turn_order)
+bool CPrimaryCharacter::Turn(std::vector<std::shared_ptr<CCombatEntity>>& turn_order)
 {
     // variable tracking if the turn resulted in a successful action i.e. 
     // if has status condition like stun and can't attack the f_success is false
-    bool f_success = false, f_back = true;
+    bool f_success = false;
+    bool f_back = true;
     
     // check if current character is dead or not
-    if(current_health_total() > 0)
+    if(CurrentHealthTotal() > 0)
     {
         while(f_back)
         {
@@ -64,11 +67,11 @@ bool Primary_character::turn(std::vector<std::shared_ptr<Combat_entity>>& turn_o
             f_success = true;
             // checks if player selects an action that directly affects the current player
             // if it is a move or flee action then the select_action function will resolve it
-            if(m_possible_actions.select_actions())
+            if(m_possible_actions.SelectActions())
             {
                 // if it is not a move or flee then it's some form of an offensive action
                 // which will result in another prompt for the user to select an attack
-                f_back = action(turn_order);
+                f_back = Action(turn_order);
             }
         }
     }
@@ -78,7 +81,7 @@ bool Primary_character::turn(std::vector<std::shared_ptr<Combat_entity>>& turn_o
     return f_success;
 }
 
-bool Primary_character::action(std::vector<std::shared_ptr<Combat_entity>>& turn_order)
+bool CPrimaryCharacter::Action(std::vector<std::shared_ptr<CCombatEntity>>& turn_order)
 {
     // return value
     bool f_back = false;
@@ -87,30 +90,30 @@ bool Primary_character::action(std::vector<std::shared_ptr<Combat_entity>>& turn
     std::cout << "What action would you like to perform?" << std::endl;
     
     // m_character_possible_attacks is a struct List_of_attacks described in attacks.h
-    m_character_possible_attacks.list_attacks();
+    m_character_possible_attacks.ListAttacks();
     std::cout << "4.Back" << std::endl << "Input:";
     
     // gets the user's selection
     int f_select_actions = get_number_from_user(1, 4);
     
     // selects a target, select_target declared in combat_entity.h
-    int f_target_index = select_target(turn_order);
+    int f_target_index = SelectTarget(turn_order);
     
     // evaluates the user's selection of an action
     if(f_select_actions == ATTACK)
     {
         std::cout << "Gets here" << std::endl;
-        attack(turn_order.at(f_target_index));
+        Attack(turn_order.at(f_target_index));
     }
     else if(f_select_actions == ULTIMATE)
     {
         std::cout << "Ultimate_attack" << std::endl;
-        ultimate_attacks(turn_order.at(f_target_index));
+        UltimateAttacks(turn_order.at(f_target_index));
     }
     else if(f_select_actions == ITEM)
     {
         std::cout << "Items" << std::endl;
-        items(turn_order.at(f_target_index));
+        Items(turn_order.at(f_target_index));
     }
     else if(f_select_actions == 4)
     {
@@ -122,18 +125,18 @@ bool Primary_character::action(std::vector<std::shared_ptr<Combat_entity>>& turn
     return f_back;
 }
 
-bool Primary_character::attack(std::shared_ptr<Combat_entity> target)
+bool CPrimaryCharacter::Attack(std::shared_ptr<CCombatEntity> target)
 {
-    return target->damage_entity(m_character_possible_attacks.m_primary_attack.damage());
+    return target->DamageEntity(m_character_possible_attacks.m_primary_attack->Damage());
 }
 
-bool Primary_character::ultimate_attacks(std::shared_ptr<Combat_entity> target)
+bool CPrimaryCharacter::UltimateAttacks(std::shared_ptr<CCombatEntity> target)
 {
     bool f_success;
     
-    if(m_character_possible_attacks.pm_ult->usable())
+    if(m_character_possible_attacks.pm_ult->Usable())
     {
-        f_success = target->damage_entity(m_character_possible_attacks.pm_ult->damage());
+        f_success = target->DamageEntity(m_character_possible_attacks.pm_ult->Damage());
     }
     else
     {
@@ -144,13 +147,13 @@ bool Primary_character::ultimate_attacks(std::shared_ptr<Combat_entity> target)
     return f_success;
 }
 
-bool Primary_character::items(std::shared_ptr<Combat_entity> target)
+bool CPrimaryCharacter::Items(std::shared_ptr<CCombatEntity> target)
 {
-    bool f_success;
+    bool f_success = false;
     
-    if(m_character_possible_attacks.pm_use_offensive_item->usable())
+    if(m_character_possible_attacks.pm_use_offensive_item->Usable())
     {
-        f_success = target->damage_entity(m_character_possible_attacks.pm_use_offensive_item->damage());
+        f_success = target->DamageEntity(m_character_possible_attacks.pm_use_offensive_item->Damage());
     }
     else
     {

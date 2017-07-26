@@ -1,30 +1,30 @@
 /*  Copyright 2017 George Le
-    Declaration of the Secondary_attributes_endurance_based class and its member functions
+    Declaration of the CSecondaryAttributesEnduranceBased class and its member functions
 */
 #ifndef SECONDARY_ATTRIBUTE_ENDURANCE_H
 #define SECONDARY_ATTRIBUTE_ENDURANCE_H
 
-class Secondary_attributes_endurance_based
+class CSecondaryAttributesEnduranceBased
 {
 	public:
-	Secondary_attributes_endurance_based();
-	Secondary_attributes_endurance_based(unsigned int stamina, unsigned int health_regeneration, 
+	CSecondaryAttributesEnduranceBased();
+	CSecondaryAttributesEnduranceBased(unsigned int stamina, unsigned int health_regeneration, 
 										unsigned int speed_modifier, unsigned int armor_resistance);
 	
 	//accessor functions
-	unsigned int stamina() const { return m_stamina; }
-	unsigned int health_regeneration() const { return m_health_regeneration; }
-	unsigned int speed_modifier() const { return m_speed_modifier; }
-	unsigned int armor_resistance() const { return m_armor_resistance; }
+	unsigned int Stamina() const { return m_stamina; }
+	unsigned int HealthRegeneration() const { return m_health_regeneration; }
+	unsigned int SpeedModifier() const { return m_speed_modifier; }
+	unsigned int ArmorResistance() const { return m_armor_resistance; }
 	
 	// calls all four of the below functions, used in character creation or level ups
-	void calculate_endurance_based_attributes(int endurance);
+	void CalculateEnduranceBasedAttributes(int endurance);
 	
 	//endurance based attribute mutators
-	void calculate_stamina_stat(int endurance);
-	void calculate_health_regeneration_stat(int endurance);
-	void calculate_speed_modifier_stat(int endurance);
-	void calculate_armor_resistance(int endurance);
+	void CalculateStaminaStat(int endurance);
+	void CalculateHealthRegenerationStat(int endurance);
+	void CalculateSpeedModifierStat(int endurance);
+	void CalculateArmorResistance(int endurance);
 	
 	private:
 	//endurance affects the ability for the player to perform actions, survive long term

@@ -17,6 +17,7 @@ set(DIADAL_SOURCES
     src/Actions/Movement_action.cpp
     src/Attacks/Attack_stats.cpp
     src/Attacks/Attacks.cpp
+    src/Attacks/Item_attack.cpp
     src/Attacks/List_of_attacks.cpp
     src/Attacks/Primary_attacks.cpp
     src/Attacks/Ultimate_attacks.cpp
@@ -47,6 +48,8 @@ set(DIADAL_SOURCES
     src/Secondary_stats/Secondary_stats_knowledge.cpp
     src/Secondary_stats/Secondary_stats_stature.cpp
     src/Support/random.cpp
+    src/Support/subscriber_observer_pattern.cpp
+    src/Support/subject_observer_pattern.cpp
     src/Support/support.cpp
 )
 
@@ -61,6 +64,7 @@ set(DIADAL_HEADERS
     include/AI/State_machine.imp
     include/Attacks/Attack_stats.h
     include/Attacks/Attacks.h
+    include/Attacks/Item_attack.h
     include/Attacks/List_of_attacks.h
     include/Attacks/Primary_attacks.h
     include/Attacks/Ultimate_attacks.h
@@ -94,6 +98,8 @@ set(DIADAL_HEADERS
     include/Secondary_stats/Secondary_stats_stature.h
     include/Support/random.h
     include/Support/random_messages.h
+    include/Support/subscriber_observer_pattern.h
+    include/Support/subject_observer_pattern.h
     include/Support/support.h
     include/Support/vector_quicksort.h
     include/Support/vector_quicksort.imp

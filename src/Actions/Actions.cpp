@@ -5,19 +5,19 @@
 #include "Actions/Actions.h"
 #include "Support/support.h"
 
-Actions::Actions()
+CActions::CActions()
 {
     list_of_action_names.push_back("1. Action");
     list_of_action_names.push_back("2. Move");
     list_of_action_names.push_back("3. Flee");
 }
 
-Actions::~Actions()
+CActions::~CActions()
 {
     // Empty destructor
 }
 
-void Actions::list_possible_actions()
+void CActions::ListPossibleActions()
 {
     for(auto it = list_of_action_names.begin(); it != list_of_action_names.end(); it++)
     {
@@ -25,10 +25,10 @@ void Actions::list_possible_actions()
     }
 }
 
-bool Actions::select_actions()
+bool CActions::SelectActions()
 {
     std::cout << "What would you like to do?\n";
-    list_possible_actions();
+    ListPossibleActions();
     std::cout << "Input:";
     int f_user_choice = get_number_from_user(1, 4);
     bool attack = false;
@@ -39,10 +39,10 @@ bool Actions::select_actions()
         attack = true;
         break;
         case 2:
-        move();
+        Move();
         break;
         case 3:
-        if(flee())
+        if(Flee())
         {
             std::cout << "You successful fled!\n";
         }

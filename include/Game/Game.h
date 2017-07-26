@@ -8,20 +8,20 @@
 
 #include "Game_settings.h"
 
-class Game
+class CGame
 {
 	public:
-	Game();
-	Game(unsigned int num_players, Difficulty difficulty, std::string name_of_game);
-	~Game();
+	CGame();
+	CGame(unsigned int num_players, DifficultyOfGame difficulty, std::string name_of_game);
+	~CGame();
 	
-	bool game_main_menu();
+	bool GameMainMenu();
 	
 	// accessor function
-	int difficulty() const { return m_options.difficulty(); }
+	int Difficulty() const { return m_options.Difficulty(); }
 	
 	private:
-	Game_settings m_options;
+	CGameSettings m_options;
 	std::string m_game_name;
 	bool m_first_time;
 };

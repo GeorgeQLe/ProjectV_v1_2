@@ -1,16 +1,16 @@
 /*  Copyright 2017 George Le
-    Definitions of member functions of the Secondary_stats_creator class
+    Definitions of member functions of the CSecondaryStatsCreator class
 */
 #include "Secondary_stats/Secondary_stats_creator.h"
 
-Secondary_stats_creator::Secondary_stats_creator(const std::string& script_name) : custom_creation_script(script_name) 
+CSecondaryStatsCreator::CSecondaryStatsCreator(const std::string& script_name) : custom_creation_script(script_name) 
 {
     
 }  
 
-Secondary_stats Secondary_stats_creator::init_secondary_stats_non_custom(int player_class_converted_from_enum)
+CSecondaryStats CSecondaryStatsCreator::InitSecondaryStatsNonCustom(int player_class_converted_from_enum)
 {
-    Secondary_stats temp;
+    CSecondaryStats temp;
     // find out which player class the player is
     switch(player_class_converted_from_enum)
     {
@@ -41,32 +41,32 @@ Secondary_stats Secondary_stats_creator::init_secondary_stats_non_custom(int pla
     return temp;
 }
 
-void Secondary_stats_creator::init_secondary_stats_custom(Secondary_stats& stats_to_be_init, int player_class_converted_from_enum)
+void CSecondaryStatsCreator::InitSecondaryStatsCustom(CSecondaryStats& stats_to_be_init, int player_class_converted_from_enum)
 {
     //woah some complex shit to be designed
 }
 
-void Secondary_stats_creator::scenes_Marine_custom(Secondary_stats& stats_to_be_init)
+void CSecondaryStatsCreator::ScenesMarineCustom(CSecondaryStats& stats_to_be_init)
 {
     
 }
 
-void Secondary_stats_creator::scenes_Naval_captain_custom(Secondary_stats& stats_to_be_init)
+void CSecondaryStatsCreator::ScenesNavalCaptainCustom(CSecondaryStats& stats_to_be_init)
 {
     
 }
 
-void Secondary_stats_creator::scenes_Lawyer_custom(Secondary_stats& stats_to_be_init)
+void CSecondaryStatsCreator::ScenesLawyerCustom(CSecondaryStats& stats_to_be_init)
 {
     
 }
 
-void Secondary_stats_creator::scenes_Armorer_custom(Secondary_stats& stats_to_be_init)
+void CSecondaryStatsCreator::ScenesArmorerCustom(CSecondaryStats& stats_to_be_init)
 {
     
 }
 
-void Secondary_stats_creator::scenes_Economist_custom(Secondary_stats& stats_to_be_init)
+void CSecondaryStatsCreator::ScenesEconomistCustom(CSecondaryStats& stats_to_be_init)
 {
     
 }

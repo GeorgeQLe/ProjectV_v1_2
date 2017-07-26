@@ -1,56 +1,56 @@
 /*	Copyright 2016 George Le
-	Definitions of the member functions for the Primary_stats class
+	Definitions of the member functions for the CPrimaryStats class
 */
 #include <iostream>
 #include <cmath>
 #include "Primary_stats/Primary_stats.h"
 
 // function only to be used in leveling up
-void print_to_screen_level_up(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
+void PrintToScreenLevelUp(unsigned int current_level, unsigned int experience_points, unsigned int experience_points_needed)
 {
 	std::cout << "Congratulations, you have leveled up to level " << current_level << "!\n";
 	std::cout << experience_points << "/" << experience_points_needed << std::endl;
 }
 
-Primary_stats::Primary_stats(int difficulty, unsigned int level, unsigned int total_health, int current_health_total, 
+CPrimaryStats::CPrimaryStats(int difficulty, unsigned int level, unsigned int total_health, int current_health_total, 
 							unsigned int defense, unsigned int speed)
-							: Primary_attributes(difficulty, difficulty, difficulty, difficulty, difficulty),
+							: CPrimaryAttributes(difficulty, difficulty, difficulty, difficulty, difficulty),
 							m_level(level), m_total_health(total_health), m_current_health_total(current_health_total),
 							m_defense(defense), m_speed(speed)
 {
-	// modify_stat is a member function of Primary_attributes
-	modify_stat(STRENGTH, m_level);
-	modify_stat(LEADERSHIP, m_level);
-	modify_stat(INTELLIGENCE, m_level);
-	modify_stat(LEADERSHIP, m_level);
-	modify_stat(ENDURANCE, m_level);
+	// ModifyStat is a member function of Primary_attributes
+	ModifyStat(STRENGTH, m_level);
+	ModifyStat(LEADERSHIP, m_level);
+	ModifyStat(INTELLIGENCE, m_level);
+	ModifyStat(LEADERSHIP, m_level);
+	ModifyStat(ENDURANCE, m_level);
 }							
 
-Primary_stats::Primary_stats(int strength, int leadership, int intelligence, int character, int endurance, unsigned int level,
+CPrimaryStats::CPrimaryStats(int strength, int leadership, int intelligence, int character, int endurance, unsigned int level,
 					unsigned int total_health, int current_health_total, unsigned int defense, unsigned int speed) 
-					: Primary_attributes(strength, leadership, intelligence, character, endurance), m_level(level), 
+					: CPrimaryAttributes(strength, leadership, intelligence, character, endurance), m_level(level), 
 					m_total_health(total_health), m_current_health_total(current_health_total), m_defense(defense), m_speed(speed)
 {
 	// member function of Primary_attributes
-	modify_stat(STRENGTH, m_level);
-	modify_stat(LEADERSHIP, m_level);
-	modify_stat(INTELLIGENCE, m_level);
-	modify_stat(LEADERSHIP, m_level);
-	modify_stat(ENDURANCE, m_level);
+	ModifyStat(STRENGTH, m_level);
+	ModifyStat(LEADERSHIP, m_level);
+	ModifyStat(INTELLIGENCE, m_level);
+	ModifyStat(LEADERSHIP, m_level);
+	ModifyStat(ENDURANCE, m_level);
 }
 
-void Primary_stats::init_primary_stats(int strength, int leadership, int intelligence, 
+void CPrimaryStats::InitPrimaryStats(int strength, int leadership, int intelligence, 
 												int character, int endurance)
 {
 	// member function of Primary_attributes
-	modify_stat(STRENGTH, strength);
-	modify_stat(LEADERSHIP, leadership);
-	modify_stat(INTELLIGENCE, intelligence);
-	modify_stat(CHARACTER, character);
-	modify_stat(ENDURANCE, endurance);
+	ModifyStat(STRENGTH, strength);
+	ModifyStat(LEADERSHIP, leadership);
+	ModifyStat(INTELLIGENCE, intelligence);
+	ModifyStat(CHARACTER, character);
+	ModifyStat(ENDURANCE, endurance);
 	
 	// // member function of Secondary_attributes
-	set_secondary_attributes(this->strength(), this->leadership(), this->intelligence(), this->character(), this->endurance());
+	SetSecondaryAttributes(this->Strength(), this->Leadership(), this->Intelligence(), this->Character(), this->Endurance());
 	
 	m_experience_points = 0;
 	m_experience_points_needed = 100;
@@ -60,7 +60,7 @@ void Primary_stats::init_primary_stats(int strength, int leadership, int intelli
 	m_speed+=(static_cast<unsigned int>(floor(endurance * 0.5)));
 }
 
-void Primary_stats::level_up(unsigned int experience_points_granted)
+void CPrimaryStats::LevelUp(unsigned int experience_points_granted)
 {
 	m_experience_points+=experience_points_granted;
 	
@@ -69,23 +69,23 @@ void Primary_stats::level_up(unsigned int experience_points_granted)
 		++m_level;
 		m_experience_points-=m_experience_points_needed;
 
-		print_to_screen_level_up(m_level, m_experience_points, m_experience_points_needed);
+		PrintToScreenLevelUp(m_level, m_experience_points, m_experience_points_needed);
 		
 		m_experience_points_needed*=m_level;
 	}
 }
 
-void Primary_stats::reduce_reputation(int amount)
+void CPrimaryStats::ReduceReputation(int amount)
 {
-	reduce_reputation(amount);
+	ReduceReputation(amount);
 }
 
-void Primary_stats::increase_reputation(int amount)
+void CPrimaryStats::IncreaseReputation(int amount)
 {
-	increase_reputation(amount);
+	IncreaseReputation(amount);
 }
 
-bool Primary_stats::take_damage(int damage) 
+bool CPrimaryStats::TakeDamage(int damage) 
 {
 	if((m_current_health_total-damage) >= 0 && damage > 0) 
 	{ 
@@ -101,7 +101,7 @@ bool Primary_stats::take_damage(int damage)
 	return false;
 }
 
-void Primary_stats::heal(int heal_amount)
+void CPrimaryStats::Heal(int heal_amount)
 {
 	if(static_cast<unsigned int>(m_current_health_total+heal_amount) <= m_total_health)
 	{

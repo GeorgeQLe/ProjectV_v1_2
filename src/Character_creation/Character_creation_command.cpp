@@ -6,58 +6,58 @@
 #include "Character_creation/Character_creation_command.h"
 #include "Support/support.h"
 
-Custom_or_premade get_custom_or_premade()
+Custom_or_premade GetCustomOrPremade()
 {
-    Custom_or_premade user_choice = NOTCREATED;
-    bool confirm = false;
+    Custom_or_premade f_user_choice = NOTCREATED;
+    bool f_confirm = false;
     do
     {
-        confirm = false;
+        f_confirm = false;
         std::cout << "Would you like to customize your stats or use the preset class stats?\n";
         std::cout << "1. Custom\n2. Preset\nInput (1-2): ";
         
         // function get_number_from_user is declared in support.h
-        int choice = get_number_from_user(1, 2);
+        int f_choice = get_number_from_user(1, 2);
         
-        if(choice == 1)
+        if(f_choice == 1)
         {
             std::cout << "You elected to create a custom class.\n";
             std::cout << "Are you sure? (y/n): ";
-            confirm = get_y_or_n_as_bool();
-            if(confirm == true)
+            f_confirm = get_y_or_n_as_bool();
+            if(f_confirm == true)
             {
-                user_choice = CUSTOM;
+                f_user_choice = CUSTOM;
             }
         }
-        else if(choice == 2)
+        else if(f_choice == 2)
         {
             std::cout << "You elected to use the premade class.\n";
             std::cout << "Are you sure? (y/n): ";
-            confirm = get_y_or_n_as_bool();
-            if(confirm == true)
+            f_confirm = get_y_or_n_as_bool();
+            if(f_confirm == true)
             {
-                user_choice = PREMADE;
+                f_user_choice = PREMADE;
             }
         }   
-    } while(!confirm);   
+    } while(!f_confirm);   
     // should not return NOTCREATED as get_number_from_user should only return 1 or 2
-    return user_choice;
+    return f_user_choice;
 }
 
-void Factory_player_characters::primary_stats_setup(Job player_class, Primary_stats& stats_to_be_setup)
+void CFactoryPlayerCharacters::PrimaryStatsSetup(Job player_class, CPrimaryStats& stats_to_be_setup)
 {
-    // m_user_choice is a member variable of the Factory_player_characters class
+    // m_user_choice is a member variable of the CFactoryPlayerCharacters class
     // it is an enumerated type
-    m_user_choice = get_custom_or_premade();
+    m_user_choice = GetCustomOrPremade();
     if(m_user_choice == PREMADE)
     {
         // factory class designed to initialize the player's primary stats
         // found in character_class_information.h
-        Player_class_catalog premade_class_information(player_class);
+        CPlayerClassCatalog premade_class_information(player_class);
         // stats_to_be_setup is a Primary_stats class
-        stats_to_be_setup.init_primary_stats(premade_class_information.get_strength(), premade_class_information.get_leadership(),
-                                                        premade_class_information.get_intelligence(), premade_class_information.get_character(),
-                                                        premade_class_information.get_endurance());
+        stats_to_be_setup.InitPrimaryStats(premade_class_information.GetStrength(), premade_class_information.GetLeadership(),
+                                        premade_class_information.GetIntelligence(), premade_class_information.GetCharacter(),
+                                        premade_class_information.GetEndurance());
     }
     else if(m_user_choice == CUSTOM)
     {
@@ -65,14 +65,14 @@ void Factory_player_characters::primary_stats_setup(Job player_class, Primary_st
     }
 }
 
-void Factory_player_characters::secondary_stats_setup(Job player_class, Secondary_stats& learned_character_stats)
+void CFactoryPlayerCharacters::SecondaryStatsSetup(Job player_class, CSecondaryStats& learned_character_stats)
 {
-    // m_user_choice is a member variable of the Factory_player_characters class
+    // m_user_choice is a member variable of the CFactoryPlayerCharacters class
     // it is an enumerated type
     if(m_user_choice == PREMADE)
     {
         // factory_secondary_stats is a Secondary_stats_initializer class
-        learned_character_stats = factory_secondary_stats.init_secondary_stats_non_custom(static_cast<int>(player_class));
+        learned_character_stats = factory_secondary_stats.InitSecondaryStatsNonCustom(static_cast<int>(player_class));
     }
     else if(m_user_choice == CUSTOM)
     {

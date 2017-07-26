@@ -6,12 +6,17 @@
 #include "Combat_manager/Combat_manager.h"
 #include "Support/support.h"
 
-Diadal::Diadal() : standard_game(1, EASY, "Diadal"), m_game_running(true), m_new_game(true), m_number_of_party_members(0) 
+CDiadal::CDiadal() :
+        CGame(1, EASY, "Diadal"),
+        m_game_running(true), 
+        m_new_game(true), 
+        m_number_of_party_members(0)
 {
-    //read_files("Diadal_script_intro.txt");   
+    // when the game starts up, print out the game's introduction
+    read_files("Diadal_script_intro.txt");
 }
 
-void Diadal::game_loop()
+void CDiadal::GameLoop()
 {
     //game loop
     while(m_game_running)
@@ -24,7 +29,7 @@ void Diadal::game_loop()
         std::cout << std::endl;
         if(choice == 1)
         {
-            new_game();
+            NewGame();
         }
         else if(choice == 2)
         {
@@ -40,9 +45,9 @@ void Diadal::game_loop()
     }
 }
 
-bool Diadal::game_menu()
+bool CDiadal::TitleMenu()
 {
-    if(standard_game.game_main_menu())
+    if(GameMainMenu())
     {
         m_game_running = true;
     }
@@ -54,26 +59,26 @@ bool Diadal::game_menu()
     return m_game_running;
 }
 
-void Diadal::new_game()
+void CDiadal::NewGame()
 {
-    Combat_manager f_combat_system;
+    std::shared_ptr<CCombatManager> f_combat_system = CCombatManager::GetInstance();
     
     if(m_new_game)
     {
         // creates the player character and puts it into the list of player
         // controlled party members
-        std::shared_ptr<Primary_character> player(new Primary_character(true));
+        std::shared_ptr<CPrimaryCharacter> player(new CPrimaryCharacter(true));
         m_list_of_characters.push_back(player);
         m_new_game = false;
     }
     
-    Result status;
+    Result f_status;
     // test loop for combat
     do
     {
         // returns a result from the battle, passing in the class method m_list_of_characters 
         // and the class method, another nested class Game's method get_difficulty which
         // returns the game difficulty returned as an int
-        status = f_combat_system.party_v_party_battle(m_list_of_characters, standard_game.difficulty());
-    }while(status != PLAYER_DEATH);
+        f_status = f_combat_system->PartyVPartyBattle(m_list_of_characters, Difficulty());
+    }while(f_status != PLAYER_DEATH);
 }

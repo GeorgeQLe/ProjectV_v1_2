@@ -4,7 +4,7 @@
 #include <iostream>
 #include "Actions/Flee_action.h"
 
-bool Flee_action::flee()
+bool CFleeAction::Flee()
 {
     if(can_flee == true)
     {

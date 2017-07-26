@@ -3,13 +3,13 @@
 */
 #include "Attacks/Attacks.h"
 
-Attacks::Attacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool usable)
+CAttacks::CAttacks(std::string name, int damage, int ammo_usage, int base_attack_speed, bool usable)
     : m_name(name), m_stats(damage, ammo_usage, base_attack_speed, usable)
 {
     
 }
 
-Attacks::~Attacks()
+CAttacks::~CAttacks()
 {
     // Empty Destructor
 }

@@ -5,39 +5,39 @@
 #include "Entity/Ingame_entity.h"
 #include "Support/support.h"
 
-unsigned int Ingame_entity_human::s_next_valid_ID = 0;
+unsigned int CIngameEntityHuman::s_next_valid_ID = 0;
 
 // special constructor for passing ints in the creation of an object
-Ingame_entity_human::Ingame_entity_human(const std::string& name, int gender, int race, int job, bool is_hostile) 
+CIngameEntityHuman::CIngameEntityHuman(const std::string& name, int gender, int race, int job, bool is_hostile) 
                                         : m_is_hostile(is_hostile), m_entity_name(name)
 {
     // MAX_GENDER value found in ingame_entity.h
     if(gender > 0 && gender <= MAX_GENDER)
     {
         // private member function of ingame_entity_human
-	    set_gender(gender); 
+	    SetGender(gender); 
     }
     
     // MAX_RACE value found in ingame_entity.h
 	if(race > 0 && race <= MAX_RACE)
 	{
 	    // private member function of ingame_entity_human
-	    set_race(race); 
+	    SetRace(race); 
 	}
 	
 	// MAX_CLASSES value found in ingame_entity.h
 	if(job > 0 && job<= MAX_CLASSES)
 	{
 	    // private member function of ingame_entity_human
-	    set_job(job);
+	    SetJob(job);
 	}
 	
-	set_ID();
+	SetID();
 }
 
-std::string Ingame_entity_human::get_gender_as_string() const
+std::string CIngameEntityHuman::GetGenderAsString() const
 {
-    // m_entity_gender is a member variable of the Ingame_entity_human class found in ingame_entity.h
+    // m_entity_gender is a member variable of the CIngameEntityHuman class found in ingame_entity.h
     switch(m_entity_gender)
     {
         case 1:
@@ -55,9 +55,9 @@ std::string Ingame_entity_human::get_gender_as_string() const
     return "UNINIT Programmer messed up... Wait that's me...";
 }
 
-std::string Ingame_entity_human::get_race_as_string() const
+std::string CIngameEntityHuman::GetRaceAsString() const
 {
-    // m_entity_race is a member variable of the Ingame_entity_human class found in ingame_entity.h
+    // m_entity_race is a member variable of the CIngameEntityHuman class found in ingame_entity.h
     switch(m_entity_race)
     {
         case 1:
@@ -84,9 +84,9 @@ std::string Ingame_entity_human::get_race_as_string() const
     return "UNSET Programmer messed up... Wait that's me...";
 }
 
-std::string Ingame_entity_human::get_job_as_string() const
+std::string CIngameEntityHuman::GetJobAsString() const
 {
-    // m_entity_class is a member variable of the Ingame_entity_human class found in ingame_entity.h
+    // m_entity_class is a member variable of the CIngameEntityHuman class found in ingame_entity.h
     switch(m_entity_class)
     {
         case 1:
@@ -120,7 +120,7 @@ std::string Ingame_entity_human::get_job_as_string() const
 }
 
 // TO BE REDONE
-void Ingame_entity_human::set_information()
+void CIngameEntityHuman::SetInformation()
 {
     std::cout << "This is a temporary build\n";
     std::cout << "What would you like your ingame name to be?\nInput:";
@@ -133,7 +133,7 @@ void Ingame_entity_human::set_information()
     m_entity_class = static_cast<Job>(get_number_from_user(1, 3));
 }
 
-void Ingame_entity_human::set_ID()
+void CIngameEntityHuman::SetID()
 {
     m_ID = s_next_valid_ID;
     ++s_next_valid_ID;

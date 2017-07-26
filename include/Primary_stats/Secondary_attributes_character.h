@@ -1,34 +1,34 @@
 /*  Copyright 2017 George Le
-    Declaration of the Secondary_attributes_character_based class and its member functions
+    Declaration of the CSecondaryAttributesCharacterBased class and its member functions
 */
 #ifndef SECONDARY_ATTRIBUTE_CHARACTER_H
 #define SECONDARY_ATTRIBUTE_CHARACTER_H
 
-class Secondary_attributes_character_based
+class CSecondaryAttributesCharacterBased
 {
 	public:
-	Secondary_attributes_character_based();
-	Secondary_attributes_character_based(int suave, int reputation, int presence, unsigned int deception);
+	CSecondaryAttributesCharacterBased();
+	CSecondaryAttributesCharacterBased(int suave, int reputation, int presence, unsigned int deception);
 	
 	//accessor functions
-	int suave() const { return m_suave; }
-	int reputation() const { return m_reputation; }
-	int presence() const { return m_presence; }
-	unsigned int deception() const { return m_deception; }
+	int Suave() const { return m_suave; }
+	int Reputation() const { return m_reputation; }
+	int Presence() const { return m_presence; }
+	unsigned int Deception() const { return m_deception; }
 	
 	// calls all four of the below functions, used in character creation or level ups
-	void calculate_character_based_attributes(int character);
+	void CalculateCharacterBasedAttributes(int character);
 	
 	//character based attribute mutators
-	void calculate_suave_stat(int character);
-	void calculate_reputation_stat(int character);
-	void calculate_presence_stat(int character);
-	void calculate_deception_stat(int character);
+	void CalculateSuaveStat(int character);
+	void CalculateReputationStat(int character);
+	void CalculatePresenceStat(int character);
+	void CalculateDeceptionStat(int character);
 	
 	// reputation shifts quicker than the other stats and thus can be modified
 	// accordingly
-	void reduce_reputation(int amount);
-	void increase_reputation(int amount);
+	void ReduceReputation(int amount);
+	void IncreaseReputation(int amount);
 	
 	private:
 	//character affects the ability for the player to either positively or negatively affect 

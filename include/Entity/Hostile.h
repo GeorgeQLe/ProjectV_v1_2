@@ -13,42 +13,42 @@
 #include "Entity/Combat_entity.h"
 
 // test enemy
-class Hostile : public Combat_entity
+class CHostile : public CCombatEntity
 {
     public:
-    Hostile();
-    Hostile(int difficulty);
-    ~Hostile();
+    CHostile();
+    CHostile(int difficulty);
+    ~CHostile();
     
     // combat functions
     
     // overloading function in combat_entity to print out the hostile's header stats
-    virtual void print_header_stats();
+    virtual void PrintHeaderStats();
     
     // overloading function in combat_entity to take a turn for the hostile
-    virtual bool turn(std::vector<std::shared_ptr<Combat_entity>>& turn_order);
+    virtual bool Turn(std::vector<std::shared_ptr<CCombatEntity>>& turn_order);
     
     // four functions for inheriting classes to override... please override them
-    virtual bool update();
-    virtual bool attack();
-    virtual bool move();
-    virtual bool flee();
+    virtual bool Update(std::vector<std::shared_ptr<CCombatEntity>> list_of_targets);
+    virtual bool Attack();
+    virtual bool Move();
+    virtual bool Flee();
     
     // function to select something to attack
-    virtual void get_target(std::vector<std::shared_ptr<Combat_entity>> list_of_targets);
+    virtual bool GetTarget(std::vector<std::shared_ptr<CCombatEntity>> list_of_targets);
 
     private:
     // declared in actions.h
-    Actions m_potiential_actions;
+    CActions m_potiential_actions;
     
     // declared in attacks.h
-    List_of_attacks m_hostile_attacks;
+    SListOfAttacks m_hostile_attacks;
     
-    // the hostile's AI (brain)
-    std::shared_ptr<State_machine<Hostile>> mp_AI_system;
+    // the hostile's AI (brain), declared in State_machine.h
+    std::shared_ptr<CStateMachine<CHostile>> mp_AI_system;
     
     // reference to the hostile's target
-    std::weak_ptr<Combat_entity> m_target;
+    std::weak_ptr<CCombatEntity> m_target;
     
     // set initially to false, call flee() to set to true, then second call to flee successfully flee
     bool m_can_flee;
@@ -58,6 +58,6 @@ class Hostile : public Combat_entity
 };
 
 //adds hostiles to a list of hostile characters to be used in combat
-void add_hostile(std::vector<std::shared_ptr<Hostile>>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int);
+void add_hostile(std::vector<std::shared_ptr<CHostile>>& list_of_hostiles, int number_of_hostiles, int enum_difficult_converted_to_int);
 
 #endif

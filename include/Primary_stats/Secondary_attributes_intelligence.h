@@ -1,29 +1,29 @@
 /*  Copyright 2017 George Le
-    Declaration of the Secondary_attributes_intelligence_based class and its member functions
+    Declaration of the CSecondaryAttributesIntelligenceBased class and its member functions
 */
 #ifndef SECONDARY_ATTRIBUTE_INTELLIGENCE_H
 #define SECONDARY_ATTRIBUTE_INTELLIGENCE_H
 
-class Secondary_attributes_intelligence_based
+class CSecondaryAttributesIntelligenceBased
 {
 	public:
-	Secondary_attributes_intelligence_based();
-	Secondary_attributes_intelligence_based(int sciences_stat, int social_sciences_stat, int tinkering_stat, int tech_savvy_stat);
+	CSecondaryAttributesIntelligenceBased();
+	CSecondaryAttributesIntelligenceBased(int sciences_stat, int social_sciences_stat, int tinkering_stat, int tech_savvy_stat);
 	
 	//accessor functions
-	int science_stat() const { return m_sciences_stat; }
-	int social_science_stat() const { return m_social_sciences_stat; }
-	int tinkering_stat() const { return m_tinkering_stat; }
-	int tech_stat() const { return m_tech_savvy_stat; }
+	int ScienceStat() const { return m_sciences_stat; }
+	int SocialScienceStat() const { return m_social_sciences_stat; }
+	int TinkeringStat() const { return m_tinkering_stat; }
+	int TechStat() const { return m_tech_savvy_stat; }
 	
 	// calls all four of the below functions, used in character creation or level ups
-	void calculate_intelligence_based_attributes(int intelligence);
+	void CalculateIntelligenceBasedAttributes(int intelligence);
 	
 	//intelligence based attribute mutators
-	void calculate_science_stat(int leadership);
-	void calculate_social_sciences_stat(int leadership);
-	void calculate_tinkering_stat(int leadership);
-	void calculate_tech_savvy_stat(int leadership);
+	void CalculateScienceStat(int leadership);
+	void CalculateSocialSciencesStat(int leadership);
+	void CalculateTinkeringStat(int leadership);
+	void CalculateTechSavvyStat(int leadership);
 	
 	private:
 	//intelligence affects the ability for the player to perform a certain function

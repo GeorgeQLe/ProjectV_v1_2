@@ -1,23 +1,23 @@
 /*  Copyright 2017 George Le
-    Definition of member functions of the Secondary_stats_interaction class
+    Definition of member functions of the CSecondaryStatsInteraction class
 */
 #include "Secondary_stats/Secondary_stats_interaction.h"
 
-Secondary_stats_interaction::Secondary_stats_interaction() : m_persuasion(1), m_barter(1), m_education(1), m_faith(1), 
+CSecondaryStatsInteraction::CSecondaryStatsInteraction() : m_persuasion(1), m_barter(1), m_education(1), m_faith(1), 
                                                             m_xenophobia(1), m_animal_handling(1) 
 {
-    
+    // Empty constructor except for the initializer list
 }
 
-Secondary_stats_interaction::Secondary_stats_interaction(unsigned int persuasion, unsigned int barter, unsigned int education,
+CSecondaryStatsInteraction::CSecondaryStatsInteraction(unsigned int persuasion, unsigned int barter, unsigned int education,
                             unsigned int faith, unsigned int xenophobia, unsigned int animal_handling) :
                             m_persuasion(persuasion), m_barter(barter), m_education(education), m_faith(faith), 
                             m_xenophobia(xenophobia), m_animal_handling(animal_handling)
 {
-    
+    // Empty constructor except for the initializer list
 }
 
-bool Secondary_stats_interaction::persuasion_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::PersuasionCheck(unsigned int difficulty_check)
 {
     if(m_persuasion >= difficulty_check)
     {
@@ -30,7 +30,7 @@ bool Secondary_stats_interaction::persuasion_check(unsigned int difficulty_check
     return false;
 }
 
-bool Secondary_stats_interaction::barter_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::BarterCheck(unsigned int difficulty_check)
 {
     if(m_barter >= difficulty_check)
     {
@@ -43,7 +43,7 @@ bool Secondary_stats_interaction::barter_check(unsigned int difficulty_check)
     return false;
 }
 
-bool Secondary_stats_interaction::education_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::EducationCheck(unsigned int difficulty_check)
 {
     if(m_education >= difficulty_check)
     {
@@ -56,7 +56,7 @@ bool Secondary_stats_interaction::education_check(unsigned int difficulty_check)
     return false;
 }
 
-bool Secondary_stats_interaction::faith_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::FaithCheck(unsigned int difficulty_check)
 {
     if(m_faith >= difficulty_check)
     {
@@ -69,7 +69,7 @@ bool Secondary_stats_interaction::faith_check(unsigned int difficulty_check)
     return false;
 }
 
-bool Secondary_stats_interaction::xenophobia_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::XenophobiaCheck(unsigned int difficulty_check)
 {
     if(m_xenophobia >= difficulty_check)
     {
@@ -82,7 +82,7 @@ bool Secondary_stats_interaction::xenophobia_check(unsigned int difficulty_check
     return false;
 }
 
-bool Secondary_stats_interaction::animal_handling_check(unsigned int difficulty_check)
+bool CSecondaryStatsInteraction::AnimalHandlingCheck(unsigned int difficulty_check)
 {
     if(m_animal_handling >= difficulty_check)
     {

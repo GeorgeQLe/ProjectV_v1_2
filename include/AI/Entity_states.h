@@ -8,114 +8,114 @@
 #include <memory>
 #include "Base_state.h"
 
-template<class Entity_type>
-class Global_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CGlobalState : public CBaseState<TEntityType>
 {
     public:
-    static std::shared_ptr<Global_state> get_instance()
+    static std::shared_ptr<CGlobalState> GetInstance()
     {
-        static std::shared_ptr<Global_state> instance(new Global_state<Entity_type>);
+        static std::shared_ptr<CGlobalState> instance(new CGlobalState<TEntityType>);
         return instance;
     }
     
-    void enter(Entity_type* p_character) {}
-    bool evaluate(Entity_type* p_character) { return true; }
-    void exit(Entity_type* p_character) {}
+    void Enter(TEntityType* p_character) {}
+    bool Evaluate(TEntityType* p_character) { return true; }
+    void Exit(TEntityType* p_character) {}
 };
 
-template<class Entity_type>
-class Idle_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CIdleState : public CBaseState<TEntityType>
 {
     private:
-    Idle_state() {}
+    CIdleState() {}
     
     public:
     // This is a singleton
-    static std::shared_ptr<Idle_state> get_instance()
+    static std::shared_ptr<CIdleState> GetInstance()
     {
-        static std::shared_ptr<Idle_state> instance(new Idle_state<Entity_type>);
+        static std::shared_ptr<CIdleState> instance(new CIdleState<TEntityType>);
         return instance;
     }
     
-    void enter(Entity_type* p_character);
-    bool evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
+    void Enter(TEntityType* p_character);
+    bool Evaluate(TEntityType* p_character);
+    void Exit(TEntityType* p_character);
 };
 
-template<class Entity_type>
-class Aggressive_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CAggressiveState : public CBaseState<TEntityType>
 {
     private:
-    Aggressive_state() {}
+    CAggressiveState() {}
     
     public:
     // This is a singleton
-    static std::shared_ptr<Aggressive_state> get_instance()
+    static std::shared_ptr<CAggressiveState> GetInstance()
     {
-        static std::shared_ptr<Aggressive_state> instance(new Aggressive_state<Entity_type>);
+        static std::shared_ptr<CAggressiveState> instance(new CAggressiveState<TEntityType>);
         return instance;
     }
     
-    void enter(Entity_type* p_character);
-    bool evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
+    void Enter(TEntityType* p_character);
+    bool Evaluate(TEntityType* p_character);
+    void Exit(TEntityType* p_character);
 };
 
-template<class Entity_type>
-class Defensive_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CDefensiveState : public CBaseState<TEntityType>
 {
     private:
-    Defensive_state() {}
+    CDefensiveState() {}
     
     public:
     // This is a singleton
-    static std::shared_ptr<Defensive_state> get_instance()
+    static std::shared_ptr<CDefensiveState> GetInstance()
     {
-        static std::shared_ptr<Defensive_state> instance(new Defensive_state<Entity_type>);
+        static std::shared_ptr<CDefensiveState> instance(new CDefensiveState<TEntityType>);
         return instance;
     }
     
-    void enter(Entity_type* p_character);
-    bool evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
+    void Enter(TEntityType* p_character);
+    bool Evaluate(TEntityType* p_character);
+    void Exit(TEntityType* p_character);
 };
 
-template<class Entity_type>
-class Run_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CRunState : public CBaseState<TEntityType>
 {
     private:
-    Run_state() {}
+    CRunState() {}
     
     public:
     // This is a singleton
-    static std::shared_ptr<Run_state> get_instance()
+    static std::shared_ptr<CRunState> GetInstance()
     {
-        static std::shared_ptr<Run_state> instance(new Run_state<Entity_type>);
+        static std::shared_ptr<CRunState> instance(new CRunState<TEntityType>);
         return instance;
     }
     
-    void enter(Entity_type* p_character);
-    bool evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
+    void Enter(TEntityType* p_character);
+    bool Evaluate(TEntityType* p_character);
+    void Exit(TEntityType* p_character);
 };
 
-template<class Entity_type>
-class Desperate_state : public Base_state<Entity_type>
+template<class TEntityType>
+class CDesperateState : public CBaseState<TEntityType>
 {
     private:
-    Desperate_state() {}
+    CDesperateState() {}
     
     public:
     // This is a singleton
-    static std::shared_ptr<Desperate_state> get_instance()
+    static std::shared_ptr<CDesperateState> GetInstance()
     {
-        static std::shared_ptr<Desperate_state> instance((new Desperate_state<Entity_type>));
+        static std::shared_ptr<CDesperateState> instance((new CDesperateState<TEntityType>));
         return instance;
     }
     
-    void enter(Entity_type* p_character);
-    bool evaluate(Entity_type* p_character);
-    void exit(Entity_type* p_character);
+    void Enter(TEntityType* p_character);
+    bool Evaluate(TEntityType* p_character);
+    void Exit(TEntityType* p_character);
 };
 
 #include "Entity_states.imp"

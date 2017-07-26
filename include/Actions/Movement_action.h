@@ -1,17 +1,17 @@
 /*  Copyright 2017 George Le
-    Declaration of Movement_action class and its member functions
+    Declaration of CMovementAction class and its member functions
 */
 #ifndef MOVEMENT_ACTION_H
 #define MOVEMENT_ACTION_H
 
-class Movement_action
+class CMovementAction
 {
     public:
-    Movement_action();
-    ~Movement_action();
+    CMovementAction();
+    ~CMovementAction();
     
     // function that controls ingame entity or hostile movement
-    void move();
+    void Move();
     
     private:
     bool can_move;

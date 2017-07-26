@@ -1,22 +1,22 @@
 /*  Copyright 2017 George Le
-    Definition of member functions of the Primary_attributes class
+    Definition of member functions of the CPrimaryAttributes class
 */
 #include <iostream>
 #include "Primary_stats/Primary_attributes.h"
 
-Primary_attributes::Primary_attributes() : m_strength(1), m_leadership(1), m_intelligence(1), m_character(1), m_endurance(1)
+CPrimaryAttributes::CPrimaryAttributes() : m_strength(1), m_leadership(1), m_intelligence(1), m_character(1), m_endurance(1)
 {
     // Empty constructor other than initializer list
 }
 
-Primary_attributes::Primary_attributes(int strength, int leadership, int intelligence, int character, int endurance) :
+CPrimaryAttributes::CPrimaryAttributes(int strength, int leadership, int intelligence, int character, int endurance) :
 						m_strength{strength}, m_leadership{leadership}, m_intelligence{intelligence}, 
 						m_character{character}, m_endurance{endurance} 
 {
     // Empty constructor other than initializer list
 }
 
-void Primary_attributes::modify_stat(Primary_attribute to_be_Modified, int new_value)
+void CPrimaryAttributes::ModifyStat(Primary_attribute to_be_Modified, int new_value)
 {
 	switch(to_be_Modified)
 	{

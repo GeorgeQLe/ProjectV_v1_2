@@ -6,20 +6,20 @@
 
 enum Primary_attribute { NONE, STRENGTH, LEADERSHIP, INTELLIGENCE, CHARACTER, ENDURANCE};
 
-class Primary_attributes
+class CPrimaryAttributes
 {
 	public:
-	Primary_attributes();
-	Primary_attributes(int strength, int leadership, int intelligence, int character, int endurance);
+	CPrimaryAttributes();
+	CPrimaryAttributes(int strength, int leadership, int intelligence, int character, int endurance);
 	
 	//bounds check mutator function
-	void modify_stat(Primary_attribute to_be_Modified, int new_value);
+	void ModifyStat(Primary_attribute to_be_Modified, int new_value);
 	
-	int strength() const { return m_strength; }
-	int leadership() const { return m_leadership; }
-	int intelligence() const { return m_intelligence; }
-	int character() const { return m_character; }
-	int endurance() const { return m_endurance; }
+	int Strength() const { return m_strength; }
+	int Leadership() const { return m_leadership; }
+	int Intelligence() const { return m_intelligence; }
+	int Character() const { return m_character; }
+	int Endurance() const { return m_endurance; }
 	
 	private:
 	int m_strength;
