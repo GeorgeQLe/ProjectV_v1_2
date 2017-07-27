@@ -975,54 +975,6 @@ src/Support/random.cpp.s:
 	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/random.cpp.s
 .PHONY : src/Support/random.cpp.s
 
-src/Support/subject_observer_pattern.o: src/Support/subject_observer_pattern.cpp.o
-.PHONY : src/Support/subject_observer_pattern.o
-
-# target to build an object file
-src/Support/subject_observer_pattern.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subject_observer_pattern.cpp.o
-.PHONY : src/Support/subject_observer_pattern.cpp.o
-
-src/Support/subject_observer_pattern.i: src/Support/subject_observer_pattern.cpp.i
-.PHONY : src/Support/subject_observer_pattern.i
-
-# target to preprocess a source file
-src/Support/subject_observer_pattern.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subject_observer_pattern.cpp.i
-.PHONY : src/Support/subject_observer_pattern.cpp.i
-
-src/Support/subject_observer_pattern.s: src/Support/subject_observer_pattern.cpp.s
-.PHONY : src/Support/subject_observer_pattern.s
-
-# target to generate assembly for a file
-src/Support/subject_observer_pattern.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subject_observer_pattern.cpp.s
-.PHONY : src/Support/subject_observer_pattern.cpp.s
-
-src/Support/subscriber_observer_pattern.o: src/Support/subscriber_observer_pattern.cpp.o
-.PHONY : src/Support/subscriber_observer_pattern.o
-
-# target to build an object file
-src/Support/subscriber_observer_pattern.cpp.o:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subscriber_observer_pattern.cpp.o
-.PHONY : src/Support/subscriber_observer_pattern.cpp.o
-
-src/Support/subscriber_observer_pattern.i: src/Support/subscriber_observer_pattern.cpp.i
-.PHONY : src/Support/subscriber_observer_pattern.i
-
-# target to preprocess a source file
-src/Support/subscriber_observer_pattern.cpp.i:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subscriber_observer_pattern.cpp.i
-.PHONY : src/Support/subscriber_observer_pattern.cpp.i
-
-src/Support/subscriber_observer_pattern.s: src/Support/subscriber_observer_pattern.cpp.s
-.PHONY : src/Support/subscriber_observer_pattern.s
-
-# target to generate assembly for a file
-src/Support/subscriber_observer_pattern.cpp.s:
-	$(MAKE) -f CMakeFiles/projectV.dir/build.make CMakeFiles/projectV.dir/src/Support/subscriber_observer_pattern.cpp.s
-.PHONY : src/Support/subscriber_observer_pattern.cpp.s
-
 src/Support/support.o: src/Support/support.cpp.o
 .PHONY : src/Support/support.o
 
@@ -1164,12 +1116,6 @@ help:
 	@echo "... src/Support/random.o"
 	@echo "... src/Support/random.i"
 	@echo "... src/Support/random.s"
-	@echo "... src/Support/subject_observer_pattern.o"
-	@echo "... src/Support/subject_observer_pattern.i"
-	@echo "... src/Support/subject_observer_pattern.s"
-	@echo "... src/Support/subscriber_observer_pattern.o"
-	@echo "... src/Support/subscriber_observer_pattern.i"
-	@echo "... src/Support/subscriber_observer_pattern.s"
 	@echo "... src/Support/support.o"
 	@echo "... src/Support/support.i"
 	@echo "... src/Support/support.s"

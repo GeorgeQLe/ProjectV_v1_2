@@ -36,6 +36,7 @@ class CHostile : public CCombatEntity
     
     // function to select something to attack
     virtual bool GetTarget(std::vector<std::shared_ptr<CCombatEntity>> list_of_targets);
+    void SetTarget(std::shared_ptr<CCombatEntity> new_target) { m_target = new_target; }
 
     private:
     // declared in actions.h

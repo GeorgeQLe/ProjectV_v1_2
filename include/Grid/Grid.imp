@@ -1,10 +1,14 @@
 /*  Copyright 2017 George Le
-
+    Definition of member functions of the CGrid class
 */
 #include "Grid/Grid.h"
 
 template<class TEntityType>
-CGrid<TEntityType>::CGrid() : m_max_rows(DEFAULT_ROW_AMOUNT)
+CGrid<TEntityType>::CGrid() : 
+        m_max_rows(DEFAULT_ROW_AMOUNT), 
+        m_min_rows(DEFAULT_MIN_ROW_AMOUNT),
+        m_max_column(DEFAULT_MAX_COLUMN_AMOUNT),
+        m_min_column(DEFAULT_MIN_COLUMN_AMOUNT)
 {
     // filling up the grid to have at least one square for all the rows
     int y = 0;
@@ -14,24 +18,30 @@ CGrid<TEntityType>::CGrid() : m_max_rows(DEFAULT_ROW_AMOUNT)
     {
         // creates a grid square at position (0,1) and then iterates the x value
         CGridSquare<TEntityType> grid_square(x, y, true);
-        grid_square.RegisterSubscribers(*this);
+        grid_square.RegisterSubscribers(static_cast<std::shared_ptr<CGrid<TEntityType>>>(this));
         m_grid[x].push_back(grid_square);
     }
 }
 
 template<class TEntityType>
-CGrid<TEntityType>::CGrid(int max_rows) : m_max_rows(max_rows)
+CGrid<TEntityType>::CGrid(int max_rows, int min_rows, int max_column, int min_column) :
+        m_max_rows(max_rows),
+        m_min_rows(min_rows),
+        m_max_column(max_column),
+        m_min_column(min_column)
 {
     // filling up the grid to have at least one square for all the rows
-    int y = 0;
+    int x = 0;
     // set up at least 2 grid squares for two opponents squaring off in close range
     // and in front of each other
-    for(int x = 0; x < 2; ++x)
+    for(int y = 0; y < 2; ++y)
     {
         // creates a grid square at position (0,1) and then iterates the x value
         CGridSquare<TEntityType> grid_square(x, y, true);
-        grid_square.RegisterSubscribers(*this);
-        m_grid[x].push_back(grid_square);
+        // register this CGrid square as the observer of the created grid square
+        grid_square.RegisterSubscribers(static_cast<std::shared_ptr<CGrid<TEntityType>>>(this));
+        // at the y'th row, push the grid square onto the row's vector
+        m_grid[y].push_back(grid_square);
     }
 }
 
@@ -43,15 +53,83 @@ double CGrid<TEntityType>::GetDistance(const CGridSquare<TEntityType>& first, co
 }
 
 template<class TEntityType>
-bool CGrid<TEntityType>::Move(std::shared_ptr<TEntityType> calling_entity, int direction)
+void CGrid<TEntityType>::NotifyOnEvent(DesiredAction action, TEntityType entity, int x, int y)
 {
+    switch(action)
+    {
+        case ACTION_FIND_CLOSEST:
+            // sets the target of the entity held within the gridsquare to 
+            // the closest enemy nearest the character
+            break;
+        case ACTION_FIND_FARTHEST:
+            // for snipers to find the farthest target or dive entities going
+            // for an enemy backline
+            break;
+        case ACTION_FIND_WEAKEST:
+            // searches through the potential targets of the entity and 
+            // find the ally or enemy with the lowest health
+            // if healer then choose the same team, if assassin choose
+            // hostile
+            break;
+        case ACTION_NONE:
+        default:
+            break;
+    }
+}
+
+template<class TEntityType>
+bool CGrid<TEntityType>::NotifyOnEvent(DesiredAction action, Direction direction, int x, int y)
+{
+    
     bool f_success = false;
+    
+    switch(action)
+    {
+        case ACTION_MOVE:
+            // move character in the direction they want
+                f_success = Move(m_grid[y][x], direction);
+            break;
+    }
     
     return f_success;
 }
 
 template<class TEntityType>
-void CGrid<TEntityType>::NotifyOnEvent()
+bool CGrid<TEntityType>::Move(CGridSquare<TEntityType> calling_entity, Direction new_direction)
 {
+    bool f_success = false;
+    int x = -50, y = -50, new_x = -100, new_y = -100;
     
+    switch(new_direction)
+    {
+        case DIRECTION_UP:
+            x = calling_entity->GetLocation().x;
+            y = calling_entity->GetLocation().y;
+            new_y = y + 1;
+            // check if the entity would go out of bounds
+            if((new_y) < m_max_column)
+            {
+                // check if the entity will go out of the row capacity
+                if((m_grid[new_y].size() + 1) <= m_max_column)
+                {
+                    // if not then push the entity into the row
+                    m_grid[new_y].push_back(calling_entity);
+                    
+                    // remove the entity from the old row
+                    m_grid[y].erase(m_grid[y].begin() + static_cast<unsigned int>(calling_entity->GetLocation().x));
+                    
+                    // update the entity's location
+                    m_grid[new_y].at(m_grid[new_y].size() - 1).SetNewRow(new_y);
+                    m_grid[new_y].at(m_grid[new_y].size() - 1).SetNewColumn(new_y);
+                    
+                    // change f_success to true since the function succeeded
+                    f_success = true;
+                }
+            }
+            break;
+        default:
+            break;
+    }
+    
+    return f_success;
 }

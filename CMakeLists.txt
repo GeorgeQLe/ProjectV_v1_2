@@ -48,8 +48,6 @@ set(DIADAL_SOURCES
     src/Secondary_stats/Secondary_stats_knowledge.cpp
     src/Secondary_stats/Secondary_stats_stature.cpp
     src/Support/random.cpp
-    src/Support/subscriber_observer_pattern.cpp
-    src/Support/subject_observer_pattern.cpp
     src/Support/support.cpp
 )
 
@@ -82,6 +80,7 @@ set(DIADAL_HEADERS
     include/Grid/Grid.h
     include/Grid/Grid.imp
     include/Grid/Grid_square.h
+    include/Grid/Grid_square.imp
     include/Primary_stats/Primary_attributes.h
     include/Primary_stats/Primary_stats.h
     include/Primary_stats/Secondary_attributes.h
@@ -98,8 +97,6 @@ set(DIADAL_HEADERS
     include/Secondary_stats/Secondary_stats_stature.h
     include/Support/random.h
     include/Support/random_messages.h
-    include/Support/subscriber_observer_pattern.h
-    include/Support/subject_observer_pattern.h
     include/Support/support.h
     include/Support/vector_quicksort.h
     include/Support/vector_quicksort.imp
