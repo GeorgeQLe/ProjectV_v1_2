@@ -1,0 +1,18 @@
+/*  Copyright 2017 George Le
+    Definition of the member functions declared in CGrid.h
+*/
+#include "Grid.h"
+
+template<class TEntityType>
+CGrid<TEntityType>::CGrid()
+{
+    // Empty constructor
+}
+
+template<class TEntityType>
+std::shared_ptr<CGrid<TEntityType>> CGrid<TEntityType>::GetInstance()
+{
+    static std::shared_ptr<CGrid<TEntityType>> instance(new CGrid<TEntityType>);
+    
+    return instance;
+}

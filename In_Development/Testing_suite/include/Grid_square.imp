@@ -1,0 +1,25 @@
+/*  Copyright 2017 George Le
+
+    Definition of the member functions of the CGridSquare class
+*/
+#include "Grid_square.h"
+
+template<class TEntityType>
+CGridSquare<TEntityType>::CGridSquare() : m_coordinates(0, 0), m_occupant(nullptr), m_IsEmpty(false)
+{
+    // Empty constructor except for the initializer list
+}
+
+template<class TEntityType>
+CGridSquare<TEntityType>::CGridSquare(int x, int y, std::shared_ptr<TEntityType> new_occupant) :
+        m_coordinates(x, y),
+        m_occupant(new_occupant)
+{
+    // if there is at least one shared reference to the
+    // new_occupant then it must be an entity and so
+    // the CGridSquare has something in it
+    if(m_occupant.use_count() > 0)
+    {
+        m_IsEmpty = true;
+    }
+}

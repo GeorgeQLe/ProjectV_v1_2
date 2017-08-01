@@ -56,13 +56,6 @@ class CCombatManager
     // stores multiple vectors that hold each "wave" of hostile enemies
     // uses a std::map
     std::map<int, std::vector<std::shared_ptr<CHostile>>> m_object_pool;
-    
-    // a grid object that serves as the game map
-    // underneath the hood implementation as a std::map<int, std::vector<CGridSquare<Entity_type>>>
-    // where std::map and std::vector are standard library objects, 
-    // CGridSquare is an object that holds a shared pointer of an TEntityType,
-    // TEntityType is a templated class which in this case is a polymorphic CCombatEntity
-    CGrid<CCombatEntity> m_game_map;
 };
 
 #endif

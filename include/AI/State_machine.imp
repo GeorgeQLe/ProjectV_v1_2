@@ -3,7 +3,7 @@
     Defines functions declared in basic_hostile_AI.h
 */
 #include <assert.h>
-#include "AI/Base_state.h"
+
 #include "AI/State_machine.h"
 
 template<class TEntityType>

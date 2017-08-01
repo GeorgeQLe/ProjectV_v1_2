@@ -6,7 +6,9 @@
 #include "Entity/Hostile.h"
 
 CHostile::CHostile() : CCombatEntity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 10, 10, 0, 1), 
-            mp_AI_system(new CStateMachine<CHostile>(this)), m_can_flee(false), m_experience_points_granted(100)
+            mp_AI_system(new CStateMachine<CHostile>(this)), 
+            m_can_flee(false), 
+            m_experience_points_granted(100)
 {
     m_target.lock() = nullptr;
     
@@ -17,7 +19,9 @@ CHostile::CHostile() : CCombatEntity("Dummy", 1, 1, 1, true, 0, 0, 0, 0, 0, 1, 1
 
 CHostile::CHostile(int difficulty) : 
         CCombatEntity("Dummy", 1, 1, 1, true, difficulty, difficulty, difficulty, difficulty, difficulty, 1, 10, 10, 0, 1), 
-        mp_AI_system(new CStateMachine<CHostile>(this)), m_can_flee(false), m_experience_points_granted(100)
+        mp_AI_system(new CStateMachine<CHostile>(this)), 
+        m_can_flee(false),
+        m_experience_points_granted(100)
 {
     m_target.lock() = nullptr;
     
@@ -84,7 +88,7 @@ bool CHostile::Update(std::vector<std::shared_ptr<CCombatEntity>> list_of_target
     else if(m_target.lock() == nullptr)
     {
         // try to find a new target
-        if(GetTarget(list_of_targets))
+        if(GetTarget())
         {
             std::cout << "Found new target" << std::endl;
         }
@@ -145,9 +149,11 @@ bool CHostile::Flee()
     return m_can_flee;
 }
 
-bool CHostile::GetTarget(std::vector<std::shared_ptr<CCombatEntity>> list_of_targets)
+bool CHostile::GetTarget()
 {
     bool f_success = false;
+    
+    // GetTarget
     
     return f_success;
 }

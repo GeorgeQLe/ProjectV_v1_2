@@ -12,6 +12,8 @@
 
 #include <memory>
 
+#include "AI/Base_state.h"
+
 template<class TEntityType>
 class CStateMachine
 {

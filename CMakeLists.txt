@@ -77,10 +77,6 @@ set(DIADAL_HEADERS
     include/Entity/Primary_character.h
     include/Game/Game.h
     include/Game/Game_settings.h
-    include/Grid/Grid.h
-    include/Grid/Grid.imp
-    include/Grid/Grid_square.h
-    include/Grid/Grid_square.imp
     include/Primary_stats/Primary_attributes.h
     include/Primary_stats/Primary_stats.h
     include/Primary_stats/Secondary_attributes.h

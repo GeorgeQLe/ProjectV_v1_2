@@ -30,20 +30,35 @@
 #define DEFAULT_ROW_AMOUNT 5
 #define DEFAULT_MIN_ROW_AMOUNT -5
 #define DEFAULT_MAX_COLUMN_AMOUNT 5
-#define DEFAULT_MIN_COLUMN_AMOUNT -5
+#define DEFAULT_MIN_COLUMN_AMOUNT 0
 
 template<class TEntityType>
 class CGrid
 {
     public:
     CGrid();
-    CGrid(int max_rows, int min_rows, int max_column, int min_column);
+    CGrid(int max_rows, int min_rows, int max_column);
     
     // mutator functions
     void UpdateMaxRows(int new_number_of_rows) { m_max_rows = new_number_of_rows; }
     
     // accessor functions
     int MaxRows() const { return m_max_rows; }
+    int MinRows() const { return m_min_rows; }
+    int MaxColumns() const { return m_max_column; }
+    int MinColumns() const { return m_min_column; }
+    
+    // returns the actual min and max row
+    // i.e. returns the lowest row currently occupied
+    // by an entity or the highest row currently occupied
+    int GetCurrentMinRow() const;
+    int GetCurrentMaxRow() const;
+    
+    // returns the actual min and max column
+    // i.e. returns the leftmost index of the vector currently occupied
+    // by an entity or the rightmost index currently occupied
+    int GetCurrentMinColumn() const;
+    int GetCurrentMaxColumn() const;
     
     // uses the distance formula to get the distance between two grid squares
     double GetDistance(const CGridSquare<TEntityType>& first, const CGridSquare<TEntityType>& second);
@@ -52,8 +67,11 @@ class CGrid
     // pass in y-value then x-value
     TEntityType* at(int row, int index) { return m_grid.at(row).at(index).occupant(); }
     
+    // searches the specific grid coordinate and
+    bool SearchGridCoordinateEmpty(int x, int y);
+    
     // two functions to recieve and evaluate commands given by the member CGridSquare objects
-    void NotifyOnEvent(DesiredAction action, TEntityType entity, int x, int y);
+    bool NotifyOnEvent(DesiredAction action, CGridSquare<TEntityType> calling_entity);
     
     // this function specifically controls movement
     bool NotifyOnEvent(DesiredAction action, Direction direction, int x, int y);
@@ -61,6 +79,10 @@ class CGrid
     // moves the calling entity by one row, returns true on success and false on
     // failure to move
     bool Move(CGridSquare<TEntityType> calling_entity, Direction new_direction);
+    
+    // finds the closest target to the calling entity, judges distance based on the
+    // distance formula
+    TEntityType* FindClosestTarget(CGridSquare<TEntityType> calling_entity);
     
     private:
     // CGrid uses a std::map that stores the entities on it in rows of vectors

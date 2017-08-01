@@ -54,17 +54,21 @@ template<class TEntityType>
 class CGridSquare
 {
     public:
-    CGridSquare(int x, int y, bool empty);
-    
-    std::shared_ptr<TEntityType> FindClosestTarget(std::vector<std::shared_ptr<TEntityType>> list_of_targets, bool is_hostile);
-    
+    CGridSquare(int x, int y, int index, bool empty);
+
     // mutator function
     void AddOccupant(TEntityType* new_occupant) { m_reference_to_occupant = new_occupant; }
     void SetNewRow(int new_y) { m_location_in_grid.m_y = new_y; }
     void SetNewColumn(int new_x) { m_location_in_grid.m_x = new_x; }
     
     // adds a subscriber to the list of Observers
-    void RegisterSubscribers(std::shared_ptr<CGrid<TEntityType>> new_observer) { m_grid_observer = new_observer; }
+    void RegisterSubscribers(std::shared_ptr<CGrid<TEntityType>> new_observer) { m_grid_observer = new_observer; }\
+    
+    // notification functions -> delegates the commands from the stored entity to the CGrid class
+    // moves the grid square in the direction that the entity wants unless it is out of range
+    bool NotifySubscriberMove(Direction chosen_direction);
+
+    bool FindClosestTarget();
     
     // accessor functions
     SCoordinates GetLocation() const { return m_location_in_grid; }
@@ -75,6 +79,9 @@ class CGridSquare
     // x and y corrdinates tracking the entities position based on the
     // cartesian plane where the player is 
     SCoordinates m_location_in_grid;
+    
+    // fake x-value, index for lookup in vector of map
+    unsigned int m_index;
     
     // reference to the occupant so that the GridSquare can manipulate it
     std::shared_ptr<TEntityType> m_reference_to_occupant;

@@ -6,8 +6,8 @@
 
 #include <vector>
 #include <memory>
+
 #include "Actions/Actions.h"
-#include "AI/Base_state.h"
 #include "AI/State_machine.h"
 #include "Attacks/List_of_attacks.h"
 #include "Entity/Combat_entity.h"
@@ -16,7 +16,11 @@
 class CHostile : public CCombatEntity
 {
     public:
+    // default constructor
     CHostile();
+    // simple constructor designed to scale
+    // the hostile's stats to the player's
+    // current difficulty
     CHostile(int difficulty);
     ~CHostile();
     
@@ -35,7 +39,7 @@ class CHostile : public CCombatEntity
     virtual bool Flee();
     
     // function to select something to attack
-    virtual bool GetTarget(std::vector<std::shared_ptr<CCombatEntity>> list_of_targets);
+    virtual bool GetTarget();
     void SetTarget(std::shared_ptr<CCombatEntity> new_target) { m_target = new_target; }
 
     private:

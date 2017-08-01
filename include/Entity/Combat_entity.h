@@ -5,7 +5,6 @@
 #include <memory>
 
 #include "Entity/Ingame_entity.h"
-#include "Grid/Grid.h"
 #include "Primary_stats/Primary_stats.h"
 
 class CCombatEntity: public CIngameEntityHuman
@@ -31,9 +30,6 @@ class CCombatEntity: public CIngameEntityHuman
     
     // mutator functions
     void ReduceOrIncreaseReputation(bool increase, int amount);
-    
-    // function to recieve a reference to the Grid that the entity will fight on
-    void SetGrid(std::shared_ptr<CGrid<CCombatEntity>> location) { m_reference_to_location = location; }
     
     // accessor functions
 	unsigned int Level() const { return m_innate_character_stats.Level(); }
@@ -89,16 +85,9 @@ class CCombatEntity: public CIngameEntityHuman
 	// calls this function when the character takes damage
 	bool DamageEntity(int amount_of_damage);
     
-    // returns the combat_entity's grid square
-    std::shared_ptr<CGrid<CCombatEntity>> location() { return m_reference_to_location.lock(); }
-    
     private:
     // declared in primary_stats.h
 	CPrimaryStats m_innate_character_stats;
-	
-	// weak pointer to the entity's location on the combat map
-	// Grid_square declared in grid.h
-	std::weak_ptr<CGrid<CCombatEntity>> m_reference_to_location;
 };
 
 #endif

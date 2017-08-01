@@ -1,0 +1,26 @@
+/*  Copyright 2017 George Le
+    Definition of the member functions of the CGridSquare class
+*/
+#include "Grid/Grid_square.h"
+
+template<class TEntityType>
+CGridSquare<TEntityType>::CGridSquare(int x, int y, int index, bool empty) : 
+        m_location_in_grid(x, y), 
+        m_index(index),
+        m_reference_to_occupant(nullptr), 
+        m_empty(empty)
+{
+    // Empty constructor except for the initializer list
+}
+
+template<class TEntityType>
+bool CGridSquare<TEntityType>::NotifySubscriberMove(Direction chosen_direction)
+{ 
+    return m_grid_observer.lock()->NotifyOnEvent(ACTION_MOVE, chosen_direction, m_location_in_grid.m_x, m_location_in_grid.m_y);
+}
+
+template<class TEntityType>
+bool CGridSquare<TEntityType>::FindClosestTarget()
+{
+    return m_grid_observer.lock()->NotifyOnEvent(ACTION_FIND_CLOSEST, *this);
+}
