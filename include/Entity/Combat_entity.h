@@ -26,12 +26,14 @@ class CCombatEntity: public CIngameEntityHuman
     
     // character creator
     void CharacterCreator();
+    // character creator for non-player allies
     void PartyCharacterCreator() {}
     
     // mutator functions
     void ReduceOrIncreaseReputation(bool increase, int amount);
     
     // accessor functions
+    // accessing from CPrimary_stats m_innate_character_stats
 	unsigned int Level() const { return m_innate_character_stats.Level(); }
 	unsigned int TotalHealth() const { return m_innate_character_stats.TotalHealth(); }
 	unsigned int CurrentHealthTotal() const { return m_innate_character_stats.CurrentHealthTotal(); }
@@ -39,6 +41,10 @@ class CCombatEntity: public CIngameEntityHuman
 	unsigned int ExperiencePoints() const { return m_innate_character_stats.ExperiencePoints(); }
 	unsigned int ExperiencePointsNeeded() const { return m_innate_character_stats.ExperiencePointsNeeded(); }
 	int Strength() const { return m_innate_character_stats.Strength(); }
+	int Leadership() const { return m_innate_character_stats.Leadership(); }
+	int Intelligence() const { return m_innate_character_stats.Intelligence(); }
+	int Character() const { return m_innate_character_stats.Character(); }
+	int Endurance() const { return m_innate_character_stats.Endurance(); }
 	
 	// adds a comparator for comparing combat_entity's speeds
 	struct SSpeedCompare

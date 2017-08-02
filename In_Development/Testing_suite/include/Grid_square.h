@@ -6,7 +6,9 @@
     and y coordinate of the CGridSquare and holds the index of the CGridSquare 
     in the CGrid's vector, set to -1 by default if not used.
 
-    
+    CGridSquare is a class that stores an entity inside it. It is able to recieve
+    commands from the occupant of the CGridSquare and delegates the responsibility
+    of evaluating the occupant's commands to an observer
 */
 #ifndef GRID_SQUARE_H
 #define GRID_SQUARE_H
@@ -52,6 +54,7 @@ class CGridSquare
     // weak reference to the current occupant of this object
     std::weak_ptr<TEntityType> m_occupant;
     
+    // tracks if this object is empty
     bool m_IsEmpty;
 };
 

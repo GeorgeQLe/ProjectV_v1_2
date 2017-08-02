@@ -1,19 +1,18 @@
 /*  Copyright 2017 George Le
     
-    CGrid<TEntityType> is a templated class that contains a std::map(1) with an integer 
-    serving as a key and mapping to a std::vector containing a CGridSquare object, and a 
+    CGrid<TEntityType> is a class that contains a std::map(1) with an integer serving 
+    as a key and mapping to a std::vector containing a CGridSquare object, and a 
     std::vector which stores a struct Coordinates which tracks the CGridSquares in the 
     std::map's current location. This class will function as a singleton.
     
 (1)
-    The std::map<int, std::list <CGridSquare<TEntityType>> m_grid is a member variable of 
-    the CGrid class and stores within it as stated above an int key which maps to a list
-    storing CGridSquare objects. This member variable will serve as a shrink to fit grid 
-    that contains only enough grid squares to hold all the entities on it. Movement by 
-    entities within the grid will be tracked by another member variable. Entities can be 
-    searched easily by looking up their "y" coordinate which corresponds to the m_grid's 
-    key value. Then the CGridSquare will be obtained by its index number that it internally
-    stores.
+    The std::map<int, std::list <CGridSquare> m_grid is a member variable of the CGrid 
+    class and stores within it as stated above an int key which maps to a list storing 
+    CGridSquare objects. This member variable will serve as a shrink to fit grid that 
+    contains only enough grid squares to hold all the entities on it. Movement by entities 
+    within the grid will be tracked by another member variable. Entities can be searched 
+    easily by looking up their "y" coordinate which corresponds to the m_grid's key value. 
+    Then the CGridSquare will be obtained by its index number that it internally stores.
 
 (2)    
     The std::vector<SCoordinate> m_list_of_coordinates is a container of SCoordinates structs
@@ -45,7 +44,15 @@ class CGrid
     // Recieves the list of combatants and will initialize the grid to allow for combat
     // on the grid. Four ints passed after the vector of combatants are the dimensions of
     // the grid.
-    bool init(std::vector<TEntityType> list_of_combatants, int min_x, int max_x, int min_y, int max_y);
+    void Init(std::vector<TEntityType> list_of_combatants, int min_x, int max_x, int min_y, int max_y);
+    
+    // Based on the observer and delegation design pattern, CGrid is the observer for the CGridSquares 
+    // which are the subjects. The CGridSquares delegate commands given by their occupant to the CGrid
+    // to evaluate the occupant's commands.
+    
+    void NotifySetClosestTarget(TEntityType occupant);
+    
+    void NotifySetFarthestTarget(TEntityType occupant);
     
     private:
     // default constructor is private because of this object is a singleton
@@ -54,8 +61,17 @@ class CGrid
     // For description see above (1)
     std::map<int, std::list<CGridSquare<TEntityType>>> m_grid; // CGridSquare -> Grid_square.h
     
-    // For description see above (2)
+    // Dimesions of the grid
+    int m_min_x; // Left bound x-axis
+    int m_max_x; // Right bound x-axis
+    int m_min_y; // Bottom bound y-axis
+    int m_max_y; // Top bound y-axis
+    
+    // For description see above (2), must be in bounds of the above dimensions
     std::vector<SCoordinates> m_list_of_coordinates;
+    
+    // Record of whether or not CGrid has been initalized by calling the Init function yet
+    bool m_IsInitialized;
 };
 
 #include "Grid.imp"

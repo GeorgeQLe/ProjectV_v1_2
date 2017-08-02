@@ -3,16 +3,75 @@
 */
 #include "Grid.h"
 
+// constructor is private
 template<class TEntityType>
 CGrid<TEntityType>::CGrid()
 {
     // Empty constructor
 }
 
+// public member functions
+
 template<class TEntityType>
 std::shared_ptr<CGrid<TEntityType>> CGrid<TEntityType>::GetInstance()
 {
+    // get an instance of this object
     static std::shared_ptr<CGrid<TEntityType>> instance(new CGrid<TEntityType>);
     
     return instance;
+}
+
+template<class TEntityType>
+void CGrid<TEntityType>::Init(std::vector<TEntityType> list_of_combatants, int min_x, int max_x, int min_y, int max_y)
+{
+    // Initialize the grid only if the grid has not yet been initialized
+    // I.E. bool m_IsInitialized is false
+    if(m_IsInitialized == false)
+    {
+        // set the left bounds of the grid -m_min_x- to min_x
+        m_min_x = min_x;
+        // check if the maximum value for x is greater than the minimum value
+        // for x
+        if(max_x > min_x)
+        {
+            // if so set the right bound, m_max_x, to max_x
+            m_max_x = max_x;
+        }
+        // if their provided max_x is less than or equal to the min_x
+        else
+        {
+            // set right bound for x-axis, m_max_x, to one more than 
+            // the min_x
+            m_max_x = min_x + 1;
+        }
+        
+        // do the same for the y-axis
+        m_min_y = min_y;
+        if(max_y > min_y)
+        {
+            m_max_y = max_y;
+        }
+        else
+        {
+            m_max_y = min_y + 1;
+        }
+        
+        // add the entities to the grid 
+        for(auto it = list_of_combatants.begin(); it != list_of_combatants.end(); ++it)
+        {
+            // tracks the x coordinate of the combatants as they
+            // are push_back() into the vector(row)
+            int f_hostiles_x = m_min_x;
+            int f_players_x = m_min_x;
+            
+            // if the entity is a hostile
+            if(it->IsHostile())
+            {
+                
+            }
+        }
+        
+        // CGrid has successfully been initialized, should only be done once
+        m_IsInitialized = true;
+    }
 }
