@@ -80,4 +80,5 @@ Project Victory Alpha version 1.2
                             g.Random number generator->attack accuracy hit/miss (IN PROGRESS)
                             
 Special Thanks To:
+
    Dmitry "dsodintsov" -For mentoring on software structure and help on specific code problems and errors.
