@@ -81,4 +81,4 @@ Project Victory Alpha version 1.2
                             
 Special Thanks To:
 
-   Dmitry "dsodintsov" -For mentoring on software structure and help on specific code problems and errors.
+      Dmitry "dsodintsov" -For mentoring on software structure and help on specific code problems and errors.
