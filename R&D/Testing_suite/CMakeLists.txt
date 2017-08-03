@@ -13,14 +13,17 @@ endif()
 
 set(TEST_SOURCES
     src/Driver.cpp
-    src/Unit_test.cpp
+    src/Scenario/Test_Environment.cpp
+    src/Unit_tests/Unit_test.cpp
 )
 
 set(TEST_HEADERS
-    include/Grid.h
-    include/Grid.imp
-    include/Grid_square.h
-    include/Grid_square.imp
+    include/Grid/Grid.h
+    include/Grid/Grid.imp
+    include/Grid/Grid_square.h
+    include/Grid/Grid_square.imp
+    include/Scenario/Test_Environment.h
+    include/Unit_tests/Unit_test.h
 )
 
 include_directories(include)
