@@ -58,7 +58,7 @@ Project Victory Alpha version 1.0
 Project Victory Alpha version 1.1
       Date: Sometime Summer 2016
       Version objective: 1. Wrote game.cpp and projectV.h and .cpp
-                            a. Changed projectV to Diadal to suite the game narrative
+                            a. Changed projectV to Diadal to suit the game narrative
 
 Project Victory Alpha version 1.2
      Date: 12/16/16 - 
